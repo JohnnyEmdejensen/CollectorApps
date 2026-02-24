@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Collector.Client.Wpf.Dialogs"
         mc:Ignorable="d"
-        Title="Countries" Tag="Countries" Height="400" Width="600" Background="{DynamicResource PrimaryBackground}" Icon="/Images/earth_48.png">
+        Title="{DynamicResource countrydialog.title}" ResizeMode="NoResize" Tag="Countries" Height="400" Width="600" Background="{DynamicResource PrimaryBackground}" Icon="/Images/earth_48.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
@@ -95,7 +95,7 @@
                                 <RowDefinition Height="12"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="NAME" Style="{StaticResource LabelHeader}"></Label>
+                            <Label Content="{DynamicResource countrydialog.header.name}" Style="{StaticResource LabelHeader}"></Label>
                             <TextBox x:Name="txtName" Grid.Row="1" Text="{Binding Path=Name, Mode=TwoWay}"></TextBox>
                         </Grid>
                         <Grid Grid.Row="2">
@@ -128,7 +128,7 @@
             <GridSplitter Grid.Column="1"></GridSplitter>
             <Grid Grid.Column="2">
                 <TabControl>
-                    <TabItem Header="Countries">
+                    <TabItem Header="{DynamicResource countrydialog.title}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25"></RowDefinition>
@@ -137,7 +137,10 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid>
-                                
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Filter:" Padding="0,0,8,0" VerticalAlignment="Center"></Label>
+                                    <TextBox x:Name="txtFilter" TextChanged="txtFilter_TextChanged" Width="100" Height="20" VerticalAlignment="Center"></TextBox>
+                                </StackPanel>
                             </Grid>
                             <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                             <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
@@ -145,10 +148,26 @@
                                 <DataGrid x:Name="dgCountries" SelectionChanged="dgCountries_SelectionChanged">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
-                                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
-                                        <DataGridTextColumn Header="Iso" Binding="{Binding Iso}"></DataGridTextColumn>
-                                        <DataGridTextColumn Header="Number" Binding="{Binding Number}"></DataGridTextColumn>
-                                        <DataGridTextColumn Header="Continent" Binding="{Binding Continent}"></DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Name}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource countrydialog.columnheader.name}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Width="24" Binding="{Binding Iso}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource countrydialog.columnheader.iso}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Width="32" Binding="{Binding Number}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource countrydialog.columnheader.number}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Width="100" Binding="{Binding Continent}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource countrydialog.columnheader.continent}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>
@@ -160,7 +179,7 @@
         <Label Grid.Row="4" Style="{StaticResource DarkLine}"></Label>
         <Label Grid.Row="5" Style="{StaticResource LightLine}"></Label>
         <Grid Grid.Row="6" >
-
+            
         </Grid>
     </Grid>
 </Window>

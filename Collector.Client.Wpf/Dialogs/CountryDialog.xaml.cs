@@ -21,18 +21,22 @@ namespace Collector.Client.Wpf.Dialogs
     {
         private Internals.FormSettingsClass _settings;
         private Entity.Country? _country;
+        private List<ViewModel.CountryModel>? _list;
         public CountryDialog()
         {
             InitializeComponent();
             _settings = new Internals.FormSettingsClass(this);
             ContentRendered += CountryDialog_ContentRendered;
             Closing += CountryDialog_Closing;
+            KeyDown += CountryDialog_KeyDown;
             App.EventHelper.CountryListChanged += EventHelper_CountryListChanged;
             App.EventHelper.ContinentListChanged += EventHelper_ContinentListChanged;
+            dgCountries.SizeChanged += DgCountries_SizeChanged;
             FillContinentControl();
             FillCountryControl();
             _settings.Load();
         }
+
 
         private void FillContinentControl()
         {
@@ -49,7 +53,7 @@ namespace Collector.Client.Wpf.Dialogs
         {
             Cursor cc = Mouse.OverrideCursor;
             Mouse.OverrideCursor = Cursors.Wait;
-            List<ViewModel.CountryModel> list = new List<ViewModel.CountryModel>();
+            _list = new List<ViewModel.CountryModel>();
             if (App.DataShare.CountryList != null)
             {
                 foreach (var item in App.DataShare.CountryList)
@@ -60,24 +64,50 @@ namespace Collector.Client.Wpf.Dialogs
                     c.Iso = item.Iso;
                     c.Number = item.Number;
                     c.Continent = App.ToolHelper.GetContinentName(item.ContinentId);
-                    list.Add(c);
+                    _list.Add(c);
                 }
             }
             dgCountries.BeginInit();
-            dgCountries.ItemsSource = list;
+            dgCountries.ItemsSource = _list;
             dgCountries.EndInit();
             Mouse.OverrideCursor = cc;
         }
-        private void EventHelper_ContinentListChanged(object sender, EventArgs e)
+        private void DoSave()
         {
-            FillContinentControl();
+            _country = DataContext as Entity.Country;
+            if (_country != null)
+            {
+                if (_country.Id == 0)
+                {
+                    _country = App.AppShare.Repositories.CountryRepository.Create(_country);
+                }
+                else
+                {
+                    _country = App.AppShare.Repositories.CountryRepository.Update(_country);
+                }
+                DataContext = _country;
+                SetGui();
+            }
         }
 
-        private void EventHelper_CountryListChanged(object sender, EventArgs e)
+        private void SetFilterView()
         {
-            FillCountryControl();
-        }
+            if (_list == null) return;
 
+            if (txtFilter.Text == "")
+            {
+                dgCountries.BeginInit();
+                dgCountries.ItemsSource = _list;
+                dgCountries.EndInit();
+            }
+            else
+            {
+                var filtered = _list.Where(x => x.Name.ToLower().Contains(txtFilter.Text.ToLower())).ToList();
+                dgCountries.BeginInit();
+                dgCountries.ItemsSource = filtered;
+                dgCountries.EndInit();
+            }
+        }
         private void SetGui()
         {
             btnAdd.IsEnabled = false;
@@ -112,6 +142,15 @@ namespace Collector.Client.Wpf.Dialogs
             SetGui();
         }
 
+        private void EventHelper_ContinentListChanged(object sender, EventArgs e)
+        {
+            FillContinentControl();
+        }
+
+        private void EventHelper_CountryListChanged(object sender, EventArgs e)
+        {
+            FillCountryControl();
+        }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             txtName.Focus();
@@ -122,20 +161,7 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            _country = DataContext as Entity.Country;
-            if (_country != null)
-            {
-                if (_country.Id == 0)
-                {
-                    _country = App.AppShare.Repositories.CountryRepository.Create(_country);
-                }
-                else
-                {
-                    _country = App.AppShare.Repositories.CountryRepository.Update(_country);
-                }
-                DataContext = _country;
-                SetGui();
-            }
+            DoSave();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -159,6 +185,31 @@ namespace Collector.Client.Wpf.Dialogs
                 DataContext = _country;
                 SetGui();
             }
+        }
+        private void CountryDialog_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                e.Handled = true;
+                Close();
+            }
+            if (Keyboard.Modifiers.HasFlag( ModifierKeys.Control))
+            {
+                if (e.Key == Key.S)
+                {
+                    e.Handled = true;
+                    DoSave();
+                }
+            }
+        }
+        private void DgCountries_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            dgCountries.Columns[1].Width = dgCountries.ActualWidth - 156 - 4;
+        }
+
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetFilterView();
         }
     }
 }

@@ -13,6 +13,10 @@
     <None Remove="Images\add_24.png" />
     <None Remove="Images\add_32.png" />
     <None Remove="Images\add_48.png" />
+    <None Remove="Images\book_blue_16.png" />
+    <None Remove="Images\book_blue_24.png" />
+    <None Remove="Images\book_blue_32.png" />
+    <None Remove="Images\book_blue_48.png" />
     <None Remove="Images\box_16.png" />
     <None Remove="Images\box_24.png" />
     <None Remove="Images\box_32.png" />
@@ -66,6 +70,10 @@
     <Resource Include="Images\add_24.png" />
     <Resource Include="Images\add_32.png" />
     <Resource Include="Images\add_48.png" />
+    <Resource Include="Images\book_blue_16.png" />
+    <Resource Include="Images\book_blue_24.png" />
+    <Resource Include="Images\book_blue_32.png" />
+    <Resource Include="Images\book_blue_48.png" />
     <Resource Include="Images\box_16.png" />
     <Resource Include="Images\box_24.png" />
     <Resource Include="Images\box_32.png" />

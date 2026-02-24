@@ -9,6 +9,7 @@
     <system:String x:Key="ribbon.group.data.header">Data</system:String>
     <system:String x:Key="ribbon.group.languages.header">Sprog</system:String>
     <system:String x:Key="ribbon.button.data.countries.header">Lande</system:String>
+    <system:String x:Key="ribbon.button.data.catalogs.header">Kataloger</system:String>
     <system:String x:Key="ribbon.togglebutton.stampview.header">Frimærker visning</system:String>
     <system:String x:Key="ribbon.togglebutton.stockview.header">Lager visning</system:String>
     <system:String x:Key="dgstamps.header.country">Land</system:String>
@@ -22,5 +23,17 @@
     <system:String x:Key="dgstamps.header.width">Bredde</system:String>
     <system:String x:Key="dgstamps.header.height">Højde</system:String>
     <system:String x:Key="dgstamps.header.category">Kategori</system:String>
+    <system:String x:Key="countrydialog.header.name">NAVN</system:String>
+    <system:String x:Key="countrydialog.header.iso">ISO</system:String>
+    <system:String x:Key="countrydialog.header.number">NUMMER</system:String>
+    <system:String x:Key="countrydialog.header.continent">KONTINENT</system:String>
+    <system:String x:Key="countrydialog.columnheader.name">Navn</system:String>
+    <system:String x:Key="countrydialog.columnheader.iso">Iso</system:String>
+    <system:String x:Key="countrydialog.columnheader.number">Nummer</system:String>
+    <system:String x:Key="countrydialog.columnheader.continent">Kontinent</system:String>
+    <system:String x:Key="countrydialog.title">Lande</system:String>
+    <system:String x:Key="catalogdialog.title">Kataloger</system:String>
+    <system:String x:Key="catalogdialog.header.value">VÆRDI</system:String>
+    <system:String x:Key="catalogdialog.columnheader.value">Værdi</system:String>
 
 </ResourceDictionary>

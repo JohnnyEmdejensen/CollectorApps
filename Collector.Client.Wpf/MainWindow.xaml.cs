@@ -96,5 +96,9 @@ namespace Collector.Client.Wpf
         {
             App.FormHelper.ShowCountries(null);
         }
+        private void btnCatalogs_Click(object sender, RoutedEventArgs e)
+        {
+            App.FormHelper.ShowCatalogs(null);
+        }
     }
 }

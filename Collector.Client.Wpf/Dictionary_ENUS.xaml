@@ -9,6 +9,7 @@
     <system:String x:Key="ribbon.group.data.header">Data</system:String>
     <system:String x:Key="ribbon.group.languages.header">Languages</system:String>
     <system:String x:Key="ribbon.button.data.countries.header">Countries</system:String>
+    <system:String x:Key="ribbon.button.data.catalogs.header">Catalogs</system:String>
     <system:String x:Key="ribbon.togglebutton.stampview.header">Stamps view</system:String>
     <system:String x:Key="ribbon.togglebutton.stockview.header">Stocks view</system:String>
     <system:String x:Key="dgstamps.header.country">Country</system:String>
@@ -22,5 +23,16 @@
     <system:String x:Key="dgstamps.header.width">Width</system:String>
     <system:String x:Key="dgstamps.header.height">Height</system:String>
     <system:String x:Key="dgstamps.header.category">Category</system:String>
-    
+    <system:String x:Key="countrydialog.header.name">NAME</system:String>
+    <system:String x:Key="countrydialog.header.iso">ISO</system:String>
+    <system:String x:Key="countrydialog.header.number">NUMBER</system:String>
+    <system:String x:Key="countrydialog.header.continent">CONTINENT</system:String>
+    <system:String x:Key="countrydialog.columnheader.name">Name</system:String>
+    <system:String x:Key="countrydialog.columnheader.iso">Iso</system:String>
+    <system:String x:Key="countrydialog.columnheader.number">Number</system:String>
+    <system:String x:Key="countrydialog.columnheader.continent">Continent</system:String>
+    <system:String x:Key="countrydialog.title">Countries</system:String>
+    <system:String x:Key="catalogdialog.title">Catalogs</system:String>
+    <system:String x:Key="catalogdialog.header.value">VALUE</system:String>
+    <system:String x:Key="catalogdialog.columnheader.value">Value</system:String>
 </ResourceDictionary>
