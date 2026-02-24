@@ -1,0 +1,107 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\add_16.png" />
+    <None Remove="Images\add_24.png" />
+    <None Remove="Images\add_32.png" />
+    <None Remove="Images\add_48.png" />
+    <None Remove="Images\box_16.png" />
+    <None Remove="Images\box_24.png" />
+    <None Remove="Images\box_32.png" />
+    <None Remove="Images\box_48.png" />
+    <None Remove="Images\box_view_16.png" />
+    <None Remove="Images\box_view_24.png" />
+    <None Remove="Images\box_view_32.png" />
+    <None Remove="Images\box_view_48.png" />
+    <None Remove="Images\delete2_16.png" />
+    <None Remove="Images\delete2_24.png" />
+    <None Remove="Images\delete2_32.png" />
+    <None Remove="Images\delete2_48.png" />
+    <None Remove="Images\disk_blue_16.png" />
+    <None Remove="Images\disk_blue_24.png" />
+    <None Remove="Images\disk_blue_32.png" />
+    <None Remove="Images\disk_blue_48.png" />
+    <None Remove="Images\earth_16.png" />
+    <None Remove="Images\earth_24.png" />
+    <None Remove="Images\earth_32.png" />
+    <None Remove="Images\earth_48.png" />
+    <None Remove="Images\Flags\flag_denmark_16.png" />
+    <None Remove="Images\Flags\flag_denmark_24.png" />
+    <None Remove="Images\Flags\flag_denmark_32.png" />
+    <None Remove="Images\Flags\flag_denmark_48.png" />
+    <None Remove="Images\Flags\flag_great_britain_16.png" />
+    <None Remove="Images\Flags\flag_great_britain_24.png" />
+    <None Remove="Images\Flags\flag_great_britain_32.png" />
+    <None Remove="Images\Flags\flag_great_britain_48.png" />
+    <None Remove="Images\index_16.png" />
+    <None Remove="Images\index_24.png" />
+    <None Remove="Images\index_32.png" />
+    <None Remove="Images\index_48.png" />
+    <None Remove="Images\index_view_16.png" />
+    <None Remove="Images\index_view_24.png" />
+    <None Remove="Images\index_view_32.png" />
+    <None Remove="Images\index_view_48.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Collector.Entity\Collector.Entity.csproj" />
+    <ProjectReference Include="..\Collector.Repository\Collector.Repository.csproj" />
+    <ProjectReference Include="..\Collector\Collector.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\add_16.png" />
+    <Resource Include="Images\add_24.png" />
+    <Resource Include="Images\add_32.png" />
+    <Resource Include="Images\add_48.png" />
+    <Resource Include="Images\box_16.png" />
+    <Resource Include="Images\box_24.png" />
+    <Resource Include="Images\box_32.png" />
+    <Resource Include="Images\box_48.png" />
+    <Resource Include="Images\box_view_16.png" />
+    <Resource Include="Images\box_view_24.png" />
+    <Resource Include="Images\box_view_32.png" />
+    <Resource Include="Images\box_view_48.png" />
+    <Resource Include="Images\delete2_16.png" />
+    <Resource Include="Images\delete2_24.png" />
+    <Resource Include="Images\delete2_32.png" />
+    <Resource Include="Images\delete2_48.png" />
+    <Resource Include="Images\disk_blue_16.png" />
+    <Resource Include="Images\disk_blue_24.png" />
+    <Resource Include="Images\disk_blue_32.png" />
+    <Resource Include="Images\disk_blue_48.png" />
+    <Resource Include="Images\earth_16.png" />
+    <Resource Include="Images\earth_24.png" />
+    <Resource Include="Images\earth_32.png" />
+    <Resource Include="Images\earth_48.png" />
+    <Resource Include="Images\Flags\flag_denmark_16.png" />
+    <Resource Include="Images\Flags\flag_denmark_24.png" />
+    <Resource Include="Images\Flags\flag_denmark_32.png" />
+    <Resource Include="Images\Flags\flag_denmark_48.png" />
+    <Resource Include="Images\Flags\flag_great_britain_16.png" />
+    <Resource Include="Images\Flags\flag_great_britain_24.png" />
+    <Resource Include="Images\Flags\flag_great_britain_32.png" />
+    <Resource Include="Images\Flags\flag_great_britain_48.png" />
+    <Resource Include="Images\index_16.png" />
+    <Resource Include="Images\index_24.png" />
+    <Resource Include="Images\index_32.png" />
+    <Resource Include="Images\index_48.png" />
+    <Resource Include="Images\index_view_16.png" />
+    <Resource Include="Images\index_view_24.png" />
+    <Resource Include="Images\index_view_32.png" />
+    <Resource Include="Images\index_view_48.png" />
+  </ItemGroup>
+
+</Project>

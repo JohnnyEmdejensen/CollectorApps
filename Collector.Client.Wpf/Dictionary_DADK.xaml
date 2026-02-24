@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
+    <system:String x:Key="window.main.title">Samler</system:String>
+    <system:String x:Key="ribbon.tab.home.header">HJEM</system:String>
+    <system:String x:Key="ribbon.tab.settings.header">Indstillinger</system:String>
+    <system:String x:Key="ribbon.group.header">Visninger</system:String>
+    <system:String x:Key="ribbon.group.data.header">Data</system:String>
+    <system:String x:Key="ribbon.group.languages.header">Sprog</system:String>
+    <system:String x:Key="ribbon.button.data.countries.header">Lande</system:String>
+    <system:String x:Key="ribbon.togglebutton.stampview.header">Frimærker visning</system:String>
+    <system:String x:Key="ribbon.togglebutton.stockview.header">Lager visning</system:String>
+    <system:String x:Key="dgstamps.header.country">Land</system:String>
+    <system:String x:Key="dgstamps.header.catalog">Katalog</system:String>
+    <system:String x:Key="dgstamps.header.issued">Udgivet</system:String>
+    <system:String x:Key="dgstamps.header.catalogno">Katelognr.</system:String>
+    <system:String x:Key="dgstamps.header.face">Pålydende</system:String>
+    <system:String x:Key="dgstamps.header.coin">Mønt</system:String>
+    <system:String x:Key="dgstamps.header.design">Design</system:String>
+    <system:String x:Key="dgstamps.header.color">Farve</system:String>
+    <system:String x:Key="dgstamps.header.width">Bredde</system:String>
+    <system:String x:Key="dgstamps.header.height">Højde</system:String>
+    <system:String x:Key="dgstamps.header.category">Kategori</system:String>
+
+</ResourceDictionary>

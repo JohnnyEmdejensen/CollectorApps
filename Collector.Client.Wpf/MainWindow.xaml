@@ -1,0 +1,185 @@
+﻿<Window x:Class="Collector.Client.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Collector.Client.Wpf"
+        mc:Ignorable="d"
+        Title="{DynamicResource window.main.title}" MinHeight="800" MinWidth="1200" Background="{DynamicResource PrimaryBackground}" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Ribbon x:Name="ribMain" Grid.Row="0" Background="{DynamicResource PrimaryBackground}">
+            <RibbonTab Header="{DynamicResource ribbon.tab.home.header}">
+                <RibbonGroup Header="{DynamicResource ribbon.group.header}">
+                    <RibbonToggleButton x:Name="tglStampview" IsChecked="True" Click="tglStampview_Click" Label="{DynamicResource ribbon.togglebutton.stampview.header}" LargeImageSource="Images/index_view_32.png" SmallImageSource="Images/index_view_16.png"></RibbonToggleButton>
+                    <RibbonToggleButton x:Name="tglStockview" IsChecked="False" Click="tglStockview_Click" Label="{DynamicResource ribbon.togglebutton.stockview.header}" LargeImageSource="Images/box_view_32.png" SmallImageSource="Images/box_view_16.png"></RibbonToggleButton>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="{DynamicResource ribbon.tab.settings.header}">
+                <RibbonGroup Header="{DynamicResource ribbon.group.data.header}">
+                    <RibbonButton x:Name="btnCountries" Click="btnCountries_Click" Label="{DynamicResource ribbon.button.data.countries.header}" LargeImageSource="Images/earth_32.png" SmallImageSource="Images/earth_16.png"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Header="{DynamicResource ribbon.group.languages.header}">
+                    <RibbonToggleButton Label="English" IsChecked="True" x:Name="btnLanUK" Click="btnLanUK_Click" LargeImageSource="Images/Flags/flag_great_britain_32.png" SmallImageSource="Images/Flags/flag_great_britain_16.png"></RibbonToggleButton>
+                    <RibbonToggleButton Label="Dansk" IsChecked="False" x:Name="btnLanDK" Click="btnLanDK_Click" LargeImageSource="Images/Flags/flag_denmark_32.png" SmallImageSource="Images/Flags/flag_denmark_16.png"></RibbonToggleButton>
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+        <Grid x:Name="grdStampView" Grid.Row="1" Visibility="Visible">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="1"></ColumnDefinition>
+                        <ColumnDefinition Width="1"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                
+                            </Grid>
+                            <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+                            <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+                            <TreeView Grid.Row="3">
+                                
+                            </TreeView>
+                        </Grid>
+                        <GridSplitter Grid.Row="1"></GridSplitter>
+                        <Grid Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+
+                            </Grid>
+                            <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+                            <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+                            <Grid Grid.Row="3"> 
+                                
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Label Grid.Column="1" Style="{StaticResource DarkLine}"></Label>
+                    <Label Grid.Column="2" Style="{StaticResource LightLine}"></Label>
+                </Grid>
+                <GridSplitter Grid.Column="1"></GridSplitter>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32"></RowDefinition>
+                        <RowDefinition Height="1"></RowDefinition>
+                        <RowDefinition Height="1"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="1"></RowDefinition>
+                        <RowDefinition Height="1"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+
+                    </Grid>
+                    <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+                    <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+                    <Grid Grid.Row="3">
+                        <DataGrid x:Name="dgStamps">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
+                                <DataGridTextColumn  Binding="{Binding Country}" Width="80">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.country}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="80">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.catalog}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Issued}" Width="80">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.issued}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding CatalogNo}" Width="56">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.catalogno}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Facevalue}" Width="56">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.face}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Coin}" Width="32">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.coin}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Design}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.design}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Color}" Width="100">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.color}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="100">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.category}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Width}" Width="48">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.width}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Height}" Width="48">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.height}"></TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <Label Grid.Row="4" Style="{StaticResource DarkLine}"></Label>
+                    <Label Grid.Row="5" Style="{StaticResource LightLine}"></Label>
+                    <Grid Grid.Row="6" Background="{DynamicResource SecondaryLight}">
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid x:Name="grdStockView" Visibility="Collapsed">
+            
+        </Grid>
+        <Label Grid.Row="2" Style="{StaticResource DarkLine}"></Label>
+        <Label Grid.Row="3" Style="{StaticResource LightLine}"></Label>
+        <Grid Grid.Row="4">
+            
+        </Grid>
+    </Grid>
+</Window>

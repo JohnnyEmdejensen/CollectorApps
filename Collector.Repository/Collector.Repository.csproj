@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Collector.Data\Collector.Data.csproj" />
+    <ProjectReference Include="..\Collector.Entity\Collector.Entity.csproj" />
+    <ProjectReference Include="..\Collector\Collector.csproj" />
+  </ItemGroup>
+
+</Project>
