@@ -16,19 +16,27 @@ namespace Collector.Client.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Internals.FormSettingsClass _settings;
         private double stampsViewFixedWidth = 688;
         public MainWindow()
         {
             InitializeComponent();
+            _settings = new Internals.FormSettingsClass(this);
             ContentRendered += MainWindow_ContentRendered;
+            Closing += MainWindow_Closing;
             dgStamps.SizeChanged += DgStamps_SizeChanged;
             App.EventHelper.TranslationSourceChanged += EventHelper_TranslationSourceChanged;
-
+            _settings.Load();
         }
+
 
         private void MainWindow_ContentRendered(object? sender, EventArgs e)
         {
             App.DataShare.Initialize();
+        }
+        private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _settings.Save();
         }
 
         private void DgStamps_SizeChanged(object sender, SizeChangedEventArgs e)

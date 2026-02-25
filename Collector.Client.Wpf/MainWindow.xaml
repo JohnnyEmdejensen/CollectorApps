@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Collector.Client.Wpf"
         mc:Ignorable="d"
-        Title="{DynamicResource window.main.title}" MinHeight="800" MinWidth="1200" Background="{DynamicResource PrimaryBackground}" WindowStartupLocation="CenterScreen" Icon="/Images/books_48.png">
+        Title="{DynamicResource window.main.title}" Tag="Desktop" MinHeight="800" MinWidth="1200" Background="{DynamicResource PrimaryBackground}" Icon="/Images/books_48.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
