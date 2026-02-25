@@ -10,6 +10,7 @@ namespace Collector.Repository
     {
         public delegate void ContinentHandler(object sender, ContinentEventArgs e);
         public event ContinentHandler? ContinentChanged;
+
         public Entity.Continent? Get(long Id)
         {
             if (ApiContext == null) return null;

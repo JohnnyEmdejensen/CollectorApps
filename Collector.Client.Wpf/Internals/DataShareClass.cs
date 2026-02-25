@@ -9,8 +9,10 @@ namespace Collector.Client.Wpf.Internals
 {
     public class DataShareClass
     {
+        public List<Entity.Catalog>? CatalogList { get; set; }
         public List<Entity.Continent>? ContinentList { get; set; }
         public List<Entity.Country>? CountryList { get; set; }
+
         public DataShareClass() 
         { 
 
@@ -20,8 +22,19 @@ namespace Collector.Client.Wpf.Internals
         {
             GetContinents();
             GetCountries();
+            GetCatalogs();
         }
 
+        public void GetCatalogs()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            CatalogList = App.AppShare.Repositories.CatalogRepository.GetAll();
+            if (CatalogList != null) 
+                CatalogList = CatalogList.OrderBy(x => x.Value).ToList();
+            App.EventHelper.RaiseCatalogListChangedEvent();
+            Mouse.OverrideCursor = c;
+        }
         public void GetCountries()
         {
             var c = Mouse.OverrideCursor;

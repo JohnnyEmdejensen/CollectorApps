@@ -166,6 +166,8 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Show("Are you sure to delete the Country?", "Delete Country", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No) return;
+
             _country = DataContext as Entity.Country;
             if (_country != null)
             {
