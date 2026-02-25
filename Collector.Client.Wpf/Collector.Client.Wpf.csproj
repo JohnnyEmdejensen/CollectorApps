@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>books.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +14,10 @@
     <None Remove="Images\add_24.png" />
     <None Remove="Images\add_32.png" />
     <None Remove="Images\add_48.png" />
+    <None Remove="Images\books_16.png" />
+    <None Remove="Images\books_24.png" />
+    <None Remove="Images\books_32.png" />
+    <None Remove="Images\books_48.png" />
     <None Remove="Images\book_blue_16.png" />
     <None Remove="Images\book_blue_24.png" />
     <None Remove="Images\book_blue_32.png" />
@@ -56,6 +61,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="books.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 
@@ -70,6 +79,10 @@
     <Resource Include="Images\add_24.png" />
     <Resource Include="Images\add_32.png" />
     <Resource Include="Images\add_48.png" />
+    <Resource Include="Images\books_16.png" />
+    <Resource Include="Images\books_24.png" />
+    <Resource Include="Images\books_32.png" />
+    <Resource Include="Images\books_48.png" />
     <Resource Include="Images\book_blue_16.png" />
     <Resource Include="Images\book_blue_24.png" />
     <Resource Include="Images\book_blue_32.png" />
