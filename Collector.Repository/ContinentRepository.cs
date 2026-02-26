@@ -50,7 +50,7 @@ namespace Collector.Repository
             return record;
         }
     }
-    public class ContinentEventArgs
+    public class ContinentEventArgs : EventArgs
     {
         private Entity.Continent _continent;
         public ContinentEventArgs(Entity.Continent Continent)

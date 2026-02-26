@@ -50,7 +50,7 @@ namespace Collector.Repository
             return record;
         }
     }
-    public class CatalogEventArgs
+    public class CatalogEventArgs : EventArgs
     {
         public Entity.Catalog Catalog { get; set; }
         public CatalogEventArgs(Entity.Catalog catalog)

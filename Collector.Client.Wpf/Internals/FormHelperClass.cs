@@ -8,6 +8,14 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowCategories(Entity.Category? Category)
+        {
+            Dialogs.CategoryDialog frm = new Dialogs.CategoryDialog
+            {
+                DataContext = Category,
+            };
+            frm.Show();
+        }
         public void ShowCatalogs(Entity.Catalog? Catalog)
         {
             Dialogs.CatalogDialog frm = new Dialogs.CatalogDialog

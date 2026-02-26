@@ -56,7 +56,7 @@ namespace Collector.Repository
         }
     }
 
-    public class CountryEventArgs
+    public class CountryEventArgs : EventArgs
     {
         public Entity.Country Country { get; set; }
 

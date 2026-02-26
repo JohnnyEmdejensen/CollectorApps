@@ -108,5 +108,10 @@ namespace Collector.Client.Wpf
         {
             App.FormHelper.ShowCatalogs(null);
         }
+
+        private void btnCategories_Click(object sender, RoutedEventArgs e)
+        {
+            App.FormHelper.ShowCategories(null);
+        }
     }
 }

@@ -17,6 +17,12 @@ namespace Collector.Client.Wpf.Internals
             Repositories.ContinentRepository.ContinentChanged += ContinentRepository_ContinentChanged;
             Repositories.CountryRepository.CountryChanged += CountryRepository_CountryChanged;
             Repositories.CatalogRepository.CatalogChanged += CatalogRepository_CatalogChanged;
+            Repositories.CategoryRepository.CategoryChanged += CategoryRepository_CategoryChanged;
+        }
+
+        private void CategoryRepository_CategoryChanged(object sender, Repository.CategoryEventArgs e)
+        {
+            App.DataShare.GetCategories();
         }
 
         private void CatalogRepository_CatalogChanged(object sender, Repository.CatalogEventArgs e)

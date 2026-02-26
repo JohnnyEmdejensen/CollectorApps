@@ -25,6 +25,7 @@
                 <RibbonGroup Header="{DynamicResource ribbon.group.data.header}">
                     <RibbonButton x:Name="btnCountries" Click="btnCountries_Click" Label="{DynamicResource ribbon.button.data.countries.header}" LargeImageSource="Images/earth_32.png" SmallImageSource="Images/earth_16.png"></RibbonButton>
                     <RibbonButton x:Name="btnCatalogs" Click="btnCatalogs_Click" Label="{DynamicResource ribbon.button.data.catalogs.header}" LargeImageSource="Images/book_blue_32.png" SmallImageSource="Images/book_blue_16.png"></RibbonButton>
+                    <RibbonButton x:Name="btnCategories" Click="btnCategories_Click" Label="{DynamicResource ribbon.button.data.categories.header}" LargeImageSource="Images/cubes_32.png" SmallImageSource="Images/cubes_16.png"></RibbonButton>
                 </RibbonGroup>
                 <RibbonGroup Header="{DynamicResource ribbon.group.languages.header}">
                     <RibbonToggleButton Label="English" IsChecked="True" x:Name="btnLanUK" Click="btnLanUK_Click" LargeImageSource="Images/Flags/flag_great_britain_32.png" SmallImageSource="Images/Flags/flag_great_britain_16.png"></RibbonToggleButton>

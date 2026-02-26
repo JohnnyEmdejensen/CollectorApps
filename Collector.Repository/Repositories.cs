@@ -13,8 +13,10 @@ namespace Collector.Repository
             ContinentRepository = new ContinentRepository();
             CountryRepository = new CountryRepository();
             CatalogRepository = new CatalogRepository();
+            CategoryRepository = new CategoryRepository();
         }
 
+        public CategoryRepository CategoryRepository { get; set; }
         public CatalogRepository CatalogRepository { get; set; }
         public CountryRepository CountryRepository { get; set; }
         public ContinentRepository ContinentRepository { get; set; }
