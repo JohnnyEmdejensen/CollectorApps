@@ -31,6 +31,7 @@ namespace Collector.Client.Wpf.Dialogs
             Closing += PublishedCountryDialog_Closing;
             KeyDown += PublishedCountryDialog_KeyDown;
             App.EventHelper.PublishedCountryListChanged += EventHelper_PublishedCountryListChanged;
+            dgPublishedCountries.SizeChanged += DgPublishedCountries_SizeChanged;
             FillCountryControl();
             FillPublishedCountryCotrol();
             _settings.Load();
@@ -73,7 +74,8 @@ namespace Collector.Client.Wpf.Dialogs
                 var c = App.DataShare.CountryList.FirstOrDefault(x => x.Id == ctry.Id);
                 if (c != null)
                 {
-                    model.CountryId = ctry.Id;
+                    model.Id = ctry.Id;
+                    model.CountryId = c.Id;
                     model.CountryName = c.Name;
                 }
                 _publishedcountries.Add(model);
@@ -200,6 +202,12 @@ namespace Collector.Client.Wpf.Dialogs
         private void EventHelper_PublishedCountryListChanged(object sender, EventArgs e)
         {
             FillPublishedCountryCotrol();
+        }
+        private void DgPublishedCountries_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var width = dgPublishedCountries.ActualWidth - 2;
+            dgPublishedCountries.Columns[1].Width = width / 2;
+            dgPublishedCountries.Columns[2].Width = width / 2;
         }
     }
 }
