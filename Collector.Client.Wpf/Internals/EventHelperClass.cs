@@ -14,7 +14,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? ContinentListChanged;
         public event DefaultHandler? CatalogListChanged;
         public event DefaultHandler? CategoryListChanged;
+        public event DefaultHandler? PublishedCountryListChanged;
 
+        public void RaisePublishedCountryListChangedEvent()
+        {
+            PublishedCountryListChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseCategoryListChangedEvent()
         {
             CategoryListChanged?.Invoke(this, EventArgs.Empty);

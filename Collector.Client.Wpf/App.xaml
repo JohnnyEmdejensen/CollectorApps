@@ -9,6 +9,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Dictionary_ENUS.xaml" />
                 <ResourceDictionary Source="Dictionary_COLOR.xaml" />
+                <ResourceDictionary Source="Dictionary_STYLE.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         

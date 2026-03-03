@@ -9,6 +9,7 @@
     <system:String x:Key="ribbon.group.data.header">Data</system:String>
     <system:String x:Key="ribbon.group.languages.header">Sprog</system:String>
     <system:String x:Key="ribbon.button.data.countries.header">Lande</system:String>
+    <system:String x:Key="ribbon.button.data.publishedcountries.header">Udgivet Lande</system:String>
     <system:String x:Key="ribbon.button.data.catalogs.header">Kataloger</system:String>
     <system:String x:Key="ribbon.button.data.categories.header">Kategorier</system:String>
     <system:String x:Key="ribbon.togglebutton.stampview.header">Frimærker visning</system:String>
@@ -41,5 +42,11 @@
     <system:String x:Key="categorydialog.header.ukvalue">VÆRDI (UK)</system:String>
     <system:String x:Key="categorydialog.columnheader.value">Værdi</system:String>
     <system:String x:Key="categorydialog.columnheader.ukvalue">Værdi(UK)</system:String>
+
+    <system:String x:Key="publishedcountrydialog.title">Udgivelseslande</system:String>
+    <system:String x:Key="publishedcountrydialog.header.name">NAVN</system:String>
+    <system:String x:Key="publishedcountrydialog.header.country">LAND</system:String>
+    <system:String x:Key="publishedcountrydialog.columnheader.name">Navn</system:String>
+    <system:String x:Key="publishedcountrydialog.columnheader.country">Land</system:String>
 
 </ResourceDictionary>

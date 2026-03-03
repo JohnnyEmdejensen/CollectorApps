@@ -75,11 +75,14 @@ namespace Collector.Client.Wpf
             ResourceDictionary dict_enUK = new ResourceDictionary();
             ResourceDictionary dict_daDK = new ResourceDictionary();
             ResourceDictionary dict_Color = new ResourceDictionary();
+            ResourceDictionary dict_Style = new ResourceDictionary();
             dict_enUK.Source = new Uri("Dictionary_ENUS.xaml", UriKind.Relative);
             dict_daDK.Source = new Uri("Dictionary_DADK.xaml", UriKind.Relative);
             dict_Color.Source = new Uri("Dictionary_COLOR.xaml", UriKind.Relative);
+            dict_Style.Source = new Uri("Dictionary_STYLE.xaml", UriKind.Relative);
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(dict_Color);
+            Application.Current.Resources.MergedDictionaries.Add(dict_Style);
             Application.Current.Resources.MergedDictionaries.Add(dict_enUK);
             App.EventHelper.RaiseTranslationSourceChangedEvent();
         }
@@ -91,11 +94,14 @@ namespace Collector.Client.Wpf
             ResourceDictionary dict_enUK = new ResourceDictionary();
             ResourceDictionary dict_daDK = new ResourceDictionary();
             ResourceDictionary dict_Color = new ResourceDictionary();
+            ResourceDictionary dict_Style = new ResourceDictionary();
             dict_enUK.Source = new Uri("Dictionary_ENUS.xaml", UriKind.Relative);
             dict_daDK.Source = new Uri("Dictionary_DADK.xaml", UriKind.Relative);
             dict_Color.Source = new Uri("Dictionary_COLOR.xaml", UriKind.Relative);
+            dict_Style.Source = new Uri("Dictionary_STYLE.xaml", UriKind.Relative);
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(dict_Color);
+            Application.Current.Resources.MergedDictionaries.Add(dict_Style);
             Application.Current.Resources.MergedDictionaries.Add(dict_daDK);
             App.EventHelper.RaiseTranslationSourceChangedEvent();
         }
@@ -112,6 +118,16 @@ namespace Collector.Client.Wpf
         private void btnCategories_Click(object sender, RoutedEventArgs e)
         {
             App.FormHelper.ShowCategories(null);
+        }
+
+        private void btnIssuedCountries_Click(object sender, RoutedEventArgs e)
+        {
+            App.FormHelper.ShowPublishedCountries(null);
+        }
+
+        private void btnPublishedCountries_Click(object sender, RoutedEventArgs e)
+        {
+            App.FormHelper.ShowPublishedCountries(null);
         }
     }
 }

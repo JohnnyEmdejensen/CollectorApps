@@ -8,6 +8,14 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowPublishedCountries(Entity.PublishedCountry? PublishedCountry)
+        {
+            Dialogs.PublishedCountryDialog frm = new Dialogs.PublishedCountryDialog
+            {
+                DataContext = PublishedCountry,
+            };
+            frm.Show();
+        }
         public void ShowCategories(Entity.Category? Category)
         {
             Dialogs.CategoryDialog frm = new Dialogs.CategoryDialog

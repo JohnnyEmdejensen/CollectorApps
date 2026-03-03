@@ -13,6 +13,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Continent>? ContinentList { get; set; }
         public List<Entity.Country>? CountryList { get; set; }
         public List<Entity.Category>? CategoryList { get; set; }
+        public List<Entity.PublishedCountry>? PublishedCountryList { get; set; }
 
         public DataShareClass() 
         { 
@@ -25,8 +26,19 @@ namespace Collector.Client.Wpf.Internals
             GetCountries();
             GetCatalogs();
             GetCategories();
+            GetPublishedCountries();
         }
 
+        public void GetPublishedCountries()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            PublishedCountryList = App.AppShare.Repositories.PublishedcountryRepository.GetAll();
+            if (PublishedCountryList != null)
+                PublishedCountryList = PublishedCountryList.OrderBy(x => x.Name).ToList();
+            App.EventHelper.RaisePublishedCountryListChangedEvent();
+            Mouse.OverrideCursor = c;
+        }
         public void GetCategories()
         {
             var c = Mouse.OverrideCursor;

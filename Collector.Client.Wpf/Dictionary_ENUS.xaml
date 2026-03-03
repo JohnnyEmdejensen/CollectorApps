@@ -9,6 +9,7 @@
     <system:String x:Key="ribbon.group.data.header">Data</system:String>
     <system:String x:Key="ribbon.group.languages.header">Languages</system:String>
     <system:String x:Key="ribbon.button.data.countries.header">Countries</system:String>
+    <system:String x:Key="ribbon.button.data.publishedcountries.header">Published Countries</system:String>
     <system:String x:Key="ribbon.button.data.catalogs.header">Catalogs</system:String>
     <system:String x:Key="ribbon.button.data.categories.header">Categories</system:String>
     <system:String x:Key="ribbon.togglebutton.stampview.header">Stamps view</system:String>
@@ -41,4 +42,12 @@
     <system:String x:Key="categorydialog.header.ukvalue">VALUE (UK)</system:String>
     <system:String x:Key="categorydialog.columnheader.value">Value</system:String>
     <system:String x:Key="categorydialog.columnheader.ukvalue">Value(UK)</system:String>
+
+    <system:String x:Key="publishedcountrydialog.title">Publishedcountries</system:String>
+    <system:String x:Key="publishedcountrydialog.header.name">NAME</system:String>
+    <system:String x:Key="publishedcountrydialog.header.country">COUNTRY</system:String>
+    <system:String x:Key="publishedcountrydialog.columnheader.name">Name</system:String>
+    <system:String x:Key="publishedcountrydialog.columnheader.country">Country</system:String>
+
+
 </ResourceDictionary>

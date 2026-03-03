@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Collector.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,12 @@ namespace Collector.Client.Wpf.Internals
             Repositories.CountryRepository.CountryChanged += CountryRepository_CountryChanged;
             Repositories.CatalogRepository.CatalogChanged += CatalogRepository_CatalogChanged;
             Repositories.CategoryRepository.CategoryChanged += CategoryRepository_CategoryChanged;
+            Repositories.PublishedcountryRepository.PublishedCountryChanged += PublishedcountryRepository_PublishedCountryChanged;
+        }
+
+        private void PublishedcountryRepository_PublishedCountryChanged(object sender, PublishedCountryEventArgs e)
+        {
+            App.DataShare.GetPublishedCountries();
         }
 
         private void CategoryRepository_CategoryChanged(object sender, Repository.CategoryEventArgs e)

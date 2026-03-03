@@ -15,6 +15,11 @@
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
         <Ribbon x:Name="ribMain" Grid.Row="0" Background="{DynamicResource PrimaryBackground}">
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu>
+                    <RibbonApplicationMenuItem Header="Add" ImageSource="/Images/add_32.png"></RibbonApplicationMenuItem>
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
             <RibbonTab Header="{DynamicResource ribbon.tab.home.header}">
                 <RibbonGroup Header="{DynamicResource ribbon.group.header}">
                     <RibbonToggleButton x:Name="tglStampview" IsChecked="True" Click="tglStampview_Click" Label="{DynamicResource ribbon.togglebutton.stampview.header}" LargeImageSource="Images/index_view_32.png" SmallImageSource="Images/index_view_16.png"></RibbonToggleButton>
@@ -24,6 +29,7 @@
             <RibbonTab Header="{DynamicResource ribbon.tab.settings.header}">
                 <RibbonGroup Header="{DynamicResource ribbon.group.data.header}">
                     <RibbonButton x:Name="btnCountries" Click="btnCountries_Click" Label="{DynamicResource ribbon.button.data.countries.header}" LargeImageSource="Images/earth_32.png" SmallImageSource="Images/earth_16.png"></RibbonButton>
+                    <RibbonButton x:Name="btnPublishedCountries" Click="btnPublishedCountries_Click" Label="{DynamicResource ribbon.button.data.publishedcountries.header}" LargeImageSource="/Images/earth_location_32.png" SmallImageSource="/Images/earth_location_16.png"></RibbonButton>
                     <RibbonButton x:Name="btnCatalogs" Click="btnCatalogs_Click" Label="{DynamicResource ribbon.button.data.catalogs.header}" LargeImageSource="Images/book_blue_32.png" SmallImageSource="Images/book_blue_16.png"></RibbonButton>
                     <RibbonButton x:Name="btnCategories" Click="btnCategories_Click" Label="{DynamicResource ribbon.button.data.categories.header}" LargeImageSource="Images/cubes_32.png" SmallImageSource="Images/cubes_16.png"></RibbonButton>
                 </RibbonGroup>

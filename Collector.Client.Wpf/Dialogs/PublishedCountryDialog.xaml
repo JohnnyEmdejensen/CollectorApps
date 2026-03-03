@@ -1,0 +1,159 @@
+﻿<Window x:Class="Collector.Client.Wpf.Dialogs.PublishedCountryDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Collector.Client.Wpf.Dialogs"
+        mc:Ignorable="d"
+        Title="{DynamicResource publishedcountrydialog.title}" ResizeMode="NoResize" Tag="PublishedCountry" Height="400" Width="600" Background="{DynamicResource PrimaryBackground}" Icon="/Images/earth_location_48.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="1" Margin="8" Source="/Images/earth_location_48.png"></Image>
+        </Grid>
+        <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+        <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+        <Grid Grid.Row="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="4"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="4"></Label>
+                        <Button x:Name="btnAdd" IsEnabled="False" Width="25" Click="btnAdd_Click">
+                            <Image Source="/Images/add_16.png" Width="16" Height="16"></Image>
+                        </Button>
+                        <Label Width="4"></Label>
+                        <Button x:Name="btnSave" IsEnabled="False" Width="25" Click="btnSave_Click">
+                            <Image Source="/Images/disk_blue_16.png" Width="16" Height="16"></Image>
+                        </Button>
+                        <Label Width="4"></Label>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1"></ColumnDefinition>
+                                <ColumnDefinition Width="1"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Style="{StaticResource DarkLine}"></Label>
+                            <Label Grid.Column="1" Style="{StaticResource LightLine}"></Label>
+                        </Grid>
+                        <Label Width="4"></Label>
+                        <Button x:Name="btnDelete" IsEnabled="False" Width="25" Click="btnDelete_Click">
+                            <Image Source="/Images/delete2_16.png"  Width="16" Height="16"></Image>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+                <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="4"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="8"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="8"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Content="{DynamicResource publishedcountrydialog.header.name}" Style="{StaticResource LabelHeader}"></Label>
+                            <TextBox x:Name="txtName" Grid.Row="1" Text="{Binding Path=Name, Mode=TwoWay}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Content="{DynamicResource publishedcountrydialog.header.country}" Style="{StaticResource LabelHeader}"></Label>
+                            <ComboBox x:Name="cboCountry" Grid.Row="1" SelectedValue="{Binding Path=ContryId, Mode=TwoWay}"></ComboBox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <GridSplitter Grid.Column="1"></GridSplitter>
+            <Grid Grid.Column="2">
+                <TabControl>
+                    <TabItem Header="{DynamicResource publishedcountrydialog.title}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Filter:" Padding="0,0,8,0" VerticalAlignment="Center"></Label>
+                                    <TextBox x:Name="txtFilter" TextChanged="txtFilter_TextChanged" Width="100" Height="20" VerticalAlignment="Center"></TextBox>
+                                </StackPanel>
+                            </Grid>
+                            <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+                            <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+                            <Grid Grid.Row="3">
+                                <DataGrid x:Name="dgPublishedCountries" SelectionChanged="dgPublishedCountries_SelectionChanged">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Name}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource publishedcountrydialog.columnheader.name}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding CountryName}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource publishedcountrydialog.columnheader.country}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Grid>
+        <Label Grid.Row="4" Style="{StaticResource DarkLine}"></Label>
+        <Label Grid.Row="5" Style="{StaticResource LightLine}"></Label>
+        <Grid Grid.Row="6" >
+
+        </Grid>
+    </Grid>
+</Window>

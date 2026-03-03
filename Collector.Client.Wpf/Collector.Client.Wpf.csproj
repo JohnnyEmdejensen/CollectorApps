@@ -46,6 +46,10 @@
     <None Remove="Images\earth_24.png" />
     <None Remove="Images\earth_32.png" />
     <None Remove="Images\earth_48.png" />
+    <None Remove="Images\earth_location_16.png" />
+    <None Remove="Images\earth_location_24.png" />
+    <None Remove="Images\earth_location_32.png" />
+    <None Remove="Images\earth_location_48.png" />
     <None Remove="Images\Flags\flag_denmark_16.png" />
     <None Remove="Images\Flags\flag_denmark_24.png" />
     <None Remove="Images\Flags\flag_denmark_32.png" />
@@ -115,6 +119,10 @@
     <Resource Include="Images\earth_24.png" />
     <Resource Include="Images\earth_32.png" />
     <Resource Include="Images\earth_48.png" />
+    <Resource Include="Images\earth_location_16.png" />
+    <Resource Include="Images\earth_location_24.png" />
+    <Resource Include="Images\earth_location_32.png" />
+    <Resource Include="Images\earth_location_48.png" />
     <Resource Include="Images\Flags\flag_denmark_16.png" />
     <Resource Include="Images\Flags\flag_denmark_24.png" />
     <Resource Include="Images\Flags\flag_denmark_32.png" />
