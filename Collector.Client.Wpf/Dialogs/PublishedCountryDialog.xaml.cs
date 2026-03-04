@@ -37,6 +37,21 @@ namespace Collector.Client.Wpf.Dialogs
             _settings.Load();
         }
 
+        private void DoAutoCreations(Entity.PublishedCountry PublishedCountry)
+        {
+            if (App.DataShare.CategoryList == null) return;
+            var autoCategories = App.DataShare.CategoryList.Where(x => x.AutoGenerate).ToList();
+            if (autoCategories != null && autoCategories.Count > 0)
+            {
+                foreach (var cat in autoCategories)
+                {
+                    Entity.PublishedCountryCategoryLink link = new Entity.PublishedCountryCategoryLink();
+                    link.CategoryId = cat.Id;
+                    link.PublishedCountryId = PublishedCountry.Id;
+                    App.AppShare.Repositories.PublishedCountryCategortRepository.Create(link);
+                }
+            }
+        }
         public void DoSave()
         {
             _publishedcountry = DataContext as Entity.PublishedCountry;
@@ -45,6 +60,10 @@ namespace Collector.Client.Wpf.Dialogs
                 if (_publishedcountry.Id == 0)
                 {
                     _publishedcountry = App.AppShare.Repositories.PublishedcountryRepository.Create(_publishedcountry);
+                    if (_publishedcountry != null && _publishedcountry.Id > 0)
+                    {
+                        DoAutoCreations(_publishedcountry);
+                    }
                 }
                 else
                 {
