@@ -14,7 +14,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Country>? CountryList { get; set; }
         public List<Entity.Category>? CategoryList { get; set; }
         public List<Entity.PublishedCountry>? PublishedCountryList { get; set; }
-
+        public List<Entity.PublishedCountryCategoryLink>? PublishedCountryCategoryList { get; set; }
         public DataShareClass() 
         { 
 
@@ -27,6 +27,16 @@ namespace Collector.Client.Wpf.Internals
             GetCatalogs();
             GetCategories();
             GetPublishedCountries();
+            GetPublishedCountryCategoryLinks();
+        }
+
+        public void GetPublishedCountryCategoryLinks()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            PublishedCountryCategoryList = App.AppShare.Repositories.PublishedCountryCategortRepository.GetAll();
+            App.EventHelper.RaisePublishedCountryCategoryListChangedEvent();
+            Mouse.OverrideCursor = c;
         }
 
         public void GetPublishedCountries()

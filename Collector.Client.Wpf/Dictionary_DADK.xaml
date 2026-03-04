@@ -12,6 +12,7 @@
     <system:String x:Key="ribbon.button.data.publishedcountries.header">Udgivet Lande</system:String>
     <system:String x:Key="ribbon.button.data.catalogs.header">Kataloger</system:String>
     <system:String x:Key="ribbon.button.data.categories.header">Kategorier</system:String>
+    <system:String x:Key="ribbon.button.data.publishedcountrycategories.header">Pub.Landes Kategorier</system:String>
     <system:String x:Key="ribbon.togglebutton.stampview.header">Frimærker visning</system:String>
     <system:String x:Key="ribbon.togglebutton.stockview.header">Lager visning</system:String>
     <system:String x:Key="dgstamps.header.country">Land</system:String>
@@ -48,5 +49,12 @@
     <system:String x:Key="publishedcountrydialog.header.country">LAND</system:String>
     <system:String x:Key="publishedcountrydialog.columnheader.name">Navn</system:String>
     <system:String x:Key="publishedcountrydialog.columnheader.country">Land</system:String>
+
+    <system:String x:Key="publishedcountrycategory.title">Udgivelseslandes kategorier</system:String>
+    <system:String x:Key="publishedcountrycategory.header.publishedcountry">UDGIVELSESLAND</system:String>
+    <system:String x:Key="publishedcountrycategory.header.category">KATEGORI</system:String>
+    <system:String x:Key="publishedcountrycategory.columnheader.publishedcountry">Udgivelseland</system:String>
+    <system:String x:Key="publishedcountrycategory.columnheader.category">Kategori</system:String>
+
 
 </ResourceDictionary>

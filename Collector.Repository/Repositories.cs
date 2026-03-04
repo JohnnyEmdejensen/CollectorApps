@@ -15,8 +15,10 @@ namespace Collector.Repository
             CatalogRepository = new CatalogRepository();
             CategoryRepository = new CategoryRepository();
             PublishedcountryRepository = new PublishedcountryRepository();
+            PublishedCountryCategortRepository = new PublishedCountryCategortRepository();
         }
 
+        public PublishedCountryCategortRepository PublishedCountryCategortRepository { get; set; }
         public PublishedcountryRepository PublishedcountryRepository { get; set; }
         public CategoryRepository CategoryRepository { get; set; }
         public CatalogRepository CatalogRepository { get; set; }

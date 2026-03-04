@@ -310,6 +310,34 @@ namespace Collector.Data.Migrations
                     b.ToTable("PublishedCountries");
                 });
 
+            modelBuilder.Entity("Collector.Entity.PublishedCountryCategoryLink", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("CategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<long>("PublishedCountryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PublishedCountryCategoryLinks");
+                });
+
             modelBuilder.Entity("Collector.Entity.PublishedCountryCoinLink", b =>
                 {
                     b.Property<long>("Id")
@@ -336,34 +364,6 @@ namespace Collector.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PublishedCountriesLinks");
-                });
-
-            modelBuilder.Entity("Collector.Entity.PubllishedCountryCategoryLink", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<long>("CategoryId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<long>("PublishedCountryId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("Updated")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PubllishedCountryCategoryLinks");
                 });
 
             modelBuilder.Entity("Collector.Entity.Stamp", b =>

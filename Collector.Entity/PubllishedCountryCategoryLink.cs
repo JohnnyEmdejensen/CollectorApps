@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Collector.Entity
 {
-    public class PubllishedCountryCategoryLink : BaseEntity
+    public class PublishedCountryCategoryLink : BaseEntity
     {
         public long PublishedCountryId { get; set; }
         public long CategoryId { get; set; }

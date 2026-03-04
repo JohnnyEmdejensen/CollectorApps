@@ -20,6 +20,12 @@ namespace Collector.Client.Wpf.Internals
             Repositories.CatalogRepository.CatalogChanged += CatalogRepository_CatalogChanged;
             Repositories.CategoryRepository.CategoryChanged += CategoryRepository_CategoryChanged;
             Repositories.PublishedcountryRepository.PublishedCountryChanged += PublishedcountryRepository_PublishedCountryChanged;
+            Repositories.PublishedCountryCategortRepository.PublishedCountryCategoryChanged += PublishedCountryCategortRepository_PublishedCountryCategoryChanged;
+        }
+
+        private void PublishedCountryCategortRepository_PublishedCountryCategoryChanged(object sender, PublishedCountryCategoryEventArgs e)
+        {
+            App.DataShare.GetPublishedCountryCategoryLinks();
         }
 
         private void PublishedcountryRepository_PublishedCountryChanged(object sender, PublishedCountryEventArgs e)

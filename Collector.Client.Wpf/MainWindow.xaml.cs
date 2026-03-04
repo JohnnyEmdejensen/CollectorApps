@@ -129,5 +129,10 @@ namespace Collector.Client.Wpf
         {
             App.FormHelper.ShowPublishedCountries(null);
         }
+
+        private void btnPublishedCountryCategories_Click(object sender, RoutedEventArgs e)
+        {
+            App.FormHelper.ShowPublishedCountryCategories(null);
+        }
     }
 }

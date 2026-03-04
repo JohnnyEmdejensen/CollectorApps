@@ -12,6 +12,8 @@
     <system:String x:Key="ribbon.button.data.publishedcountries.header">Published Countries</system:String>
     <system:String x:Key="ribbon.button.data.catalogs.header">Catalogs</system:String>
     <system:String x:Key="ribbon.button.data.categories.header">Categories</system:String>
+    <system:String x:Key="ribbon.button.data.publishedcountrycategories.header">Pub.Country Categories</system:String>
+    
     <system:String x:Key="ribbon.togglebutton.stampview.header">Stamps view</system:String>
     <system:String x:Key="ribbon.togglebutton.stockview.header">Stocks view</system:String>
     <system:String x:Key="dgstamps.header.country">Country</system:String>
@@ -48,6 +50,13 @@
     <system:String x:Key="publishedcountrydialog.header.country">COUNTRY</system:String>
     <system:String x:Key="publishedcountrydialog.columnheader.name">Name</system:String>
     <system:String x:Key="publishedcountrydialog.columnheader.country">Country</system:String>
+
+    <system:String x:Key="publishedcountrycategory.title">Publishedcountry category</system:String>
+    <system:String x:Key="publishedcountrycategory.header.publishedcountry">PUBLISHING COUNTRY</system:String>
+    <system:String x:Key="publishedcountrycategory.header.category">CATEGORY</system:String>
+    <system:String x:Key="publishedcountrycategory.header.country">COUNTRY</system:String>
+    <system:String x:Key="publishedcountrycategory.columnheader.publishedcountry">Publishing country</system:String>
+    <system:String x:Key="publishedcountrycategory.columnheader.category">Category</system:String>
 
 
 </ResourceDictionary>
