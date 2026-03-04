@@ -173,9 +173,10 @@ namespace Collector.Client.Wpf.Dialogs
         }
         private void DgCategories_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            var width = dgCategories.ActualWidth - 8;
+            var width = dgCategories.ActualWidth - 8 - 24;
             dgCategories.Columns[1].Width = width / 2;
             dgCategories.Columns[2].Width = width / 2;
+            dgCategories.Columns[3].Width = 24;
         }
     }
 }

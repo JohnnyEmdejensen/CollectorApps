@@ -39,10 +39,13 @@
     <system:String x:Key="categorydialog.title">Kategorier</system:String>
     <system:String x:Key="catalogdialog.header.value">VÆRDI</system:String>
     <system:String x:Key="catalogdialog.columnheader.value">Værdi</system:String>
+
     <system:String x:Key="categorydialog.header.value">VÆRDI</system:String>
     <system:String x:Key="categorydialog.header.ukvalue">VÆRDI (UK)</system:String>
+    <system:String x:Key="categorydialog.header.autogenerate">AUTO GENERER</system:String>
     <system:String x:Key="categorydialog.columnheader.value">Værdi</system:String>
     <system:String x:Key="categorydialog.columnheader.ukvalue">Værdi(UK)</system:String>
+    <system:String x:Key="categorydialog.columnheader.autogenerate">Auto generer</system:String>
 
     <system:String x:Key="publishedcountrydialog.title">Udgivelseslande</system:String>
     <system:String x:Key="publishedcountrydialog.header.name">NAVN</system:String>

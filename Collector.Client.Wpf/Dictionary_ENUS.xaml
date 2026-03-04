@@ -40,10 +40,13 @@
     <system:String x:Key="categorydialog.title">Categories</system:String>
     <system:String x:Key="catalogdialog.header.value">VALUE</system:String>
     <system:String x:Key="catalogdialog.columnheader.value">Value</system:String>
+    
     <system:String x:Key="categorydialog.header.value">VALUE</system:String>
     <system:String x:Key="categorydialog.header.ukvalue">VALUE (UK)</system:String>
+    <system:String x:Key="categorydialog.header.autogenerate">AUTO GENERATE</system:String>
     <system:String x:Key="categorydialog.columnheader.value">Value</system:String>
     <system:String x:Key="categorydialog.columnheader.ukvalue">Value(UK)</system:String>
+    <system:String x:Key="categorydialog.columnheader.autogenerate">Auto generate</system:String>
 
     <system:String x:Key="publishedcountrydialog.title">Publishedcountries</system:String>
     <system:String x:Key="publishedcountrydialog.header.name">NAME</system:String>
