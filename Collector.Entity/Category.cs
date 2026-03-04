@@ -11,5 +11,6 @@ namespace Collector.Entity
     {
         [MaxLength(128)]
         public string UKValue { get; set; } = "";
+        public bool AutoGenerate { get; set; }
     }
 }

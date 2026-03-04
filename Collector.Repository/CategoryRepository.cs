@@ -36,6 +36,7 @@ namespace Collector.Repository
             if (record == null) return null;
             record.Value = Source.Value;
             record.UKValue = Source.UKValue;
+            record.AutoGenerate = Source.AutoGenerate;
             ApiContext.SaveChanges();
             CategoryChanged?.Invoke(this, new CategoryEventArgs(record));
             return record;
