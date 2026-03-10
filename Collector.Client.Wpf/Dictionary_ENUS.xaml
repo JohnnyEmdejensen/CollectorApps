@@ -4,8 +4,14 @@
     
     <system:String x:Key="window.main.title">Collector</system:String>
     <system:String x:Key="ribbon.tab.home.header">HOME</system:String>
+    <system:String x:Key="ribbon.group.view.header">Views</system:String>
+    <system:String x:Key="ribbon.group.creation.header">Creations</system:String>
+    <system:String x:Key="ribbon.togglebutton.stampview.header">Stamps view</system:String>
+    <system:String x:Key="ribbon.togglebutton.stockview.header">Stocks view</system:String>
+    <system:String x:Key="ribbon.button.creation.stamp.header">New Stamp</system:String>
+
+
     <system:String x:Key="ribbon.tab.settings.header">Settings</system:String>
-    <system:String x:Key="ribbon.group.header">Views</system:String>
     <system:String x:Key="ribbon.group.data.header">Data</system:String>
     <system:String x:Key="ribbon.group.languages.header">Languages</system:String>
     <system:String x:Key="ribbon.button.data.countries.header">Countries</system:String>
@@ -14,8 +20,6 @@
     <system:String x:Key="ribbon.button.data.categories.header">Categories</system:String>
     <system:String x:Key="ribbon.button.data.publishedcountrycategories.header">Pub.Country Categories</system:String>
     
-    <system:String x:Key="ribbon.togglebutton.stampview.header">Stamps view</system:String>
-    <system:String x:Key="ribbon.togglebutton.stockview.header">Stocks view</system:String>
     <system:String x:Key="dgstamps.header.country">Country</system:String>
     <system:String x:Key="dgstamps.header.catalog">Catalog</system:String>
     <system:String x:Key="dgstamps.header.issued">Issued</system:String>
@@ -27,6 +31,27 @@
     <system:String x:Key="dgstamps.header.width">Width</system:String>
     <system:String x:Key="dgstamps.header.height">Height</system:String>
     <system:String x:Key="dgstamps.header.category">Category</system:String>
+
+    <system:String x:Key="stampdialog.title">Stamp</system:String>
+    <system:String x:Key="stampdialog.tab.stock.header">Stocks</system:String>
+    <system:String x:Key="stampdialog.tab.images.header">Images</system:String>
+    <system:String x:Key="stampdialog.header.publishedcountry">PUBLICHED COUNTRY</system:String>
+    <system:String x:Key="stampdialog.header.catalog">CATALOG</system:String>
+    <system:String x:Key="stampdialog.header.formattetissued">ISSUED</system:String>
+    <system:String x:Key="stampdialog.header.catalognumber">CATALOGNUMBER</system:String>
+    <system:String x:Key="stampdialog.header.category">CATEGORY</system:String>
+    <system:String x:Key="stampdialog.header.facevalue">FACEVALUE</system:String>
+    <system:String x:Key="stampdialog.header.design">DESIGN</system:String>
+    <system:String x:Key="stampdialog.header.color">COLOR</system:String>
+    <system:String x:Key="stampdialog.header.perforations">PERFORATIONS (H/V)</system:String>
+    <system:String x:Key="stampdialog.header.topic">TOPIC</system:String>
+    <system:String x:Key="stampdialog.header.watermark">WATERMARK</system:String>
+    <system:String x:Key="stampdialog.header.motive">MOTIVE</system:String>
+    <system:String x:Key="stampdialog.header.heightwidth">HEIGHT / WIDTH</system:String>
+    <system:String x:Key="stampdialog.header.designer">DESIGNER</system:String>
+    <system:String x:Key="stampdialog.header.ingraver">INGRAVER</system:String>
+    <system:String x:Key="stampdialog.header.description">DESCRIPTION</system:String>
+    
     <system:String x:Key="countrydialog.header.name">NAME</system:String>
     <system:String x:Key="countrydialog.header.iso">ISO</system:String>
     <system:String x:Key="countrydialog.header.number">NUMBER</system:String>

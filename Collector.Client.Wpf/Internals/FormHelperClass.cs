@@ -8,6 +8,14 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowStampDialog(Entity.Stamp? Stamp)
+        {
+            Dialogs.StampDialog frm = new Dialogs.StampDialog
+            {
+                DataContext = Stamp,
+            };
+            frm.Show();
+        }
         public void ShowPublishedCountryCategories(Entity.PublishedCountryCategoryLink? PublishedCountryCategory)
         {
             Dialogs.PublishedcountryCategoryDialog frm = new Dialogs.PublishedcountryCategoryDialog

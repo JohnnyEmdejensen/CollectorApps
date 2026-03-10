@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace Collector.Entity
         [MaxLength(8)]
         public string? Suffix { get; set; }
         public int Issued { get; set; }
+        [NotMapped]
+        public string FormattetIssued { get; set; } = "";
         [MaxLength(1024)]
         public string Design { get; set; } = "";
         public double? Facevalue { get; set; }

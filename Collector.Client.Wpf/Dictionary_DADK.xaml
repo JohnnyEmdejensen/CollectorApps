@@ -3,18 +3,23 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     
     <system:String x:Key="window.main.title">Samler</system:String>
+
     <system:String x:Key="ribbon.tab.home.header">HJEM</system:String>
+    <system:String x:Key="ribbon.group.view.header">Visninger</system:String>
+    <system:String x:Key="ribbon.group.creation.header">Oprettelser</system:String>
+    <system:String x:Key="ribbon.togglebutton.stampview.header">Frimærker visning</system:String>
+    <system:String x:Key="ribbon.togglebutton.stockview.header">Lager visning</system:String>
+    <system:String x:Key="ribbon.button.creation.stamp.header">Nyt frimærke</system:String>
+
     <system:String x:Key="ribbon.tab.settings.header">Indstillinger</system:String>
-    <system:String x:Key="ribbon.group.header">Visninger</system:String>
     <system:String x:Key="ribbon.group.data.header">Data</system:String>
-    <system:String x:Key="ribbon.group.languages.header">Sprog</system:String>
     <system:String x:Key="ribbon.button.data.countries.header">Lande</system:String>
     <system:String x:Key="ribbon.button.data.publishedcountries.header">Udgivet Lande</system:String>
     <system:String x:Key="ribbon.button.data.catalogs.header">Kataloger</system:String>
     <system:String x:Key="ribbon.button.data.categories.header">Kategorier</system:String>
     <system:String x:Key="ribbon.button.data.publishedcountrycategories.header">Pub.Landes Kategorier</system:String>
-    <system:String x:Key="ribbon.togglebutton.stampview.header">Frimærker visning</system:String>
-    <system:String x:Key="ribbon.togglebutton.stockview.header">Lager visning</system:String>
+    <system:String x:Key="ribbon.group.languages.header">Sprog</system:String>
+    
     <system:String x:Key="dgstamps.header.country">Land</system:String>
     <system:String x:Key="dgstamps.header.catalog">Katalog</system:String>
     <system:String x:Key="dgstamps.header.issued">Udgivet</system:String>
@@ -26,6 +31,28 @@
     <system:String x:Key="dgstamps.header.width">Bredde</system:String>
     <system:String x:Key="dgstamps.header.height">Højde</system:String>
     <system:String x:Key="dgstamps.header.category">Kategori</system:String>
+
+    <system:String x:Key="stampdialog.title">Frimærke</system:String>
+    <system:String x:Key="stampdialog.tab.stock.header">Beholdning</system:String>
+    <system:String x:Key="stampdialog.tab.images.header">Billeder</system:String>
+    <system:String x:Key="stampdialog.header.publishedcountry">UDVIVNE LAND</system:String>
+    <system:String x:Key="stampdialog.header.catalog">KATALOG</system:String>
+    <system:String x:Key="stampdialog.header.formattetissued">UDGIVET</system:String>
+    <system:String x:Key="stampdialog.header.catalognumber">KATALOGNUMMER</system:String>
+    <system:String x:Key="stampdialog.header.category">KATEGORI</system:String>
+    <system:String x:Key="stampdialog.header.facevalue">PÅLYDENDE VÆRDI</system:String>
+    <system:String x:Key="stampdialog.header.design">DESIGN</system:String>
+    <system:String x:Key="stampdialog.header.color">FARVE</system:String>
+    <system:String x:Key="stampdialog.header.perforations">TAKNING (H/V)</system:String>
+    <system:String x:Key="stampdialog.header.topic">EMNE</system:String>
+    <system:String x:Key="stampdialog.header.watermark">VANDMÆRKE</system:String>
+    <system:String x:Key="stampdialog.header.motive">MOTIV</system:String>
+    <system:String x:Key="stampdialog.header.heightwidth">HØJDE / BREDDE</system:String>
+    <system:String x:Key="stampdialog.header.designer">DESIGNER</system:String>
+    <system:String x:Key="stampdialog.header.ingraver">GRAVØR</system:String>
+    <system:String x:Key="stampdialog.header.description">BESKRIVELSE</system:String>
+
+
     <system:String x:Key="countrydialog.header.name">NAVN</system:String>
     <system:String x:Key="countrydialog.header.iso">ISO</system:String>
     <system:String x:Key="countrydialog.header.number">NUMMER</system:String>

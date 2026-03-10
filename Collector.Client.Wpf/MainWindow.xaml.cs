@@ -134,5 +134,10 @@ namespace Collector.Client.Wpf
         {
             App.FormHelper.ShowPublishedCountryCategories(null);
         }
+
+        private void btnCreateStamp_Click(object sender, RoutedEventArgs e)
+        {
+            App.FormHelper.ShowStampDialog(new());
+        }
     }
 }

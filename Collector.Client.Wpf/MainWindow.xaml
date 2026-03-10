@@ -21,9 +21,12 @@
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
             <RibbonTab Header="{DynamicResource ribbon.tab.home.header}">
-                <RibbonGroup Header="{DynamicResource ribbon.group.header}">
+                <RibbonGroup Header="{DynamicResource ribbon.group.view.header}">
                     <RibbonToggleButton x:Name="tglStampview" IsChecked="True" Click="tglStampview_Click" Label="{DynamicResource ribbon.togglebutton.stampview.header}" LargeImageSource="Images/index_view_32.png" SmallImageSource="Images/index_view_16.png"></RibbonToggleButton>
                     <RibbonToggleButton x:Name="tglStockview" IsChecked="False" Click="tglStockview_Click" Label="{DynamicResource ribbon.togglebutton.stockview.header}" LargeImageSource="Images/box_view_32.png" SmallImageSource="Images/box_view_16.png"></RibbonToggleButton>
+                </RibbonGroup>
+                <RibbonGroup Header="{DynamicResource ribbon.group.creation.header}">
+                    <RibbonButton x:Name="btnCreateStamp" Click="btnCreateStamp_Click" LargeImageSource="/Images/photo_portrait_32.png" SmallImageSource="/Images/photo_portrait_16.png" Label="{DynamicResource ribbon.button.creation.stamp.header}"></RibbonButton>
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="{DynamicResource ribbon.tab.settings.header}">
