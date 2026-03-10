@@ -18,6 +18,7 @@
     <system:String x:Key="ribbon.button.data.catalogs.header">Kataloger</system:String>
     <system:String x:Key="ribbon.button.data.categories.header">Kategorier</system:String>
     <system:String x:Key="ribbon.button.data.publishedcountrycategories.header">Pub.Landes Kategorier</system:String>
+    <system:String x:Key="ribbon.button.data.coins.header">Mønt enheder</system:String>
     <system:String x:Key="ribbon.group.languages.header">Sprog</system:String>
     
     <system:String x:Key="dgstamps.header.country">Land</system:String>
@@ -66,6 +67,8 @@
     <system:String x:Key="categorydialog.title">Kategorier</system:String>
     <system:String x:Key="catalogdialog.header.value">VÆRDI</system:String>
     <system:String x:Key="catalogdialog.columnheader.value">Værdi</system:String>
+
+    <system:String x:Key="coinunitdialog.title">Mønt enheder</system:String>
 
     <system:String x:Key="categorydialog.header.value">VÆRDI</system:String>
     <system:String x:Key="categorydialog.header.ukvalue">VÆRDI (UK)</system:String>

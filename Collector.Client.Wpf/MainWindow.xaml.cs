@@ -139,5 +139,10 @@ namespace Collector.Client.Wpf
         {
             App.FormHelper.ShowStampDialog(new());
         }
+
+        private void btnCoins_Click(object sender, RoutedEventArgs e)
+        {
+            App.FormHelper.ShowCoinunits(null);
+        }
     }
 }

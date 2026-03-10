@@ -8,6 +8,14 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowCoinunits(Entity.Coin? Coin)
+        {
+            Dialogs.CoinunitDialog frm = new Dialogs.CoinunitDialog
+            {
+                DataContext = Coin,
+            };
+            frm.Show();
+        }
         public void ShowStampDialog(Entity.Stamp? Stamp)
         {
             Dialogs.StampDialog frm = new Dialogs.StampDialog

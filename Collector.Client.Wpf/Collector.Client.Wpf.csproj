@@ -38,6 +38,10 @@
     <None Remove="Images\cubes_24.png" />
     <None Remove="Images\cubes_32.png" />
     <None Remove="Images\cubes_48.png" />
+    <None Remove="Images\currency_euro_16.png" />
+    <None Remove="Images\currency_euro_24.png" />
+    <None Remove="Images\currency_euro_32.png" />
+    <None Remove="Images\currency_euro_48.png" />
     <None Remove="Images\delete2_16.png" />
     <None Remove="Images\delete2_24.png" />
     <None Remove="Images\delete2_32.png" />
@@ -119,6 +123,10 @@
     <Resource Include="Images\cubes_24.png" />
     <Resource Include="Images\cubes_32.png" />
     <Resource Include="Images\cubes_48.png" />
+    <Resource Include="Images\currency_euro_16.png" />
+    <Resource Include="Images\currency_euro_24.png" />
+    <Resource Include="Images\currency_euro_32.png" />
+    <Resource Include="Images\currency_euro_48.png" />
     <Resource Include="Images\delete2_16.png" />
     <Resource Include="Images\delete2_24.png" />
     <Resource Include="Images\delete2_32.png" />

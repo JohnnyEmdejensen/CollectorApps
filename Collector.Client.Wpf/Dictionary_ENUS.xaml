@@ -19,6 +19,7 @@
     <system:String x:Key="ribbon.button.data.catalogs.header">Catalogs</system:String>
     <system:String x:Key="ribbon.button.data.categories.header">Categories</system:String>
     <system:String x:Key="ribbon.button.data.publishedcountrycategories.header">Pub.Country Categories</system:String>
+    <system:String x:Key="ribbon.button.data.coins.header">Coin units</system:String>
     
     <system:String x:Key="dgstamps.header.country">Country</system:String>
     <system:String x:Key="dgstamps.header.catalog">Catalog</system:String>
@@ -65,7 +66,10 @@
     <system:String x:Key="categorydialog.title">Categories</system:String>
     <system:String x:Key="catalogdialog.header.value">VALUE</system:String>
     <system:String x:Key="catalogdialog.columnheader.value">Value</system:String>
-    
+
+    <system:String x:Key="coinunitdialog.title">Coin units</system:String>
+
+
     <system:String x:Key="categorydialog.header.value">VALUE</system:String>
     <system:String x:Key="categorydialog.header.ukvalue">VALUE (UK)</system:String>
     <system:String x:Key="categorydialog.header.autogenerate">AUTO GENERATE</system:String>
