@@ -16,8 +16,10 @@ namespace Collector.Repository
             CategoryRepository = new CategoryRepository();
             PublishedcountryRepository = new PublishedcountryRepository();
             PublishedCountryCategortRepository = new PublishedCountryCategortRepository();
+            CoinRepository = new CoinRepository();
         }
 
+        public CoinRepository CoinRepository { get; set; }
         public PublishedCountryCategortRepository PublishedCountryCategortRepository { get; set; }
         public PublishedcountryRepository PublishedcountryRepository { get; set; }
         public CategoryRepository CategoryRepository { get; set; }

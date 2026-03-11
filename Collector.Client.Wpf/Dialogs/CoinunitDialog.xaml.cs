@@ -1,5 +1,4 @@
-﻿using Collector.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,9 +28,70 @@ namespace Collector.Client.Wpf.Dialogs
             ContentRendered += CoinunitDialog_ContentRendered;
             Closing += CoinunitDialog_Closing;
             KeyDown += CoinunitDialog_KeyDown;
+            App.EventHelper.CoinListChanged += EventHelper_CoinListChanged;
+            FillControls();
             _settings.Load();
         }
 
+        private void FillControls()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            FillCoinControl();
+            Mouse.OverrideCursor = c;
+        }
+        private void EventHelper_CoinListChanged(object sender, EventArgs e)
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            FillCoinControl();
+            Mouse.OverrideCursor = c;
+        }
+
+        private void FillCoinControl()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            dgCoinunits.BeginInit();
+            dgCoinunits.ItemsSource = App.DataShare.CoinList;
+            dgCoinunits.EndInit();
+            Mouse.OverrideCursor = c;
+        }
+
+        private void DoSave()
+        {
+            _coin = DataContext as Entity.Coin;
+            if (_coin != null)
+            {
+                if (_coin.Id == 0)
+                {
+                    _coin = App.AppShare.Repositories.CoinRepository.Create(_coin);
+                }
+                else
+                {
+                    _coin = App.AppShare.Repositories.CoinRepository.Update(_coin);
+                }
+                DataContext = _coin;
+                SetGui();
+            }
+        }
+        private void SetFilterview()
+        {
+            if (App.DataShare.CoinList == null) return;
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            if (txtFilter.Text == "")
+            {
+                FillCoinControl();
+            }
+            else
+            {
+                dgCoinunits.BeginInit();
+                dgCoinunits.ItemsSource = App.DataShare.CoinList.Where(x => x.Value.ToLower().Contains(txtFilter.Text.ToLower())).ToList();
+                dgCoinunits.EndInit();
+            }
+            Mouse.OverrideCursor = c;
+        }
         private void SetGui()
         {
             btnAdd.IsEnabled = false;
@@ -78,27 +138,40 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            _coin = new Entity.Coin();
+            DataContext = _coin;
+            SetGui();
+            txtName.Focus();
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            DoSave();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            if (MessageBox.Show("Are you sure to delete the Coinunit?", "Delete Coinunit", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No) return;
+            _coin = DataContext as Entity.Coin;
+            if (_coin != null)
+            {
+                App.AppShare.Repositories.CoinRepository.Delete(_coin.Id);
+                _coin = null;
+                DataContext = _coin;
+                SetGui();
+            }
         }
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            SetFilterview();
         }
 
         private void dgCoinunits_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            _coin = dgCoinunits.SelectedItem as Entity.Coin;
+            DataContext = _coin;
+            SetGui();
         }
     }
 }

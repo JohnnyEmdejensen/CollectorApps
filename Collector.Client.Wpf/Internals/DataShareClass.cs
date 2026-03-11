@@ -15,6 +15,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Category>? CategoryList { get; set; }
         public List<Entity.PublishedCountry>? PublishedCountryList { get; set; }
         public List<Entity.PublishedCountryCategoryLink>? PublishedCountryCategoryList { get; set; }
+        public List<Entity.Coin>? CoinList { get; set; }
         public DataShareClass() 
         { 
 
@@ -28,8 +29,17 @@ namespace Collector.Client.Wpf.Internals
             GetCategories();
             GetPublishedCountries();
             GetPublishedCountryCategoryLinks();
+            GetCoins();
         }
 
+        public void GetCoins()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            CoinList = App.AppShare.Repositories.CoinRepository.GetAll();
+            App.EventHelper.RaiseCoinListChangedEvent();
+            Mouse.OverrideCursor = c;
+        }
         public void GetPublishedCountryCategoryLinks()
         {
             var c = Mouse.OverrideCursor;
