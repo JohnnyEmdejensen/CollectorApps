@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Collector.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Category>? CategoryList { get; set; }
         public List<Entity.PublishedCountry>? PublishedCountryList { get; set; }
         public List<Entity.PublishedCountryCategoryLink>? PublishedCountryCategoryList { get; set; }
+        public List<Entity.PublishedCountryCoinLink>? PublishedCountryCoinLinks { get; set; }
         public List<Entity.Coin>? CoinList { get; set; }
         public DataShareClass() 
         { 
@@ -30,8 +32,17 @@ namespace Collector.Client.Wpf.Internals
             GetPublishedCountries();
             GetPublishedCountryCategoryLinks();
             GetCoins();
+            GetPublishedCountryCoinLinks();
         }
 
+        public void GetPublishedCountryCoinLinks()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            PublishedCountryCoinLinks = App.AppShare.Repositories.PublishedCountryCoinRepository.GetAll();
+            App.EventHelper.RaisePublishedCountryCoinLinksChangedEvent();
+            Mouse.OverrideCursor = c;
+        }
         public void GetCoins()
         {
             var c = Mouse.OverrideCursor;

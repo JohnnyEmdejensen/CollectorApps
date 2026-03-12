@@ -17,7 +17,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? PublishedCountryListChanged;
         public event DefaultHandler? PublishedCountryCategoryListChanged;
         public event DefaultHandler? CoinListChanged;
+        public event DefaultHandler? PublishedCountryCoinLinksChanged;
 
+        public void RaisePublishedCountryCoinLinksChangedEvent()
+        {
+            PublishedCountryCoinLinksChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseCoinListChangedEvent()
         {
             CoinListChanged?.Invoke(this, EventArgs.Empty);

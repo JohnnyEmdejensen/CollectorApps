@@ -20,7 +20,8 @@
     <system:String x:Key="ribbon.button.data.publishedcountrycategories.header">Pub.Landes Kategorier</system:String>
     <system:String x:Key="ribbon.button.data.coins.header">Mønt enheder</system:String>
     <system:String x:Key="ribbon.group.languages.header">Sprog</system:String>
-    
+    <system:String x:Key="ribbon.button.data.pubcountrycoins.header">Udg.lands Møntenheder</system:String>
+
     <system:String x:Key="dgstamps.header.country">Land</system:String>
     <system:String x:Key="dgstamps.header.catalog">Katalog</system:String>
     <system:String x:Key="dgstamps.header.issued">Udgivet</system:String>
@@ -88,6 +89,12 @@
     <system:String x:Key="publishedcountrycategory.header.category">KATEGORI</system:String>
     <system:String x:Key="publishedcountrycategory.columnheader.publishedcountry">Udgivelseland</system:String>
     <system:String x:Key="publishedcountrycategory.columnheader.category">Kategori</system:String>
+
+    <system:String x:Key="publishingcountrycoin.title">Udgivnelands Møntenheder</system:String>
+    <system:String x:Key="publishingcountrycoin.header.publishedcountry">UDGIVNE LAND</system:String>
+    <system:String x:Key="publishingcountrycoin.header.coin">MØNTENHED</system:String>
+    <system:String x:Key="publishingcountrycoin.columnheader.publishedcountry">Udgivne land</system:String>
+    <system:String x:Key="publishingcountrycoin.columnheader.coin">Møntenhed</system:String>
 
 
 </ResourceDictionary>

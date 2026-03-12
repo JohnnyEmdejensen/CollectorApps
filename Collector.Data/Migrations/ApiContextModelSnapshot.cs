@@ -366,7 +366,7 @@ namespace Collector.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PublishedCountriesLinks");
+                    b.ToTable("PublishedCountryCoinsLinks");
                 });
 
             modelBuilder.Entity("Collector.Entity.Stamp", b =>

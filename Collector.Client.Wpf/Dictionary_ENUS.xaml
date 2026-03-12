@@ -20,6 +20,7 @@
     <system:String x:Key="ribbon.button.data.categories.header">Categories</system:String>
     <system:String x:Key="ribbon.button.data.publishedcountrycategories.header">Pub.Country Categories</system:String>
     <system:String x:Key="ribbon.button.data.coins.header">Coin units</system:String>
+    <system:String x:Key="ribbon.button.data.pubcountrycoins.header">Pub.country Coinunits</system:String>
     
     <system:String x:Key="dgstamps.header.country">Country</system:String>
     <system:String x:Key="dgstamps.header.catalog">Catalog</system:String>
@@ -89,6 +90,12 @@
     <system:String x:Key="publishedcountrycategory.header.country">COUNTRY</system:String>
     <system:String x:Key="publishedcountrycategory.columnheader.publishedcountry">Publishing country</system:String>
     <system:String x:Key="publishedcountrycategory.columnheader.category">Category</system:String>
+
+    <system:String x:Key="publishingcountrycoin.title">Publishing country coinunits</system:String>
+    <system:String x:Key="publishingcountrycoin.header.publishedcountry">PUBLISHING COUNTRY</system:String>
+    <system:String x:Key="publishingcountrycoin.header.coin">COINUNIT</system:String>
+    <system:String x:Key="publishingcountrycoin.columnheader.publishedcountry">Publishing country</system:String>
+    <system:String x:Key="publishingcountrycoin.columnheader.coin">Coinunit</system:String>
 
 
 </ResourceDictionary>

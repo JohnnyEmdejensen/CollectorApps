@@ -40,7 +40,7 @@ namespace Collector.Data
         public DbSet<Entity.Location> Locations { get; set; }
         public DbSet<Entity.Perforation> Perforations { get; set; }
         public DbSet<Entity.PublishedCountry> PublishedCountries { get; set;}
-        public DbSet<Entity.PublishedCountryCoinLink> PublishedCountriesLinks { get; set; } 
+        public DbSet<Entity.PublishedCountryCoinLink> PublishedCountryCoinsLinks { get; set; } 
         public DbSet<Entity.PublishedCountryCategoryLink> PublishedCountryCategoryLinks { get; set; }
         public DbSet<Entity.Stamp> Stamps { get; set; }
         public DbSet<Entity.Stampimage> Stampimages { get; set; }

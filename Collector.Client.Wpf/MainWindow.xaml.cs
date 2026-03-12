@@ -144,5 +144,10 @@ namespace Collector.Client.Wpf
         {
             App.FormHelper.ShowCoinunits(null);
         }
+
+        private void btnPubCountryCoins_Click(object sender, RoutedEventArgs e)
+        {
+            App.FormHelper.ShowPublishingCountryCoinDialog(null);
+        }
     }
 }
