@@ -129,7 +129,7 @@
                             <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                             <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
                             <Grid Grid.Row="3">
-                                <DataGrid x:Name="dgPubCtryCoin" SelectionChanged="dgPubCtryCoin_SelectionChanged">
+                                <DataGrid x:Name="dgPubCtryCoin" SelectionChanged="dgPubCtryCoin_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
                                         <DataGridTextColumn Binding="{Binding PublishedCountry}">

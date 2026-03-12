@@ -90,7 +90,7 @@ namespace Collector.Client.Wpf.Dialogs
             {
                 ViewModel.PublishedCountryModel model = new ViewModel.PublishedCountryModel();
                 model.Name = ctry.Name;
-                var c = App.DataShare.CountryList.FirstOrDefault(x => x.Id == ctry.Id);
+                var c = App.DataShare.CountryList.FirstOrDefault(x => x.Id == ctry.ContryId);
                 if (c != null)
                 {
                     model.Id = ctry.Id;
