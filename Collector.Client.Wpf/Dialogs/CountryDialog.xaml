@@ -145,7 +145,7 @@
                             <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                             <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
                             <Grid Grid.Row="3">
-                                <DataGrid x:Name="dgCountries" SelectionChanged="dgCountries_SelectionChanged">
+                                <DataGrid x:Name="dgCountries" SelectionChanged="dgCountries_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
                                         <DataGridTextColumn Binding="{Binding Name}">
