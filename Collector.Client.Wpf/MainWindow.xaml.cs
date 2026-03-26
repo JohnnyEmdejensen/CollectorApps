@@ -1,4 +1,5 @@
 ﻿using Collector.Client.Wpf.Internals;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -166,7 +167,29 @@ namespace Collector.Client.Wpf
         {
             if (App.DataShare.WorkerItems.Count > 0)
             {
-                var k = App.DataShare.WorkerItems;
+                string indent = "";
+                StringBuilder sb = new StringBuilder();
+                foreach (var item in App.DataShare.WorkerItems)
+                {
+                    if (item.Status == WorkerItemStatus.Ended)
+                    {
+                        if (!string.IsNullOrEmpty(indent))
+                        {
+                            indent = indent.Substring(0, indent.Length - 2);
+                        }
+                    }
+                    sb.AppendLine(item.Timer.ToString() + indent + item.Name );
+                    if (item.Status == WorkerItemStatus.Startet)
+                    {
+                        indent += "  ";
+                    }
+                }
+                using (StreamWriter sw = new StreamWriter(@"C:\Temp\WorkerItems.txt"))
+                {
+                    sw.Write(sb.ToString());
+                    sw.Flush();
+                    sw.Close();
+                }
             }
         }
     }
