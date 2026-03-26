@@ -8,6 +8,14 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowColorsDialog(Entity.Color? Color)
+        {
+            Dialogs.ColorDialog frm = new Dialogs.ColorDialog()
+            {
+                DataContext = Color,
+            };
+            frm.Show();
+        }
         public void ShowPublishingCountryCoinDialog(Entity.PublishedCountryCoinLink? Link)
         {
             Dialogs.PublishingCountryCoinDialog frm = new Dialogs.PublishingCountryCoinDialog()

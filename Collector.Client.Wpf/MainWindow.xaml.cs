@@ -149,5 +149,10 @@ namespace Collector.Client.Wpf
         {
             App.FormHelper.ShowPublishingCountryCoinDialog(null);
         }
+
+        private void btnColors_Click(object sender, RoutedEventArgs e)
+        {
+            App.FormHelper.ShowColorsDialog(null);
+        }
     }
 }

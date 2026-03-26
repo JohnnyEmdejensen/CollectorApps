@@ -21,6 +21,7 @@
     <system:String x:Key="ribbon.button.data.coins.header">Mønt enheder</system:String>
     <system:String x:Key="ribbon.group.languages.header">Sprog</system:String>
     <system:String x:Key="ribbon.button.data.pubcountrycoins.header">Udg.lands Møntenheder</system:String>
+    <system:String x:Key="ribbon.button.data.colors.header">Farver</system:String>
 
     <system:String x:Key="dgstamps.header.country">Land</system:String>
     <system:String x:Key="dgstamps.header.catalog">Katalog</system:String>

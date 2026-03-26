@@ -30,6 +30,11 @@ namespace Collector.Client.Wpf.Dialogs
             ContentRendered += StampDialog_ContentRendered;
             Closing += StampDialog_Closing;
             KeyDown += StampDialog_KeyDown;
+            App.EventHelper.ColorListChanged += EventHelper_ColorListChanged;
+            App.EventHelper.CoinListChanged += EventHelper_CoinListChanged;
+            App.EventHelper.CatalogListChanged += EventHelper_CatalogListChanged;
+            App.EventHelper.CategoryListChanged += EventHelper_CategoryListChanged;
+            App.EventHelper.PublishedCountryListChanged += EventHelper_PublishedCountryListChanged;
             FillControls();
             _settings.Load();
         }
@@ -42,6 +47,18 @@ namespace Collector.Client.Wpf.Dialogs
             FillCatalogControl();
             FillCategoryControl();
             FillCoinunits();
+            FillColors();
+            Mouse.OverrideCursor = c;
+        }
+        private void FillColors()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            cboColor.BeginInit();
+            cboColor.ItemsSource = App.DataShare.ColorList;
+            cboColor.DisplayMemberPath = "Value";
+            cboColor.SelectedValuePath = "Id";
+            cboColor.EndInit();
             Mouse.OverrideCursor = c;
         }
         private void FillCategoryControl()
@@ -170,6 +187,32 @@ namespace Collector.Client.Wpf.Dialogs
         {
             e.Handled = true;
             App.FormHelper.ShowCoinunits(new());
+        }
+        private void EventHelper_ColorListChanged(object sender, EventArgs e)
+        {
+            FillColors();
+        }
+        private void EventHelper_CoinListChanged(object sender, EventArgs e)
+        {
+            FillCoinunits();
+        }
+        private void EventHelper_CatalogListChanged(object sender, EventArgs e)
+        {
+            FillCatalogControl();
+        }
+        private void EventHelper_CategoryListChanged(object sender, EventArgs e)
+        {
+            FillCategoryControl();
+        }
+        private void EventHelper_PublishedCountryListChanged(object sender, EventArgs e)
+        {
+            FillPublishedCountryControl();
+        }
+
+        private void lblColor_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+            App.FormHelper.ShowColorsDialog(new());
         }
     }
 }

@@ -113,8 +113,8 @@
                                     <ColumnDefinition Width="8"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label x:Name="lblPublishedCountry" MouseDown="lblPublishedCountry_MouseDown" Content="{DynamicResource stampdialog.header.publishedcountry}" Style="{StaticResource LabelHeaderClickAble}"></Label>
-                                <Label x:Name="lblCatalog" MouseDown="lblCatalog_MouseDown" Grid.Column="2" Content="{DynamicResource stampdialog.header.catalog}" Style="{StaticResource LabelHeaderClickAble}"></Label>
+                                <Label x:Name="lblPublishedCountry" MouseDown="lblPublishedCountry_MouseDown" Cursor="Hand" Content="{DynamicResource stampdialog.header.publishedcountry}" Style="{StaticResource LabelHeaderClickAble}"></Label>
+                                <Label x:Name="lblCatalog" MouseDown="lblCatalog_MouseDown" Cursor="Hand" Grid.Column="2" Content="{DynamicResource stampdialog.header.catalog}" Style="{StaticResource LabelHeaderClickAble}"></Label>
                             </Grid>
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
@@ -175,7 +175,7 @@
                                     <ColumnDefinition Width="8"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label x:Name="lblCategory" MouseDown="lblCategory_MouseDown" Content="{DynamicResource stampdialog.header.category}" Style="{StaticResource LabelHeaderClickAble}"></Label>
+                                <Label x:Name="lblCategory" MouseDown="lblCategory_MouseDown" Cursor="Hand" Content="{DynamicResource stampdialog.header.category}" Style="{StaticResource LabelHeaderClickAble}"></Label>
                                 <Label Grid.Column="2" Content="{DynamicResource stampdialog.header.watermark}" Style="{StaticResource LabelHeader}"></Label>
                             </Grid>
                             <Grid Grid.Row="1">
@@ -200,7 +200,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label Content="{DynamicResource stampdialog.header.facevalue}" Style="{StaticResource LabelHeader}"></Label>
-                            <Label x:Name="lblCoinUnit" MouseDown="lblCoinUnit_MouseDown" Grid.Row="0" Grid.Column="2" Content="{DynamicResource stampdialog.header.coin}" Style="{StaticResource LabelHeaderClickAble}"></Label>
+                            <Label x:Name="lblCoinUnit" MouseDown="lblCoinUnit_MouseDown" Cursor="Hand" Grid.Row="0" Grid.Column="2" Content="{DynamicResource stampdialog.header.coin}" Style="{StaticResource LabelHeaderClickAble}"></Label>
                             <Grid Grid.Row="1" Grid.ColumnSpan="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="64"></ColumnDefinition>
@@ -232,7 +232,7 @@
                                     <ColumnDefinition Width="8"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="{DynamicResource stampdialog.header.color}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label x:Name="lblColor" MouseDown="lblColor_MouseDown" Cursor="Hand" Content="{DynamicResource stampdialog.header.color}" Style="{StaticResource LabelHeaderClickAble}"></Label>
                                 <Label Grid.Column="2" Content="{DynamicResource stampdialog.header.topic}" Style="{StaticResource LabelHeader}"></Label>
                             </Grid>
                             <Grid Grid.Row="1">

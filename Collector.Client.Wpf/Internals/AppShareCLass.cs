@@ -23,6 +23,12 @@ namespace Collector.Client.Wpf.Internals
             Repositories.PublishedCountryCategortRepository.PublishedCountryCategoryChanged += PublishedCountryCategortRepository_PublishedCountryCategoryChanged;
             Repositories.CoinRepository.CoinChanged += CoinRepository_CoinChanged;
             Repositories.PublishedCountryCoinRepository.PublishedCountryCoinLinkChanged += PublishedCountryCoinRepository_PublishedCountryCoinLinkChanged;
+            Repositories.ColorRepository.ColorChanged += ColorRepository_ColorChanged;
+        }
+
+        private void ColorRepository_ColorChanged(object sender, ColorEventArgs e)
+        {
+            App.DataShare.GetColors();
         }
 
         private void PublishedCountryCoinRepository_PublishedCountryCoinLinkChanged(object sender, PublishedCountryCoinLinkEventArgs e)

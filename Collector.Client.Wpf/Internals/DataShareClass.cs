@@ -18,6 +18,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.PublishedCountryCategoryLink>? PublishedCountryCategoryList { get; set; }
         public List<Entity.PublishedCountryCoinLink>? PublishedCountryCoinLinks { get; set; }
         public List<Entity.Coin>? CoinList { get; set; }
+        public List<Entity.Color>? ColorList { get; set; }
         public DataShareClass() 
         { 
 
@@ -33,8 +34,19 @@ namespace Collector.Client.Wpf.Internals
             GetPublishedCountryCategoryLinks();
             GetCoins();
             GetPublishedCountryCoinLinks();
+            GetColors();
         }
 
+        public void GetColors()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            ColorList = App.AppShare.Repositories.ColorRepository.GetAll();
+            if (ColorList != null)
+                ColorList = ColorList.OrderBy(x => x.Value).ToList();
+            App.EventHelper.RaiseColorListChangedEvent();
+            Mouse.OverrideCursor = c;
+        }
         public void GetPublishedCountryCoinLinks()
         {
             var c = Mouse.OverrideCursor;
@@ -48,6 +60,8 @@ namespace Collector.Client.Wpf.Internals
             var c = Mouse.OverrideCursor;
             Mouse.OverrideCursor = Cursors.Wait;
             CoinList = App.AppShare.Repositories.CoinRepository.GetAll();
+            if (CoinList != null)
+                CoinList = CoinList.OrderBy(x => x.Value).ToList();
             App.EventHelper.RaiseCoinListChangedEvent();
             Mouse.OverrideCursor = c;
         }
