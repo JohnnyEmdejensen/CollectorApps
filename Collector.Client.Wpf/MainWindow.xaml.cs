@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Collector.Client.Wpf.Internals;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -70,40 +71,46 @@ namespace Collector.Client.Wpf
 
         private void btnLanUK_Click(object sender, RoutedEventArgs e)
         {
-            btnLanUK.IsChecked = true;
-            btnLanDK.IsChecked = false;
-            ResourceDictionary dict_enUK = new ResourceDictionary();
-            ResourceDictionary dict_daDK = new ResourceDictionary();
-            ResourceDictionary dict_Color = new ResourceDictionary();
-            ResourceDictionary dict_Style = new ResourceDictionary();
-            dict_enUK.Source = new Uri("Dictionary_ENUS.xaml", UriKind.Relative);
-            dict_daDK.Source = new Uri("Dictionary_DADK.xaml", UriKind.Relative);
-            dict_Color.Source = new Uri("Dictionary_COLOR.xaml", UriKind.Relative);
-            dict_Style.Source = new Uri("Dictionary_STYLE.xaml", UriKind.Relative);
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(dict_Color);
-            Application.Current.Resources.MergedDictionaries.Add(dict_Style);
-            Application.Current.Resources.MergedDictionaries.Add(dict_enUK);
-            App.EventHelper.RaiseTranslationSourceChangedEvent();
+            using (WorkerHandler worker = new WorkerHandler("btnLanUK_Click"))
+            {
+                btnLanUK.IsChecked = true;
+                btnLanDK.IsChecked = false;
+                ResourceDictionary dict_enUK = new ResourceDictionary();
+                ResourceDictionary dict_daDK = new ResourceDictionary();
+                ResourceDictionary dict_Color = new ResourceDictionary();
+                ResourceDictionary dict_Style = new ResourceDictionary();
+                dict_enUK.Source = new Uri("Dictionary_ENUS.xaml", UriKind.Relative);
+                dict_daDK.Source = new Uri("Dictionary_DADK.xaml", UriKind.Relative);
+                dict_Color.Source = new Uri("Dictionary_COLOR.xaml", UriKind.Relative);
+                dict_Style.Source = new Uri("Dictionary_STYLE.xaml", UriKind.Relative);
+                Application.Current.Resources.MergedDictionaries.Clear();
+                Application.Current.Resources.MergedDictionaries.Add(dict_Color);
+                Application.Current.Resources.MergedDictionaries.Add(dict_Style);
+                Application.Current.Resources.MergedDictionaries.Add(dict_enUK);
+                App.EventHelper.RaiseTranslationSourceChangedEvent();
+            }
         }
 
         private void btnLanDK_Click(object sender, RoutedEventArgs e)
         {
-            btnLanUK.IsChecked = false;
-            btnLanDK.IsChecked = true;
-            ResourceDictionary dict_enUK = new ResourceDictionary();
-            ResourceDictionary dict_daDK = new ResourceDictionary();
-            ResourceDictionary dict_Color = new ResourceDictionary();
-            ResourceDictionary dict_Style = new ResourceDictionary();
-            dict_enUK.Source = new Uri("Dictionary_ENUS.xaml", UriKind.Relative);
-            dict_daDK.Source = new Uri("Dictionary_DADK.xaml", UriKind.Relative);
-            dict_Color.Source = new Uri("Dictionary_COLOR.xaml", UriKind.Relative);
-            dict_Style.Source = new Uri("Dictionary_STYLE.xaml", UriKind.Relative);
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(dict_Color);
-            Application.Current.Resources.MergedDictionaries.Add(dict_Style);
-            Application.Current.Resources.MergedDictionaries.Add(dict_daDK);
-            App.EventHelper.RaiseTranslationSourceChangedEvent();
+            using (WorkerHandler worker = new WorkerHandler("btnLanDK_Click"))
+            {
+                btnLanUK.IsChecked = false;
+                btnLanDK.IsChecked = true;
+                ResourceDictionary dict_enUK = new ResourceDictionary();
+                ResourceDictionary dict_daDK = new ResourceDictionary();
+                ResourceDictionary dict_Color = new ResourceDictionary();
+                ResourceDictionary dict_Style = new ResourceDictionary();
+                dict_enUK.Source = new Uri("Dictionary_ENUS.xaml", UriKind.Relative);
+                dict_daDK.Source = new Uri("Dictionary_DADK.xaml", UriKind.Relative);
+                dict_Color.Source = new Uri("Dictionary_COLOR.xaml", UriKind.Relative);
+                dict_Style.Source = new Uri("Dictionary_STYLE.xaml", UriKind.Relative);
+                Application.Current.Resources.MergedDictionaries.Clear();
+                Application.Current.Resources.MergedDictionaries.Add(dict_Color);
+                Application.Current.Resources.MergedDictionaries.Add(dict_Style);
+                Application.Current.Resources.MergedDictionaries.Add(dict_daDK);
+                App.EventHelper.RaiseTranslationSourceChangedEvent();
+            }
         }
 
         private void btnCountries_Click(object sender, RoutedEventArgs e)
@@ -153,6 +160,14 @@ namespace Collector.Client.Wpf
         private void btnColors_Click(object sender, RoutedEventArgs e)
         {
             App.FormHelper.ShowColorsDialog(null);
+        }
+
+        private void btnDumbWorker_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.DataShare.WorkerItems.Count > 0)
+            {
+                var k = App.DataShare.WorkerItems;
+            }
         }
     }
 }

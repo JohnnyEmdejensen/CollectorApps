@@ -44,6 +44,9 @@
                     <RibbonToggleButton Label="English" IsChecked="True" x:Name="btnLanUK" Click="btnLanUK_Click" LargeImageSource="Images/Flags/flag_great_britain_32.png" SmallImageSource="Images/Flags/flag_great_britain_16.png"></RibbonToggleButton>
                     <RibbonToggleButton Label="Dansk" IsChecked="False" x:Name="btnLanDK" Click="btnLanDK_Click" LargeImageSource="Images/Flags/flag_denmark_32.png" SmallImageSource="Images/Flags/flag_denmark_16.png"></RibbonToggleButton>
                 </RibbonGroup>
+                <RibbonGroup Header="Dianotics">
+                    <RibbonButton x:Name="btnDumbWorker" Click="btnDumbWorker_Click" Label="Dump Workinglist" LargeImageSource="/Images/scroll_32.png" SmallImageSource="/Images/scroll_16.png"></RibbonButton>
+                </RibbonGroup>
             </RibbonTab>
         </Ribbon>
         <Grid x:Name="grdStampView" Grid.Row="1" Visibility="Visible">

@@ -10,6 +10,7 @@ namespace Collector.Client.Wpf.Internals
 {
     public class DataShareClass
     {
+        public List<Internals.WorkerItem> WorkerItems { get; set; }
         public List<Entity.Catalog>? CatalogList { get; set; }
         public List<Entity.Continent>? ContinentList { get; set; }
         public List<Entity.Country>? CountryList { get; set; }
@@ -21,7 +22,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Color>? ColorList { get; set; }
         public DataShareClass() 
         { 
-
+            WorkerItems = new List<Internals.WorkerItem>();
         }
 
         public void Initialize()

@@ -1,4 +1,5 @@
-﻿using Collector.Entity;
+﻿using Collector.Client.Wpf.Internals;
+using Collector.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,69 +42,69 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void FillControls()
         {
-            var c = Mouse.OverrideCursor;
-            Mouse.OverrideCursor = Cursors.Wait;
-            FillPublishedCountryControl();
-            FillCatalogControl();
-            FillCategoryControl();
-            FillCoinunits();
-            FillColors();
-            Mouse.OverrideCursor = c;
+            using (Internals.WorkerHandler worker = new Internals.WorkerHandler("FillControls"))
+            {
+                FillPublishedCountryControl();
+                FillCatalogControl();
+                FillCategoryControl();
+                FillCoinunits();
+                FillColors();
+            }
         }
         private void FillColors()
         {
-            var c = Mouse.OverrideCursor;
-            Mouse.OverrideCursor = Cursors.Wait;
-            cboColor.BeginInit();
-            cboColor.ItemsSource = App.DataShare.ColorList;
-            cboColor.DisplayMemberPath = "Value";
-            cboColor.SelectedValuePath = "Id";
-            cboColor.EndInit();
-            Mouse.OverrideCursor = c;
+            using (Internals.WorkerHandler worker = new Internals.WorkerHandler("FillColors"))
+            {
+                cboColor.BeginInit();
+                cboColor.ItemsSource = App.DataShare.ColorList;
+                cboColor.DisplayMemberPath = "Value";
+                cboColor.SelectedValuePath = "Id";
+                cboColor.EndInit();
+            }
         }
         private void FillCategoryControl()
         {
-            var c = Mouse.OverrideCursor;
-            Mouse.OverrideCursor = Cursors.Wait;
-            cboCategory.BeginInit();
-            cboCategory.ItemsSource = App.DataShare.CategoryList;
-            cboCategory.DisplayMemberPath = "Value";
-            cboCategory.SelectedValuePath = "Id";
-            cboCategory.EndInit();
-            Mouse.OverrideCursor = c;
+            using (Internals.WorkerHandler worker = new Internals.WorkerHandler("FillCategoryControl"))
+            {
+                cboCategory.BeginInit();
+                cboCategory.ItemsSource = App.DataShare.CategoryList;
+                cboCategory.DisplayMemberPath = "Value";
+                cboCategory.SelectedValuePath = "Id";
+                cboCategory.EndInit();
+            }
         }
         private void FillCoinunits()
         {
-            var c = Mouse.OverrideCursor;
-            Mouse.OverrideCursor = Cursors.Wait;
-            cboCoin.BeginInit();
-            cboCoin.ItemsSource = App.DataShare.CoinList;
-            cboCoin.DisplayMemberPath = "Value";
-            cboCoin.SelectedValuePath = "Id";
-            cboCoin.EndInit();
-            Mouse.OverrideCursor = c;
+            using (WorkerHandler worker = new WorkerHandler("FillCoinunits"))
+            {
+                cboCoin.BeginInit();
+                cboCoin.ItemsSource = App.DataShare.CoinList;
+                cboCoin.DisplayMemberPath = "Value";
+                cboCoin.SelectedValuePath = "Id";
+                cboCoin.EndInit();
+            }
         }
         private void FillCatalogControl()
         {
-            var c = Mouse.OverrideCursor;
-            Mouse.OverrideCursor = Cursors.Wait;
-            cboCatalog.BeginInit();
-            cboCatalog.ItemsSource = App.DataShare.CatalogList;
-            cboCatalog.DisplayMemberPath = "Value";
-            cboCatalog.SelectedValuePath = "Id";
-            cboCatalog.EndInit();
-            Mouse.OverrideCursor = c;
+            using (WorkerHandler worker = new WorkerHandler("FillCatalogControl"))
+            {
+                cboCatalog.BeginInit();
+                cboCatalog.ItemsSource = App.DataShare.CatalogList;
+                cboCatalog.DisplayMemberPath = "Value";
+                cboCatalog.SelectedValuePath = "Id";
+                cboCatalog.EndInit();
+            }
         }
         private void FillPublishedCountryControl()
         {
-            var c = Mouse.OverrideCursor;
-            Mouse.OverrideCursor = Cursors.Wait;
-            cboPublishedCountry.BeginInit();
-            cboPublishedCountry.ItemsSource = App.DataShare.PublishedCountryList;
-            cboPublishedCountry.DisplayMemberPath = "Name";
-            cboPublishedCountry.SelectedValuePath = "Id";
-            cboPublishedCountry.EndInit();
-            Mouse.OverrideCursor = c;
+            using (WorkerHandler worker = new WorkerHandler("FillPublishedCountryControl"))
+            {
+                cboPublishedCountry.BeginInit();
+                cboPublishedCountry.ItemsSource = App.DataShare.PublishedCountryList;
+                cboPublishedCountry.DisplayMemberPath = "Name";
+                cboPublishedCountry.SelectedValuePath = "Id";
+                cboPublishedCountry.EndInit();
+            }
         }
         private void SetGui()
         {
