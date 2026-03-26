@@ -3,6 +3,8 @@
 
     <SolidColorBrush x:Key="PrimaryBackground" Color="#FF92C3EA"></SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryForeground" Color="#FF2361A1"></SolidColorBrush>
+    <SolidColorBrush x:Key="PrimaryForegroundMouseOver" Color="#FF6FA1D1"></SolidColorBrush>
+    <SolidColorBrush x:Key="PrimaryForegroundMouseClick" Color="#FF9437EB"></SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryLineDark" Color="#FF77A9DD"></SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryLineLight" Color="#FFC2DFF6"></SolidColorBrush>
     <SolidColorBrush x:Key="SecondaryLight" Color="#FFA6CBEE"></SolidColorBrush>

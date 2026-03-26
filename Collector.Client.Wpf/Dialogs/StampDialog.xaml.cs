@@ -41,6 +41,7 @@ namespace Collector.Client.Wpf.Dialogs
             FillPublishedCountryControl();
             FillCatalogControl();
             FillCategoryControl();
+            FillCoinunits();
             Mouse.OverrideCursor = c;
         }
         private void FillCategoryControl()
@@ -52,6 +53,17 @@ namespace Collector.Client.Wpf.Dialogs
             cboCategory.DisplayMemberPath = "Value";
             cboCategory.SelectedValuePath = "Id";
             cboCategory.EndInit();
+            Mouse.OverrideCursor = c;
+        }
+        private void FillCoinunits()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            cboCoin.BeginInit();
+            cboCoin.ItemsSource = App.DataShare.CoinList;
+            cboCoin.DisplayMemberPath = "Value";
+            cboCoin.SelectedValuePath = "Id";
+            cboCoin.EndInit();
             Mouse.OverrideCursor = c;
         }
         private void FillCatalogControl()
@@ -134,6 +146,30 @@ namespace Collector.Client.Wpf.Dialogs
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void lblPublishedCountry_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+            App.FormHelper.ShowPublishedCountries(new());
+        }
+
+        private void lblCatalog_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+            App.FormHelper.ShowCatalogs(new());
+        }
+
+        private void lblCategory_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+            App.FormHelper.ShowCategories(new());
+        }
+
+        private void lblCoinUnit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+            App.FormHelper.ShowCoinunits(new());
         }
     }
 }

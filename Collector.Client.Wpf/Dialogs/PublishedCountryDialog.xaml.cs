@@ -52,7 +52,7 @@ namespace Collector.Client.Wpf.Dialogs
                 }
             }
         }
-        public void DoSave()
+        public void DoSave(bool CloseAfter)
         {
             _publishedcountry = DataContext as Entity.PublishedCountry;
             if (_publishedcountry != null)
@@ -71,6 +71,10 @@ namespace Collector.Client.Wpf.Dialogs
                 }
                 DataContext = _publishedcountry;
                 SetGui();
+            }
+            if (CloseAfter)
+            {
+                Close();
             }
         }
         public void FillCountryControl()
@@ -144,6 +148,7 @@ namespace Collector.Client.Wpf.Dialogs
                 if (_publishedcountry.Id == 0)
                 {
                     btnSave.IsEnabled = true;
+                    txtName.Focus();
                 }
                 else
                 {
@@ -163,6 +168,20 @@ namespace Collector.Client.Wpf.Dialogs
             {
                 e.Handled = true;
                 Close();
+            }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
+            {
+                if (e.Key == Key.S)
+                {
+                    DoSave(false);
+                }
+            }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift))
+            {
+                if (e.Key == Key.S)
+                {
+                    DoSave(true);
+                }
             }
         }
 
@@ -187,7 +206,7 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            DoSave();
+            DoSave(false);
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

@@ -43,6 +43,7 @@
     <system:String x:Key="stampdialog.header.catalognumber">CATALOGNUMBER</system:String>
     <system:String x:Key="stampdialog.header.category">CATEGORY</system:String>
     <system:String x:Key="stampdialog.header.facevalue">FACEVALUE</system:String>
+    <system:String x:Key="stampdialog.header.coin">COIN</system:String>
     <system:String x:Key="stampdialog.header.design">DESIGN</system:String>
     <system:String x:Key="stampdialog.header.color">COLOR</system:String>
     <system:String x:Key="stampdialog.header.perforations">PERFORATIONS (H/V)</system:String>

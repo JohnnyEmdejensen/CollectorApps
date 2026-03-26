@@ -37,7 +37,7 @@ namespace Collector.Client.Wpf.Dialogs
         }
 
 
-        private void DoSave()
+        private void DoSave(bool CloseAfter)
         {
             _category = DataContext as Entity.Category;
             if (_category != null)
@@ -53,7 +53,10 @@ namespace Collector.Client.Wpf.Dialogs
                 DataContext = _category;
                 SetGui();
             }
-
+            if (CloseAfter)
+            {
+                Close();
+            }
         }
 
         private void FillControls()
@@ -86,6 +89,7 @@ namespace Collector.Client.Wpf.Dialogs
                 if (_category.Id == 0)
                 {
                     btnSave.IsEnabled = true;
+                    txtName.Focus();
                 }
                 else
                 {
@@ -112,10 +116,17 @@ namespace Collector.Client.Wpf.Dialogs
                 if (e.Key == Key.S)
                 {
                     e.Handled = true;
-                    DoSave();
+                    DoSave(false);
                 }
             }
-
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift))
+            {
+                if (e.Key == Key.S)
+                {
+                    e.Handled = true;
+                    DoSave(true);
+                }
+            }
         }
 
         private void CategoryDialog_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
@@ -139,7 +150,7 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            DoSave();
+            DoSave(false);
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

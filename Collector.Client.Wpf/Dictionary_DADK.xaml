@@ -43,6 +43,7 @@
     <system:String x:Key="stampdialog.header.catalognumber">KATALOGNUMMER</system:String>
     <system:String x:Key="stampdialog.header.category">KATEGORI</system:String>
     <system:String x:Key="stampdialog.header.facevalue">PÅLYDENDE VÆRDI</system:String>
+    <system:String x:Key="stampdialog.header.coin">MØNTENHED</system:String>
     <system:String x:Key="stampdialog.header.design">DESIGN</system:String>
     <system:String x:Key="stampdialog.header.color">FARVE</system:String>
     <system:String x:Key="stampdialog.header.perforations">TAKNING (H/V)</system:String>
