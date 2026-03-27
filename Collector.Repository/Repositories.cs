@@ -19,8 +19,10 @@ namespace Collector.Repository
             CoinRepository = new CoinRepository();
             PublishedCountryCoinRepository = new PublishedCountryCoinRepository();
             ColorRepository = new ColorRepository();
+            StampRepository = new StampRepository();
         }
 
+        public StampRepository StampRepository { get; set; }
         public ColorRepository ColorRepository { get; set; }
         public PublishedCountryCoinRepository PublishedCountryCoinRepository { get; set; }
         public CoinRepository CoinRepository { get; set; }

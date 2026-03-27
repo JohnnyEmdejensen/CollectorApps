@@ -11,6 +11,8 @@ namespace Collector.Client.Wpf.Internals
     public class AppShareCLass
     {
         public Repository.Repositories Repositories { get; set; }
+        public Entity.PublishedCountry? SelectedPublishedCountry { get; set; }
+        public Entity.Country? SelectedCountry { get; set; }
 
         public AppShareCLass() 
         { 

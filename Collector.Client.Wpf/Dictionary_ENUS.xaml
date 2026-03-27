@@ -22,7 +22,8 @@
     <system:String x:Key="ribbon.button.data.coins.header">Coin units</system:String>
     <system:String x:Key="ribbon.button.data.pubcountrycoins.header">Pub.country Coinunits</system:String>
     <system:String x:Key="ribbon.button.data.colors.header">Colors</system:String>
-    
+
+    <system:String x:Key="dgstamps.header.publishingcountry">Pub.Country</system:String>
     <system:String x:Key="dgstamps.header.country">Country</system:String>
     <system:String x:Key="dgstamps.header.catalog">Catalog</system:String>
     <system:String x:Key="dgstamps.header.issued">Issued</system:String>

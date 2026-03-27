@@ -20,6 +20,8 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.PublishedCountryCoinLink>? PublishedCountryCoinLinks { get; set; }
         public List<Entity.Coin>? CoinList { get; set; }
         public List<Entity.Color>? ColorList { get; set; }
+        public List<Entity.Stamp>? StampList { get; set; }
+        public List<ViewModel.StampModel>? StampModelList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -38,9 +40,49 @@ namespace Collector.Client.Wpf.Internals
                 GetCoins();
                 GetPublishedCountryCoinLinks();
                 GetColors();
+                GetStamps();
             }
         }
 
+        public void GetStamps()
+        {
+            using (WorkerHandler worker = new WorkerHandler("GetStamps"))
+            {
+                string spacer3 = "  ";
+                if (App.AppShare.SelectedPublishedCountry == null)
+                    StampList = App.AppShare.Repositories.StampRepository.GetAll();
+                else
+                    StampList = App.AppShare.Repositories.StampRepository.GetByPublishedCountry(App.AppShare.SelectedPublishedCountry.Id);
+                if (StampList != null)
+                {
+                    StampModelList = new List<ViewModel.StampModel>();
+                    foreach (var stamp in StampList)
+                    {
+                        var suffixValue = stamp.Suffix ?? "";
+                        stamp.SortField = string.Format("{0:00000}", Convert.ToInt32( stamp.Number)) + spacer3.Substring(0, 3 - suffixValue.Length-1);
+                        stamp.FormattetIssued = App.ToolHelper.FormatIssued(stamp.Issued);
+                        ViewModel.StampModel sm = new ViewModel.StampModel();
+                        sm.Id = stamp.Id;
+                        sm.Catalog = App.ToolHelper.GetCatalogName(stamp.CatalogId);
+                        sm.Category = App.ToolHelper.GetCategoryName(stamp.CategoryId);
+                        sm.Coin = App.ToolHelper.GetCoinName(stamp.CoinId);
+                        sm.Color = App.ToolHelper.GetColorName(stamp.ColorId);
+                        sm.Design = stamp.Design;
+                        sm.Facevalue = stamp.Facevalue;
+                        sm.FormattedIssued = stamp.FormattetIssued;
+                        sm.Height = stamp.Height;
+                        sm.Number = stamp.Number;
+                        sm.PublishingCountry = App.ToolHelper.GetPublishedCountryName(stamp.PublishedCountryId);
+                        sm.SortField = stamp.SortField;
+                        sm.Width = stamp.Width;
+                        StampModelList.Add(sm);
+                    }
+                    StampList = StampList.OrderBy(x => x.SortField).ToList();
+                    StampModelList = StampModelList.OrderBy(x => x.SortField).ToList();
+                    App.EventHelper.RaiseStampModelListChangedEvent();
+                }
+            }
+        }
         public void GetColors()
         {
             using (WorkerHandler worker = new WorkerHandler("GetColors"))

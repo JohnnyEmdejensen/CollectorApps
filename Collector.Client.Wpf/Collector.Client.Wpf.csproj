@@ -70,6 +70,10 @@
     <None Remove="Images\Flags\flag_great_britain_24.png" />
     <None Remove="Images\Flags\flag_great_britain_32.png" />
     <None Remove="Images\Flags\flag_great_britain_48.png" />
+    <None Remove="Images\folder_16.png" />
+    <None Remove="Images\folder_24.png" />
+    <None Remove="Images\folder_32.png" />
+    <None Remove="Images\folder_48.png" />
     <None Remove="Images\index_16.png" />
     <None Remove="Images\index_24.png" />
     <None Remove="Images\index_32.png" />
@@ -167,6 +171,10 @@
     <Resource Include="Images\Flags\flag_great_britain_24.png" />
     <Resource Include="Images\Flags\flag_great_britain_32.png" />
     <Resource Include="Images\Flags\flag_great_britain_48.png" />
+    <Resource Include="Images\folder_16.png" />
+    <Resource Include="Images\folder_24.png" />
+    <Resource Include="Images\folder_32.png" />
+    <Resource Include="Images\folder_48.png" />
     <Resource Include="Images\index_16.png" />
     <Resource Include="Images\index_24.png" />
     <Resource Include="Images\index_32.png" />

@@ -122,8 +122,8 @@
                                     <ColumnDefinition Width="8"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <ComboBox x:Name="cboPublishedCountry" Grid.Column="0" Text="{Binding Path=Value, Mode=TwoWay}"></ComboBox>
-                                <ComboBox x:Name="cboCatalog" Grid.Column="2" Text="{Binding Path=Value, Mode=TwoWay}"></ComboBox>
+                                <ComboBox x:Name="cboPublishedCountry" Grid.Column="0" SelectedValue="{Binding Path=PublishedCountryId, Mode=TwoWay}"></ComboBox>
+                                <ComboBox x:Name="cboCatalog" Grid.Column="2" SelectedValue="{Binding Path=CatalogId, Mode=TwoWay}"></ComboBox>
 
                             </Grid>
                         </Grid>
@@ -148,7 +148,7 @@
                                     <ColumnDefinition Width="8"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <TextBox Grid.Column="0" Text="{Binding Path=FormattetIssued, Mode=TwoWay}"></TextBox>
+                                <TextBox Grid.Column="0" Text="{Binding Path=Issued, Mode=TwoWay}"></TextBox>
                                 <Grid Grid.Column="2">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition></ColumnDefinition>
@@ -207,8 +207,8 @@
                                     <ColumnDefinition Width="8"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <TextBox></TextBox>
-                                <ComboBox x:Name="cboCoin" Grid.Column="2"></ComboBox>
+                                <TextBox Text="{Binding Path=Facevalue, Mode=TwoWay}"></TextBox>
+                                <ComboBox x:Name="cboCoin" SelectedValue="{Binding Path=CoinId, Mode=TwoWay}" Grid.Column="2"></ComboBox>
                             </Grid>
                         </Grid>
                         
@@ -327,9 +327,7 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Label Content="{DynamicResource stampdialog.header.description}" Style="{StaticResource LabelHeader}"></Label>
-                            <TextBox Grid.Row="1" VerticalContentAlignment="Top">
-                                
-                            </TextBox>
+                            <TextBox Grid.Row="1" VerticalContentAlignment="Top" Text="{Binding Path=Description, Mode=TwoWay}"></TextBox>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -347,17 +345,81 @@
                             </Grid.RowDefinitions>
                             <Grid>
                                 <StackPanel Orientation="Horizontal">
-
+                                    <Label Width="4"></Label>
+                                    <Button x:Name="btnAddStock" IsEnabled="False" Width="25" Click="btnAddStock_Click">
+                                        <Image Source="/Images/add_16.png" Width="16" Height="16"></Image>
+                                    </Button>
+                                    <Label Width="4"></Label>
+                                    <Button x:Name="btnSaveStock" IsEnabled="False" Width="25" Click="btnSaveStock_Click">
+                                        <Image Source="/Images/disk_blue_16.png" Width="16" Height="16"></Image>
+                                    </Button>
+                                    <Label Width="4"></Label>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1"></ColumnDefinition>
+                                            <ColumnDefinition Width="1"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Style="{StaticResource DarkLine}"></Label>
+                                        <Label Grid.Column="1" Style="{StaticResource LightLine}"></Label>
+                                    </Grid>
+                                    <Label Width="4"></Label>
                                 </StackPanel>
                             </Grid>
                             <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                             <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
                             <Grid Grid.Row="3">
+                                
                             </Grid>
                         </Grid>
                     </TabItem>
                     <TabItem Header="{DynamicResource stampdialog.tab.images.header}">
-                        
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Width="4"></Label>
+                                    <Button x:Name="btnAddImage" IsEnabled="False" Width="25" Click="btnAddImage_Click">
+                                        <Image Source="/Images/add_16.png" Width="16" Height="16"></Image>
+                                    </Button>
+                                    <Label Width="4"></Label>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1"></ColumnDefinition>
+                                            <ColumnDefinition Width="1"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Style="{StaticResource DarkLine}"></Label>
+                                        <Label Grid.Column="1" Style="{StaticResource LightLine}"></Label>
+                                    </Grid>
+                                    <Label Width="4"></Label>
+                                    <Button x:Name="btnDeleteImage" IsEnabled="False" Width="25" Click="btnDeleteImage_Click">
+                                        <Image Source="/Images/delete2_16.png"  Width="16" Height="16"></Image>
+                                    </Button>
+                                    <Label Width="4"></Label>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1"></ColumnDefinition>
+                                            <ColumnDefinition Width="1"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Style="{StaticResource DarkLine}"></Label>
+                                        <Label Grid.Column="1" Style="{StaticResource LightLine}"></Label>
+                                    </Grid>
+                                    <Label Width="4"></Label>
+                                    <Button x:Name="btnOpenImage" IsEnabled="False" Width="25" Click="btnOpenImage_Click">
+                                        <Image Source="/Images/delete2_16.png"  Width="16" Height="16"></Image>
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                            <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+                            <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+                            <Grid Grid.Row="3">
+                                
+                            </Grid>
+                        </Grid>
                     </TabItem>
                 </TabControl>
             </Grid>

@@ -28,6 +28,7 @@ namespace Collector.Client.Wpf
             Closing += MainWindow_Closing;
             dgStamps.SizeChanged += DgStamps_SizeChanged;
             App.EventHelper.TranslationSourceChanged += EventHelper_TranslationSourceChanged;
+            App.EventHelper.StampModelListChanged += EventHelper_StampModelListChanged;
             _settings.Load();
         }
 
@@ -231,6 +232,31 @@ namespace Collector.Client.Wpf
                     sw.Write(sb.ToString());
                     sw.Flush();
                     sw.Close();
+                }
+            }
+        }
+        private void EventHelper_StampModelListChanged(object sender, EventArgs e)
+        {
+            using (WorkerHandler worker = new WorkerHandler("EventHelper_StampModelListChanged"))
+            {
+                dgStamps.BeginInit();
+                dgStamps.ItemsSource = App.DataShare.StampModelList;
+                dgStamps.EndInit();
+            }
+        }
+
+        private void dgStamps_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            using (WorkerHandler worker = new WorkerHandler("dgStamps_MouseDoubleClick"))
+            {
+                var stampModel = dgStamps.SelectedItem as ViewModel.StampModel;
+                if (stampModel != null)
+                {
+                    if (App.DataShare.StampList != null)
+                    {
+                        var stamp = App.DataShare.StampList.FirstOrDefault(x => x.Id == stampModel.Id);
+                        App.FormHelper.ShowStampDialog(stamp);
+                    }
                 }
             }
         }

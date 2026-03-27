@@ -122,25 +122,25 @@
                     <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                     <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
                     <Grid Grid.Row="3">
-                        <DataGrid x:Name="dgStamps">
+                        <DataGrid x:Name="dgStamps" MouseDoubleClick="dgStamps_MouseDoubleClick">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
-                                <DataGridTextColumn  Binding="{Binding Country}" Width="80">
+                                <DataGridTextColumn  Binding="{Binding PublishingCountry}" Width="80">
                                     <DataGridTextColumn.Header>
-                                        <TextBlock Text="{DynamicResource dgstamps.header.country}"></TextBlock>
+                                        <TextBlock Text="{DynamicResource dgstamps.header.publishingcountry}"></TextBlock>
                                     </DataGridTextColumn.Header>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Width="80">
+                                <DataGridTextColumn Width="80" Binding="{Binding Catalog}">
                                     <DataGridTextColumn.Header>
                                         <TextBlock Text="{DynamicResource dgstamps.header.catalog}"></TextBlock>
                                     </DataGridTextColumn.Header>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding Issued}" Width="80">
+                                <DataGridTextColumn Binding="{Binding FormattedIssued}" Width="80">
                                     <DataGridTextColumn.Header>
                                         <TextBlock Text="{DynamicResource dgstamps.header.issued}"></TextBlock>
                                     </DataGridTextColumn.Header>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding CatalogNo}" Width="56">
+                                <DataGridTextColumn Binding="{Binding Number}" Width="56">
                                     <DataGridTextColumn.Header>
                                         <TextBlock Text="{DynamicResource dgstamps.header.catalogno}"></TextBlock>
                                     </DataGridTextColumn.Header>
@@ -165,7 +165,7 @@
                                         <TextBlock Text="{DynamicResource dgstamps.header.color}"></TextBlock>
                                     </DataGridTextColumn.Header>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Width="100">
+                                <DataGridTextColumn Width="100" Binding="{Binding Category}">
                                     <DataGridTextColumn.Header>
                                         <TextBlock Text="{DynamicResource dgstamps.header.category}"></TextBlock>
                                     </DataGridTextColumn.Header>

@@ -17,8 +17,6 @@ namespace Collector.Entity
         [MaxLength(8)]
         public string? Suffix { get; set; }
         public int Issued { get; set; }
-        [NotMapped]
-        public string FormattetIssued { get; set; } = "";
         [MaxLength(1024)]
         public string Design { get; set; } = "";
         public double? Facevalue { get; set; }
@@ -43,5 +41,10 @@ namespace Collector.Entity
         [MaxLength(128)]
         public string? Ingraver { get; set; }
 
+
+        [NotMapped]
+        public string FormattetIssued { get; set; } = "";
+        [NotMapped]
+        public string SortField { get; set; } = "";
     }
 }

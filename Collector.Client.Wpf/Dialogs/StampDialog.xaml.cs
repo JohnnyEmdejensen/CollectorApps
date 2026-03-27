@@ -40,6 +40,27 @@ namespace Collector.Client.Wpf.Dialogs
             _settings.Load();
         }
 
+        private void DoSave(bool CloseAfter)
+        {
+            _stamp = DataContext as Entity.Stamp;
+            if (_stamp != null)
+            {
+                if (_stamp.Id == 0)
+                {
+                    _stamp = App.AppShare.Repositories.StampRepository.Create(_stamp);
+                }
+                else
+                {
+                    _stamp = App.AppShare.Repositories.StampRepository.Update(_stamp);
+                }
+                DataContext = _stamp;
+                SetGui();
+            }
+            if (CloseAfter)
+            {
+                Close();
+            }
+        }
         private void FillControls()
         {
             using (Internals.WorkerHandler worker = new Internals.WorkerHandler("FillControls"))
@@ -111,6 +132,8 @@ namespace Collector.Client.Wpf.Dialogs
             btnAdd.IsEnabled = false;
             btnSave.IsEnabled = false;
             btnDelete.IsEnabled = false;
+            btnAddStock.IsEnabled = false;
+            btnAddImage.IsEnabled = false;
             if (_stamp != null)
             {
                 if (_stamp.Id == 0)
@@ -122,6 +145,8 @@ namespace Collector.Client.Wpf.Dialogs
                     btnAdd.IsEnabled = true;
                     btnSave.IsEnabled = true;
                     btnDelete.IsEnabled = true;
+                    btnAddStock.IsEnabled = true;
+                    btnAddImage.IsEnabled = true;
                 }
             }
             else
@@ -158,7 +183,10 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            using (WorkerHandler worker = new WorkerHandler("btnSave_Click"))
+            {
+                DoSave(false);
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -214,6 +242,31 @@ namespace Collector.Client.Wpf.Dialogs
         {
             e.Handled = true;
             App.FormHelper.ShowColorsDialog(new());
+        }
+
+        private void btnAddStock_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSaveStock_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOpenImage_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

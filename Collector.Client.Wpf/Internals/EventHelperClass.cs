@@ -19,7 +19,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? CoinListChanged;
         public event DefaultHandler? PublishedCountryCoinLinksChanged;
         public event DefaultHandler? ColorListChanged;
+        public event DefaultHandler? StampModelListChanged;
 
+        public void RaiseStampModelListChangedEvent()
+        {
+            StampModelListChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseColorListChangedEvent()
         {
             using (WorkerHandler worker = new WorkerHandler("RaiseColorListChangedEvent"))
