@@ -20,28 +20,31 @@ namespace Collector.Client.Wpf.Internals
 
         public void Load()
         {
-            FileInfo file = new FileInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Emdesoft Developments\\Collector\\" + _parent.Tag.ToString() + ".json");
-            if (file.Exists)
+            using (WorkerHandler worker = new WorkerHandler("Load"))
             {
-                string content = "";
-                using (StreamReader sr = new StreamReader(file.FullName))
+                FileInfo file = new FileInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Emdesoft Developments\\Collector\\" + _parent.Tag.ToString() + ".json");
+                if (file.Exists)
                 {
-                    content = sr.ReadToEnd();
-                    sr.Close();
-                }
-                var info = Newtonsoft.Json.JsonConvert.DeserializeObject<FormInfo>(content);
-                if (info != null)
-                {
-                    if (!info.IsMaxed)
+                    string content = "";
+                    using (StreamReader sr = new StreamReader(file.FullName))
                     {
-                        _parent.Top = info.Top;
-                        _parent.Left = info.Left;
-                        _parent.Width = info.Width;
-                        _parent.Height = info.Height;
+                        content = sr.ReadToEnd();
+                        sr.Close();
                     }
-                    else
+                    var info = Newtonsoft.Json.JsonConvert.DeserializeObject<FormInfo>(content);
+                    if (info != null)
                     {
-                        _parent.WindowState = WindowState.Maximized;
+                        if (!info.IsMaxed)
+                        {
+                            _parent.Top = info.Top;
+                            _parent.Left = info.Left;
+                            _parent.Width = info.Width;
+                            _parent.Height = info.Height;
+                        }
+                        else
+                        {
+                            _parent.WindowState = WindowState.Maximized;
+                        }
                     }
                 }
             }

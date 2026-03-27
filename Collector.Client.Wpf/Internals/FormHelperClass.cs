@@ -10,75 +10,102 @@ namespace Collector.Client.Wpf.Internals
     {
         public void ShowColorsDialog(Entity.Color? Color)
         {
-            Dialogs.ColorDialog frm = new Dialogs.ColorDialog()
+            using (WorkerHandler worker = new WorkerHandler("ShowColorsDialog"))
             {
-                DataContext = Color,
-            };
-            frm.Show();
+                Dialogs.ColorDialog frm = new Dialogs.ColorDialog()
+                {
+                    DataContext = Color,
+                };
+                frm.Show();
+            }
         }
         public void ShowPublishingCountryCoinDialog(Entity.PublishedCountryCoinLink? Link)
         {
-            Dialogs.PublishingCountryCoinDialog frm = new Dialogs.PublishingCountryCoinDialog()
+            using (WorkerHandler worker = new WorkerHandler("ShowPublishingCountryCoinDialog"))
             {
-                DataContext = Link,
-            };
-            frm.Show();
+                Dialogs.PublishingCountryCoinDialog frm = new Dialogs.PublishingCountryCoinDialog()
+                {
+                    DataContext = Link,
+                };
+                frm.Show();
+            }
         }
         public void ShowCoinunits(Entity.Coin? Coin)
         {
-            Dialogs.CoinunitDialog frm = new Dialogs.CoinunitDialog
+            using (WorkerHandler worker = new WorkerHandler("ShowCoinunits"))
             {
-                DataContext = Coin,
-            };
-            frm.Show();
+                Dialogs.CoinunitDialog frm = new Dialogs.CoinunitDialog
+                {
+                    DataContext = Coin,
+                };
+                frm.Show();
+            }
         }
         public void ShowStampDialog(Entity.Stamp? Stamp)
         {
-            Dialogs.StampDialog frm = new Dialogs.StampDialog
+            using (WorkerHandler worker = new WorkerHandler("ShowStampDialog"))
             {
-                DataContext = Stamp,
-            };
-            frm.Show();
+                Dialogs.StampDialog frm = new Dialogs.StampDialog
+                {
+                    DataContext = Stamp,
+                };
+                frm.Show();
+            }
         }
         public void ShowPublishedCountryCategories(Entity.PublishedCountryCategoryLink? PublishedCountryCategory)
         {
-            Dialogs.PublishedcountryCategoryDialog frm = new Dialogs.PublishedcountryCategoryDialog
+            using (WorkerHandler worker = new WorkerHandler("ShowPublishedCountryCategories"))
             {
-                DataContext = PublishedCountryCategory,
-            };
-            frm.Show();
+                Dialogs.PublishedcountryCategoryDialog frm = new Dialogs.PublishedcountryCategoryDialog
+                {
+                    DataContext = PublishedCountryCategory,
+                };
+                frm.Show();
+            }
         }
         public void ShowPublishedCountries(Entity.PublishedCountry? PublishedCountry)
         {
-            Dialogs.PublishedCountryDialog frm = new Dialogs.PublishedCountryDialog
+            using (WorkerHandler worker = new WorkerHandler("ShowPublishedCountries"))
             {
-                DataContext = PublishedCountry,
-            };
-            frm.Show();
+                Dialogs.PublishedCountryDialog frm = new Dialogs.PublishedCountryDialog
+                {
+                    DataContext = PublishedCountry,
+                };
+                frm.Show();
+            }
         }
         public void ShowCategories(Entity.Category? Category)
         {
-            Dialogs.CategoryDialog frm = new Dialogs.CategoryDialog
+            using (WorkerHandler worker = new WorkerHandler("ShowCategories"))
             {
-                DataContext = Category,
-            };
-            frm.Show();
+                Dialogs.CategoryDialog frm = new Dialogs.CategoryDialog
+                {
+                    DataContext = Category,
+                };
+                frm.Show();
+            }
         }
         public void ShowCatalogs(Entity.Catalog? Catalog)
         {
-            Dialogs.CatalogDialog frm = new Dialogs.CatalogDialog
+            using (WorkerHandler worker = new WorkerHandler("ShowCatalogs"))
             {
-                DataContext = Catalog,
-            };
-            frm.Show();
+                Dialogs.CatalogDialog frm = new Dialogs.CatalogDialog
+                {
+                    DataContext = Catalog,
+                };
+                frm.Show();
+            }
         }
         public void ShowCountries(Entity.Country? Country)
         {
-            Dialogs.CountryDialog frm = new Dialogs.CountryDialog
+            using (WorkerHandler worker = new WorkerHandler("ShowCountries"))
             {
-                DataContext = Country,
-            };
-            frm.Show();
+                Dialogs.CountryDialog frm = new Dialogs.CountryDialog
+                {
+                    DataContext = Country,
+                };
+                frm.Show();
+            }
         }
     }
 }

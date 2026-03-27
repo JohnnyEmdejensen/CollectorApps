@@ -11,12 +11,15 @@ namespace Collector.Client.Wpf.Internals
         public string GetContinentName(long? Id)
         {
             string result = "";
-            if (App.DataShare.ContinentList != null)
+            using (WorkerHandler worker = new WorkerHandler("GetContinentName"))
             {
-                var continent = App.DataShare.ContinentList.FirstOrDefault(x => x.Id == Id);
-                if (continent != null)
+                if (App.DataShare.ContinentList != null)
                 {
-                    result = continent.Value;
+                    var continent = App.DataShare.ContinentList.FirstOrDefault(x => x.Id == Id);
+                    if (continent != null)
+                    {
+                        result = continent.Value;
+                    }
                 }
             }
             return result;

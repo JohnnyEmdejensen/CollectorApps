@@ -22,43 +22,73 @@ namespace Collector.Client.Wpf.Internals
 
         public void RaiseColorListChangedEvent()
         {
-            ColorListChanged?.Invoke(this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaiseColorListChangedEvent"))
+            {
+                ColorListChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void RaisePublishedCountryCoinLinksChangedEvent()
         {
-            PublishedCountryCoinLinksChanged?.Invoke(this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaisePublishedCountryCoinLinksChangedEvent"))
+            {
+                PublishedCountryCoinLinksChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void RaiseCoinListChangedEvent()
         {
-            CoinListChanged?.Invoke(this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaiseCoinListChangedEvent"))
+            {
+                CoinListChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void RaisePublishedCountryCategoryListChangedEvent()
         {
-            PublishedCountryCategoryListChanged?.Invoke(this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaisePublishedCountryCategoryListChangedEvent"))
+            {
+                PublishedCountryCategoryListChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void RaisePublishedCountryListChangedEvent()
         {
-            PublishedCountryListChanged?.Invoke(this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaisePublishedCountryListChangedEvent"))
+            {
+                PublishedCountryListChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void RaiseCategoryListChangedEvent()
         {
-            CategoryListChanged?.Invoke(this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaiseCategoryListChangedEvent"))
+            {
+                CategoryListChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void RaiseCatalogListChangedEvent()
         {
-            CatalogListChanged?.Invoke(this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaiseCatalogListChangedEvent"))
+            {
+                CatalogListChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void RaiseCountryListChangedEvent()
         {
-            CountryListChanged?.Invoke (this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaiseCountryListChangedEvent"))
+            {
+                CountryListChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void RaiseContinentListChangedEvent()
         {
-            ContinentListChanged?.Invoke(this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaiseContinentListChangedEvent"))
+            {
+                ContinentListChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void RaiseTranslationSourceChangedEvent()
         {
-            TranslationSourceChanged?.Invoke(this, EventArgs.Empty);
+            using (WorkerHandler worker = new WorkerHandler("RaiseTranslationSourceChangedEvent"))
+            {
+                TranslationSourceChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
 
     }

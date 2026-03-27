@@ -28,47 +28,74 @@ namespace Collector.Client.Wpf.Internals
 
         private void ColorRepository_ColorChanged(object sender, ColorEventArgs e)
         {
-            App.DataShare.GetColors();
+            using (WorkerHandler worker = new WorkerHandler(""))
+            {
+                App.DataShare.GetColors();
+            }
         }
 
         private void PublishedCountryCoinRepository_PublishedCountryCoinLinkChanged(object sender, PublishedCountryCoinLinkEventArgs e)
         {
-            App.DataShare.GetPublishedCountryCoinLinks();
+            using (WorkerHandler worker = new WorkerHandler(""))
+            {
+                App.DataShare.GetPublishedCountryCoinLinks();
+            }
         }
 
         private void CoinRepository_CoinChanged(object sender, CoinEventArgs e)
         {
-            App.DataShare.GetCoins();
+            using (WorkerHandler worker = new WorkerHandler(""))
+            {
+                App.DataShare.GetCoins();
+            }
         }
 
         private void PublishedCountryCategortRepository_PublishedCountryCategoryChanged(object sender, PublishedCountryCategoryEventArgs e)
         {
-            App.DataShare.GetPublishedCountryCategoryLinks();
+            using (WorkerHandler worker = new WorkerHandler(""))
+            {
+                App.DataShare.GetPublishedCountryCategoryLinks();
+            }
         }
 
         private void PublishedcountryRepository_PublishedCountryChanged(object sender, PublishedCountryEventArgs e)
         {
-            App.DataShare.GetPublishedCountries();
+            using (WorkerHandler worker = new WorkerHandler(""))
+            {
+                App.DataShare.GetPublishedCountries();
+            }
         }
 
         private void CategoryRepository_CategoryChanged(object sender, Repository.CategoryEventArgs e)
         {
-            App.DataShare.GetCategories();
+            using (WorkerHandler worker = new WorkerHandler(""))
+            {
+                App.DataShare.GetCategories();
+            }
         }
 
         private void CatalogRepository_CatalogChanged(object sender, Repository.CatalogEventArgs e)
         {
-            App.DataShare.GetCatalogs();
+            using (WorkerHandler worker = new WorkerHandler(""))
+            {
+                App.DataShare.GetCatalogs();
+            }
         }
 
         private void CountryRepository_CountryChanged(object sender, Repository.CountryEventArgs e)
         {
-            App.DataShare.GetCountries();
+            using (WorkerHandler worker = new WorkerHandler(""))
+            {
+                App.DataShare.GetCountries();
+            }
         }
 
         private void ContinentRepository_ContinentChanged(object sender, Repository.ContinentEventArgs e)
         {
-            App.DataShare.GetContinents();
+            using (WorkerHandler worker = new WorkerHandler(""))
+            {
+                App.DataShare.GetContinents();
+            }
         }
     }
 }

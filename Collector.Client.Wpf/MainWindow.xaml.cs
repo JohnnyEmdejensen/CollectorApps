@@ -34,11 +34,17 @@ namespace Collector.Client.Wpf
 
         private void MainWindow_ContentRendered(object? sender, EventArgs e)
         {
-            App.DataShare.Initialize();
+            using (WorkerHandler worker = new WorkerHandler("MainWindow_ContentRendered"))
+            {
+                App.DataShare.Initialize();
+            }
         }
         private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
-            _settings.Save();
+            using (WorkerHandler worker = new WorkerHandler("MainWindow_Closing"))
+            {
+                _settings.Save();
+            }
         }
 
         private void DgStamps_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -48,25 +54,34 @@ namespace Collector.Client.Wpf
 
         private void tglStampview_Click(object sender, RoutedEventArgs e)
         {
-            tglStampview.IsChecked = true;
-            tglStockview.IsChecked = false;
-            grdStampView.Visibility = Visibility.Visible;
-            grdStockView.Visibility = Visibility.Collapsed;
+            using (WorkerHandler worker = new WorkerHandler("tglStampview_Click"))
+            {
+                tglStampview.IsChecked = true;
+                tglStockview.IsChecked = false;
+                grdStampView.Visibility = Visibility.Visible;
+                grdStockView.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void tglStockview_Click(object sender, RoutedEventArgs e)
         {
-            tglStampview.IsChecked = false;
-            tglStockview.IsChecked = true;
-            grdStampView.Visibility = Visibility.Collapsed;
-            grdStockView.Visibility = Visibility.Visible;
+            using (WorkerHandler worker = new WorkerHandler("tglStockview_Click"))
+            {
+                tglStampview.IsChecked = false;
+                tglStockview.IsChecked = true;
+                grdStampView.Visibility = Visibility.Collapsed;
+                grdStockView.Visibility = Visibility.Visible;
+            }
         }
         private void EventHelper_TranslationSourceChanged(object sender, EventArgs e)
         {
-            ResourceDictionary disc = Application.Current.Resources.MergedDictionaries[1];
-            foreach (var columns in dgStamps.Columns)
+            using (WorkerHandler worker = new WorkerHandler("EventHelper_TranslationSourceChanged"))
             {
-                var t = columns.Header.ToString();
+                ResourceDictionary disc = Application.Current.Resources.MergedDictionaries[1];
+                foreach (var columns in dgStamps.Columns)
+                {
+                    var t = columns.Header.ToString();
+                }
             }
         }
 
@@ -116,26 +131,41 @@ namespace Collector.Client.Wpf
 
         private void btnCountries_Click(object sender, RoutedEventArgs e)
         {
-            App.FormHelper.ShowCountries(null);
+            using (WorkerHandler worker = new WorkerHandler("btnCountries_Click"))
+            {
+                App.FormHelper.ShowCountries(null);
+            }
         }
         private void btnCatalogs_Click(object sender, RoutedEventArgs e)
         {
-            App.FormHelper.ShowCatalogs(null);
+            using (WorkerHandler worker = new WorkerHandler("btnCatalogs_Click"))
+            {
+                App.FormHelper.ShowCatalogs(null);
+            }
         }
 
         private void btnCategories_Click(object sender, RoutedEventArgs e)
         {
-            App.FormHelper.ShowCategories(null);
+            using (WorkerHandler worker = new WorkerHandler("btnCategories_Click"))
+            {
+                App.FormHelper.ShowCategories(null);
+            }
         }
 
         private void btnIssuedCountries_Click(object sender, RoutedEventArgs e)
         {
-            App.FormHelper.ShowPublishedCountries(null);
+            using (WorkerHandler worker = new WorkerHandler("btnIssuedCountries_Click"))
+            {
+                App.FormHelper.ShowPublishedCountries(null);
+            }
         }
 
         private void btnPublishedCountries_Click(object sender, RoutedEventArgs e)
         {
-            App.FormHelper.ShowPublishedCountries(null);
+            using (WorkerHandler worker = new WorkerHandler("btnPublishedCountries_Click"))
+            {
+                App.FormHelper.ShowPublishedCountries(null);
+            }
         }
 
         private void btnPublishedCountryCategories_Click(object sender, RoutedEventArgs e)
@@ -145,22 +175,34 @@ namespace Collector.Client.Wpf
 
         private void btnCreateStamp_Click(object sender, RoutedEventArgs e)
         {
-            App.FormHelper.ShowStampDialog(new());
+            using (WorkerHandler worker = new WorkerHandler("btnCreateStamp_Click"))
+            {
+                App.FormHelper.ShowStampDialog(new());
+            }
         }
 
         private void btnCoins_Click(object sender, RoutedEventArgs e)
         {
-            App.FormHelper.ShowCoinunits(null);
+            using (WorkerHandler worker = new WorkerHandler("btnCoins_Click"))
+            {
+                App.FormHelper.ShowCoinunits(null);
+            }
         }
 
         private void btnPubCountryCoins_Click(object sender, RoutedEventArgs e)
         {
-            App.FormHelper.ShowPublishingCountryCoinDialog(null);
+            using (WorkerHandler worker = new WorkerHandler("btnPubCountryCoins_Click"))
+            {
+                App.FormHelper.ShowPublishingCountryCoinDialog(null);
+            }
         }
 
         private void btnColors_Click(object sender, RoutedEventArgs e)
         {
-            App.FormHelper.ShowColorsDialog(null);
+            using (WorkerHandler worker = new WorkerHandler("btnColors_Click"))
+            {
+                App.FormHelper.ShowColorsDialog(null);
+            }
         }
 
         private void btnDumbWorker_Click(object sender, RoutedEventArgs e)
@@ -178,7 +220,7 @@ namespace Collector.Client.Wpf
                             indent = indent.Substring(0, indent.Length - 2);
                         }
                     }
-                    sb.AppendLine(item.Timer.ToString() + indent + item.Name );
+                    sb.AppendLine(item.Timer.ToString() + " " + indent + item.Name );
                     if (item.Status == WorkerItemStatus.Startet)
                     {
                         indent += "  ";
