@@ -260,5 +260,13 @@ namespace Collector.Client.Wpf
                 }
             }
         }
+
+        private void btnWatermarks_Click(object sender, RoutedEventArgs e)
+        {
+            using (WorkerHandler worker = new WorkerHandler("btnWatermarks_Click"))
+            {
+                App.FormHelper.ShowWatermarkDialog(null);
+            }
+        }
     }
 }

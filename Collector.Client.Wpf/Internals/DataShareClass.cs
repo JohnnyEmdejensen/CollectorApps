@@ -22,6 +22,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Color>? ColorList { get; set; }
         public List<Entity.Stamp>? StampList { get; set; }
         public List<ViewModel.StampModel>? StampModelList { get; set; }
+        public List<Entity.Watermark>? WatermarkList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -40,6 +41,7 @@ namespace Collector.Client.Wpf.Internals
                 GetCoins();
                 GetPublishedCountryCoinLinks();
                 GetColors();
+                GetWatermarks();
                 GetStamps();
             }
         }
@@ -81,6 +83,18 @@ namespace Collector.Client.Wpf.Internals
                     StampModelList = StampModelList.OrderBy(x => x.SortField).ToList();
                     App.EventHelper.RaiseStampModelListChangedEvent();
                 }
+            }
+        }
+
+        public void GetWatermarks()
+        {
+            using (WorkerHandler worker = new WorkerHandler("GetWatermarks"))
+            {
+                WatermarkList = App.AppShare.Repositories.WatermarkRepository.GetAll();
+                if (WatermarkList != null)
+                    WatermarkList = WatermarkList.OrderBy(x => x.Value).ToList();
+                App.EventHelper.RaiseWatermarkListChangedEvent();
+
             }
         }
         public void GetColors()

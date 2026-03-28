@@ -8,6 +8,17 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowWatermarkDialog(Entity.Watermark? Watermark)
+        {
+            using (WorkerHandler worker = new WorkerHandler("ShowWatermarkDialog"))
+            {
+                Dialogs.WatermarkDialog frm = new Dialogs.WatermarkDialog()
+                {
+                    DataContext = Watermark,
+                };
+                frm.Show();
+            }
+        }
         public void ShowColorsDialog(Entity.Color? Color)
         {
             using (WorkerHandler worker = new WorkerHandler("ShowColorsDialog"))

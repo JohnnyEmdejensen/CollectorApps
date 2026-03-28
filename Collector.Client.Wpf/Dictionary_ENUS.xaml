@@ -22,6 +22,7 @@
     <system:String x:Key="ribbon.button.data.coins.header">Coin units</system:String>
     <system:String x:Key="ribbon.button.data.pubcountrycoins.header">Pub.country Coinunits</system:String>
     <system:String x:Key="ribbon.button.data.colors.header">Colors</system:String>
+    <system:String x:Key="ribbon.button.data.watermarks.header">Watermarks</system:String>
 
     <system:String x:Key="dgstamps.header.publishingcountry">Pub.Country</system:String>
     <system:String x:Key="dgstamps.header.country">Country</system:String>
@@ -75,6 +76,8 @@
     <system:String x:Key="colordialog.columnheader.value">Value</system:String>
 
     <system:String x:Key="coinunitdialog.title">Coin units</system:String>
+
+    <system:String x:Key="watermarkdialog.title">Watermarks</system:String>
 
 
     <system:String x:Key="categorydialog.header.value">VALUE</system:String>

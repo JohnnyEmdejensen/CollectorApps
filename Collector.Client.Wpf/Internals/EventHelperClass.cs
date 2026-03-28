@@ -20,7 +20,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? PublishedCountryCoinLinksChanged;
         public event DefaultHandler? ColorListChanged;
         public event DefaultHandler? StampModelListChanged;
+        public event DefaultHandler? WatermarkListChanged;
 
+        public void RaiseWatermarkListChangedEvent()
+        {
+            WatermarkListChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseStampModelListChangedEvent()
         {
             StampModelListChanged?.Invoke(this, EventArgs.Empty);

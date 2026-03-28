@@ -26,6 +26,15 @@ namespace Collector.Client.Wpf.Internals
             Repositories.CoinRepository.CoinChanged += CoinRepository_CoinChanged;
             Repositories.PublishedCountryCoinRepository.PublishedCountryCoinLinkChanged += PublishedCountryCoinRepository_PublishedCountryCoinLinkChanged;
             Repositories.ColorRepository.ColorChanged += ColorRepository_ColorChanged;
+            Repositories.WatermarkRepository.WatermarkChanged += WatermarkRepository_WatermarkChanged;
+        }
+
+        private void WatermarkRepository_WatermarkChanged(object sender, WatermarkEventArgs e)
+        {
+            using (WorkerHandler worker = new WorkerHandler("WatermarkRepository_WatermarkChanged"))
+            {
+                App.DataShare.GetWatermarks();
+            }
         }
 
         private void ColorRepository_ColorChanged(object sender, ColorEventArgs e)

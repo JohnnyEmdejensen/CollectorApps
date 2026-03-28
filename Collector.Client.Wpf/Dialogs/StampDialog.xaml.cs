@@ -70,7 +70,16 @@ namespace Collector.Client.Wpf.Dialogs
                 FillCategoryControl();
                 FillCoinunits();
                 FillColors();
+                FillWatermarks();
             }
+        }
+        private void FillWatermarks()
+        {
+            cboWatermark.BeginInit();
+            cboWatermark.ItemsSource = App.DataShare.WatermarkList;
+            cboWatermark.DisplayMemberPath = "Value";
+            cboWatermark.SelectedValuePath = "Id";
+            cboWatermark.EndInit();
         }
         private void FillColors()
         {
@@ -134,6 +143,7 @@ namespace Collector.Client.Wpf.Dialogs
             btnDelete.IsEnabled = false;
             btnAddStock.IsEnabled = false;
             btnAddImage.IsEnabled = false;
+            btnOpenImage.IsEnabled = false;
             if (_stamp != null)
             {
                 if (_stamp.Id == 0)
@@ -147,6 +157,7 @@ namespace Collector.Client.Wpf.Dialogs
                     btnDelete.IsEnabled = true;
                     btnAddStock.IsEnabled = true;
                     btnAddImage.IsEnabled = true;
+                    btnOpenImage.IsEnabled = true;
                 }
             }
             else
@@ -267,6 +278,14 @@ namespace Collector.Client.Wpf.Dialogs
         private void btnOpenImage_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void lblWatermark_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            using (WorkerHandler worker = new WorkerHandler("lblWatermark_MouseDown"))
+            {
+                App.FormHelper.ShowWatermarkDialog(new());
+            }
         }
     }
 }
