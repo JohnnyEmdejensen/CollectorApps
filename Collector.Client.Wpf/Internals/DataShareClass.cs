@@ -26,6 +26,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Topic>? TopicList { get; set; }
         public List<Entity.Condition>? ConditionList { get; set; }
         public List<Entity.Location>? LocationList { get; set; }
+        public List<Entity.Supplier>? SupplierList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -52,6 +53,16 @@ namespace Collector.Client.Wpf.Internals
             }
         }
 
+        public void GetSuppliers()
+        {
+            using (new WorkerHandler("GetSuppliers"))
+            {
+                SupplierList = App.AppShare.Repositories.SupplierRepository.GetAll();
+                if (SupplierList != null) 
+                    SupplierList = SupplierList.OrderBy(x => x.Value).ToList();
+                App.EventHelper.RaiseSupplierListChangedEvent();
+            }
+        }
         public void GetLocations()
         {
             using (new WorkerHandler("GetLocations"))

@@ -24,7 +24,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? TopicListChanged;
         public event DefaultHandler? ConditionListChanged;
         public event DefaultHandler? LocationListChanged;
+        public event DefaultHandler? SupplierListChanged;
 
+        public void RaiseSupplierListChangedEvent()
+        {
+            SupplierListChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseLocationListChangedEvent()
         {
             LocationListChanged?.Invoke(this, EventArgs.Empty);

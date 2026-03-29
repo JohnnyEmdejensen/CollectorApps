@@ -30,6 +30,15 @@ namespace Collector.Client.Wpf.Internals
             Repositories.TopicRepository.TopicChanged += TopicRepository_TopicChanged;
             Repositories.ConditionRepository.ConditionChanged += ConditionRepository_ConditionChanged;
             Repositories.LocationRepository.LocationChanged += LocationRepository_LocationChanged;
+            Repositories.SupplierRepository.SupplierChanged += SupplierRepository_SupplierChanged;
+        }
+
+        private void SupplierRepository_SupplierChanged(object sender, SupplierEventArgs e)
+        {
+            using (new WorkerHandler("SupplierRepository_SupplierChanged"))
+            {
+                App.DataShare.GetSuppliers();
+            }
         }
 
         private void LocationRepository_LocationChanged(object sender, LocationEventArgs e)

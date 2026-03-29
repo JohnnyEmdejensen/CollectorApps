@@ -25,8 +25,10 @@ namespace Collector.Repository
             TopicRepository = new TopicRepository();
             ConditionRepository = new ConditionRepository();
             LocationRepository = new LocationRepository();
+            SupplierRepository = new SupplierRepository();
         }
 
+        public SupplierRepository SupplierRepository { get; set; }
         public LocationRepository LocationRepository { get; set; }
         public ConditionRepository ConditionRepository { get; set; }
         public TopicRepository TopicRepository { get; set; }
