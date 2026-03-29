@@ -8,6 +8,14 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowTopicsDialog(Entity.Topic? Topic)
+        {
+            Dialogs.TopicDialog frm = new Dialogs.TopicDialog()
+            {
+                DataContext = Topic,
+            };
+            frm.Show();
+        }
         public void ShowWatermarkDialog(Entity.Watermark? Watermark)
         {
             using (WorkerHandler worker = new WorkerHandler("ShowWatermarkDialog"))

@@ -23,6 +23,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Stamp>? StampList { get; set; }
         public List<ViewModel.StampModel>? StampModelList { get; set; }
         public List<Entity.Watermark>? WatermarkList { get; set; }
+        public List<Entity.Topic>? TopicList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -42,6 +43,7 @@ namespace Collector.Client.Wpf.Internals
                 GetPublishedCountryCoinLinks();
                 GetColors();
                 GetWatermarks();
+                GetTopics();
                 GetStamps();
             }
         }
@@ -86,6 +88,16 @@ namespace Collector.Client.Wpf.Internals
             }
         }
 
+        public void GetTopics()
+        {
+            using (new WorkerHandler("GetTopics"))
+            {
+                TopicList = App.AppShare.Repositories.TopicRepository.GetAll();
+                if (TopicList != null)
+                    TopicList = TopicList.OrderBy(x => x.Value).ToList();
+                App.EventHelper.RaiseTopicListChangedEvent();
+            }
+        }
         public void GetWatermarks()
         {
             using (WorkerHandler worker = new WorkerHandler("GetWatermarks"))

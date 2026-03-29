@@ -233,7 +233,7 @@
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Label x:Name="lblColor" MouseDown="lblColor_MouseDown" Cursor="Hand" Content="{DynamicResource stampdialog.header.color}" Style="{StaticResource LabelHeaderClickAble}"></Label>
-                                <Label Grid.Column="2" Content="{DynamicResource stampdialog.header.topic}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label x:Name="lblTopic" MouseDown="lblTopic_MouseDown" Cursor="Hand" Grid.Column="2" Content="{DynamicResource stampdialog.header.topic}" Style="{StaticResource LabelHeaderClickAble}"></Label>
                             </Grid>
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>

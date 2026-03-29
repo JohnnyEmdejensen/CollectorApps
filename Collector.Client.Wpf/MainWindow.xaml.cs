@@ -268,5 +268,13 @@ namespace Collector.Client.Wpf
                 App.FormHelper.ShowWatermarkDialog(null);
             }
         }
+
+        private void btnTopocs_Click(object sender, RoutedEventArgs e)
+        {
+            using (new WorkerHandler("btnTopocs_Click"))
+            {
+                App.FormHelper.ShowTopicsDialog(null);
+            }
+        }
     }
 }

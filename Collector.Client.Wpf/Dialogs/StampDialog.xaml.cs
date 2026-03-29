@@ -36,9 +36,11 @@ namespace Collector.Client.Wpf.Dialogs
             App.EventHelper.CatalogListChanged += EventHelper_CatalogListChanged;
             App.EventHelper.CategoryListChanged += EventHelper_CategoryListChanged;
             App.EventHelper.PublishedCountryListChanged += EventHelper_PublishedCountryListChanged;
+            App.EventHelper.TopicListChanged += EventHelper_TopicListChanged;
             FillControls();
             _settings.Load();
         }
+
 
         private void DoSave(bool CloseAfter)
         {
@@ -71,6 +73,7 @@ namespace Collector.Client.Wpf.Dialogs
                 FillCoinunits();
                 FillColors();
                 FillWatermarks();
+                FillTopicControl();
             }
         }
         private void FillWatermarks()
@@ -123,6 +126,17 @@ namespace Collector.Client.Wpf.Dialogs
                 cboCatalog.DisplayMemberPath = "Value";
                 cboCatalog.SelectedValuePath = "Id";
                 cboCatalog.EndInit();
+            }
+        }
+        private void FillTopicControl()
+        {
+            using (new WorkerHandler("FillTopicControl"))
+            {
+                cboTopic.BeginInit();
+                cboTopic.ItemsSource = App.DataShare.TopicList;
+                cboTopic.DisplayMemberPath = "Value";
+                cboTopic.SelectedValuePath = "Id";
+                cboTopic.EndInit();
             }
         }
         private void FillPublishedCountryControl()
@@ -248,6 +262,13 @@ namespace Collector.Client.Wpf.Dialogs
         {
             FillPublishedCountryControl();
         }
+        private void EventHelper_TopicListChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_TopicListChanged"))
+            {
+                FillTopicControl();
+            }
+        }
 
         private void lblColor_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -285,6 +306,14 @@ namespace Collector.Client.Wpf.Dialogs
             using (WorkerHandler worker = new WorkerHandler("lblWatermark_MouseDown"))
             {
                 App.FormHelper.ShowWatermarkDialog(new());
+            }
+        }
+
+        private void lblTopic_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            using (new WorkerHandler("lblTopic_MouseDown"))
+            {
+                App.FormHelper.ShowTopicsDialog(new());
             }
         }
     }

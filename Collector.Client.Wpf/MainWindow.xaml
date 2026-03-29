@@ -8,13 +8,17 @@
         Title="{DynamicResource window.main.title}" Tag="Desktop" MinHeight="800" MinWidth="1200" Background="{DynamicResource PrimaryBackground}" Icon="/Images/books_48.png">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="140"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="1"></RowDefinition>
             <RowDefinition Height="1"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
-        <Ribbon x:Name="ribMain" Grid.Row="0" Background="{DynamicResource PrimaryBackground}">
+        <StackPanel VerticalAlignment="Top" Height="2">
+            <Label Style="{StaticResource DarkLine}"></Label>
+            <Label Style="{StaticResource LightLine}"></Label>
+        </StackPanel>
+        <Ribbon x:Name="ribMain" Grid.Row="0" Margin="0,2,0,0" Background="{DynamicResource PrimaryBackground}">
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu>
                     <RibbonApplicationMenuItem Header="Add" ImageSource="/Images/add_32.png"></RibbonApplicationMenuItem>
@@ -40,6 +44,7 @@
                     <RibbonButton x:Name="btnPubCountryCoins" Click="btnPubCountryCoins_Click" Label="{DynamicResource ribbon.button.data.pubcountrycoins.header}" LargeImageSource="/Images/currency_dollar_32.png" SmallImageSource="/Images/currency_dollar_16.png"></RibbonButton>
                     <RibbonButton x:Name="btnColors" Click="btnColors_Click" Label="{DynamicResource ribbon.button.data.colors.header}" LargeImageSource="/Images/palette_32.png" SmallImageSource="/Images/palette_16.png"></RibbonButton>
                     <RibbonButton x:Name="btnWatermarks" Click="btnWatermarks_Click" Label="{DynamicResource ribbon.button.data.watermarks.header}" LargeImageSource="/Images/step_32.png" SmallImageSource="/Images/step_16.png"></RibbonButton>
+                    <RibbonButton x:Name="btnTopocs" Click="btnTopocs_Click" Label="{DynamicResource ribbon.button.data.watermarks.header}" LargeImageSource="/Images/star_blue_32.png" SmallImageSource="/Images/star_blue_16.png"></RibbonButton>
                 </RibbonGroup>
                 <RibbonGroup Header="{DynamicResource ribbon.group.languages.header}">
                     <RibbonToggleButton Label="English" IsChecked="True" x:Name="btnLanUK" Click="btnLanUK_Click" LargeImageSource="Images/Flags/flag_great_britain_32.png" SmallImageSource="Images/Flags/flag_great_britain_16.png"></RibbonToggleButton>

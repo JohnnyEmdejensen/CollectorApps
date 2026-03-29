@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Collector.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,10 @@ namespace Collector.Repository
             ColorRepository = new ColorRepository();
             StampRepository = new StampRepository();
             WatermarkRepository = new WatermarkRepository();
+            TopicRepository = new TopicRepository();
         }
 
+        public TopicRepository TopicRepository { get; set; }
         public WatermarkRepository WatermarkRepository { get; set; }
         public StampRepository StampRepository { get; set; }
         public ColorRepository ColorRepository { get; set; }

@@ -21,7 +21,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? ColorListChanged;
         public event DefaultHandler? StampModelListChanged;
         public event DefaultHandler? WatermarkListChanged;
+        public event DefaultHandler? TopicListChanged;
 
+        public void RaiseTopicListChangedEvent()
+        {
+            TopicListChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseWatermarkListChangedEvent()
         {
             WatermarkListChanged?.Invoke(this, EventArgs.Empty);
