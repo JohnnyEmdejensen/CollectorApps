@@ -31,6 +31,15 @@ namespace Collector.Client.Wpf.Internals
             Repositories.ConditionRepository.ConditionChanged += ConditionRepository_ConditionChanged;
             Repositories.LocationRepository.LocationChanged += LocationRepository_LocationChanged;
             Repositories.SupplierRepository.SupplierChanged += SupplierRepository_SupplierChanged;
+            Repositories.SupplierDealRepository.SupplierDealChanged += SupplierDealRepository_SupplierDealChanged;
+        }
+
+        private void SupplierDealRepository_SupplierDealChanged(object sender, SupplierDealEventArgs e)
+        {
+            using (new WorkerHandler("SupplierDealRepository_SupplierDealChanged"))
+            {
+                App.DataShare.GetSupplierDeals();
+            }
         }
 
         private void SupplierRepository_SupplierChanged(object sender, SupplierEventArgs e)
