@@ -24,8 +24,10 @@ namespace Collector.Repository
             WatermarkRepository = new WatermarkRepository();
             TopicRepository = new TopicRepository();
             ConditionRepository = new ConditionRepository();
+            LocationRepository = new LocationRepository();
         }
 
+        public LocationRepository LocationRepository { get; set; }
         public ConditionRepository ConditionRepository { get; set; }
         public TopicRepository TopicRepository { get; set; }
         public WatermarkRepository WatermarkRepository { get; set; }

@@ -25,6 +25,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Watermark>? WatermarkList { get; set; }
         public List<Entity.Topic>? TopicList { get; set; }
         public List<Entity.Condition>? ConditionList { get; set; }
+        public List<Entity.Location>? LocationList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -46,7 +47,19 @@ namespace Collector.Client.Wpf.Internals
                 GetWatermarks();
                 GetTopics();
                 GetConditions();
+                GetLocations();
                 GetStamps();
+            }
+        }
+
+        public void GetLocations()
+        {
+            using (new WorkerHandler("GetLocations"))
+            {
+                LocationList = App.AppShare.Repositories.LocationRepository.GetAll();
+                if (LocationList != null)
+                    LocationList = LocationList.OrderBy(x => x.Value).ToList();
+                App.EventHelper.RaiseLocationListChangedEvent();
             }
         }
 

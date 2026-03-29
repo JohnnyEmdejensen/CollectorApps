@@ -29,6 +29,15 @@ namespace Collector.Client.Wpf.Internals
             Repositories.WatermarkRepository.WatermarkChanged += WatermarkRepository_WatermarkChanged;
             Repositories.TopicRepository.TopicChanged += TopicRepository_TopicChanged;
             Repositories.ConditionRepository.ConditionChanged += ConditionRepository_ConditionChanged;
+            Repositories.LocationRepository.LocationChanged += LocationRepository_LocationChanged;
+        }
+
+        private void LocationRepository_LocationChanged(object sender, LocationEventArgs e)
+        {
+            using (new WorkerHandler("LocationRepository_LocationChanged"))
+            {
+                App.DataShare.GetLocations();
+            }
         }
 
         private void ConditionRepository_ConditionChanged(object sender, ConditionEventArgs e)

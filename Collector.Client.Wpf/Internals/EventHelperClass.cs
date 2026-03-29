@@ -23,7 +23,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? WatermarkListChanged;
         public event DefaultHandler? TopicListChanged;
         public event DefaultHandler? ConditionListChanged;
+        public event DefaultHandler? LocationListChanged;
 
+        public void RaiseLocationListChangedEvent()
+        {
+            LocationListChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseConditionListChangedEvent()
         {
             ConditionListChanged?.Invoke(this, EventArgs.Empty);
