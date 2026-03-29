@@ -28,6 +28,15 @@ namespace Collector.Client.Wpf.Internals
             Repositories.ColorRepository.ColorChanged += ColorRepository_ColorChanged;
             Repositories.WatermarkRepository.WatermarkChanged += WatermarkRepository_WatermarkChanged;
             Repositories.TopicRepository.TopicChanged += TopicRepository_TopicChanged;
+            Repositories.ConditionRepository.ConditionChanged += ConditionRepository_ConditionChanged;
+        }
+
+        private void ConditionRepository_ConditionChanged(object sender, ConditionEventArgs e)
+        {
+            using (new WorkerHandler("ConditionRepository_ConditionChanged"))
+            {
+                App.DataShare.GetConditions();
+            }
         }
 
         private void TopicRepository_TopicChanged(object sender, TopicEventArgs e)

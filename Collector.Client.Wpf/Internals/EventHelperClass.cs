@@ -22,7 +22,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? StampModelListChanged;
         public event DefaultHandler? WatermarkListChanged;
         public event DefaultHandler? TopicListChanged;
+        public event DefaultHandler? ConditionListChanged;
 
+        public void RaiseConditionListChangedEvent()
+        {
+            ConditionListChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseTopicListChangedEvent()
         {
             TopicListChanged?.Invoke(this, EventArgs.Empty);

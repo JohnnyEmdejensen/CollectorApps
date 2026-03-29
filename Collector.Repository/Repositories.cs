@@ -23,8 +23,10 @@ namespace Collector.Repository
             StampRepository = new StampRepository();
             WatermarkRepository = new WatermarkRepository();
             TopicRepository = new TopicRepository();
+            ConditionRepository = new ConditionRepository();
         }
 
+        public ConditionRepository ConditionRepository { get; set; }
         public TopicRepository TopicRepository { get; set; }
         public WatermarkRepository WatermarkRepository { get; set; }
         public StampRepository StampRepository { get; set; }

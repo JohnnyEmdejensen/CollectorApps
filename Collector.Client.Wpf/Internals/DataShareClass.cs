@@ -24,6 +24,7 @@ namespace Collector.Client.Wpf.Internals
         public List<ViewModel.StampModel>? StampModelList { get; set; }
         public List<Entity.Watermark>? WatermarkList { get; set; }
         public List<Entity.Topic>? TopicList { get; set; }
+        public List<Entity.Condition>? ConditionList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -44,10 +45,18 @@ namespace Collector.Client.Wpf.Internals
                 GetColors();
                 GetWatermarks();
                 GetTopics();
+                GetConditions();
                 GetStamps();
             }
         }
 
+        public void GetConditions()
+        {
+            ConditionList = App.AppShare.Repositories.ConditionRepository.GetAll();
+            if (ConditionList != null)
+                ConditionList = ConditionList.OrderBy(x => x.Value).ToList();
+            App.EventHelper.RaiseConditionListChangedEvent();
+        }
         public void GetStamps()
         {
             using (WorkerHandler worker = new WorkerHandler("GetStamps"))

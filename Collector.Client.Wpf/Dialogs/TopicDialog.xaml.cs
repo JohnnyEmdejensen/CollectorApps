@@ -129,6 +129,13 @@ namespace Collector.Client.Wpf.Dialogs
                         DoSave(false);
                     }
                 }
+                if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift))
+                {
+                    if (e.Key == Key.S)
+                    {
+                        DoSave(true);
+                    }
+                }
             }
         }
 
