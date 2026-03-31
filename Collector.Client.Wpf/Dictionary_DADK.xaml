@@ -24,6 +24,8 @@
     <system:String x:Key="ribbon.button.data.colors.header">Farver</system:String>
     <system:String x:Key="ribbon.button.data.watermarks.header">Vandmærker</system:String>
     <system:String x:Key="ribbon.button.data.topics.header">Emner</system:String>
+    <system:String x:Key="ribbon.button.data.conditions.header">Kvalitet</system:String>
+    <system:String x:Key="ribbon.button.data.location.header">Lokationer</system:String>
 
     <system:String x:Key="dgstamps.header.publishingcountry">Udg. land</system:String>
     <system:String x:Key="dgstamps.header.country">Land</system:String>
@@ -80,6 +82,9 @@
 
     <system:String x:Key="topicdialog.title">Emner</system:String>
 
+    <system:String x:Key="conditiondialog.title">Stand</system:String>
+
+    <system:String x:Key="locationdialog.title">Lokationer</system:String>
 
     <system:String x:Key="categorydialog.header.value">VÆRDI</system:String>
     <system:String x:Key="categorydialog.header.ukvalue">VÆRDI (UK)</system:String>

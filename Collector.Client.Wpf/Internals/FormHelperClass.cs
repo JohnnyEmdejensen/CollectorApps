@@ -8,6 +8,22 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowLocationsDialog(Entity.Location? Location)
+        {
+            Dialogs.LocationDialog frm = new Dialogs.LocationDialog()
+            {
+                DataContext = Location,
+            };
+            frm.Show();
+        }
+        public void ShowConditions(Entity.Condition? Condition)
+        {
+            Dialogs.ConditionDialog frm = new Dialogs.ConditionDialog()
+            {
+                DataContext = Condition,
+            };
+            frm.Show();
+        }
         public void ShowTopicsDialog(Entity.Topic? Topic)
         {
             Dialogs.TopicDialog frm = new Dialogs.TopicDialog()

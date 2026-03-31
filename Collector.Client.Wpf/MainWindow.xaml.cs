@@ -276,5 +276,26 @@ namespace Collector.Client.Wpf
                 App.FormHelper.ShowTopicsDialog(null);
             }
         }
+
+        private void btnConditions_Click(object sender, RoutedEventArgs e)
+        {
+            using (new WorkerHandler("btnConditions_Click"))
+            {
+                App.FormHelper.ShowConditions(null);
+            }
+        }
+
+        private void btnLocations_Click(object sender, RoutedEventArgs e)
+        {
+            using (new WorkerHandler("btnLocations_Click"))
+            {
+                App.FormHelper.ShowLocationsDialog(null);
+            }
+        }
+
+        private void btnSuppliers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
