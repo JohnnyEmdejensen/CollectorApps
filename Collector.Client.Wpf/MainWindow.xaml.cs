@@ -295,7 +295,18 @@ namespace Collector.Client.Wpf
 
         private void btnSuppliers_Click(object sender, RoutedEventArgs e)
         {
+            using (new WorkerHandler("btnSuppliers_Click"))
+            {
+                App.FormHelper.ShowSuppliersDialog(null);
+            }
+        }
 
+        private void btnSupplierDeals_Click(object sender, RoutedEventArgs e)
+        {
+            using (new WorkerHandler("btnSupplierDeals_Click"))
+            {
+                App.FormHelper.ShowSupplierdealsDialog(null);
+            }
         }
     }
 }

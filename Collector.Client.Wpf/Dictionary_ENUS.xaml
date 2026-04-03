@@ -26,6 +26,8 @@
     <system:String x:Key="ribbon.button.data.topics.header">Topics</system:String>
     <system:String x:Key="ribbon.button.data.conditions.header">Conditions</system:String>
     <system:String x:Key="ribbon.button.data.location.header">Locations</system:String>
+    <system:String x:Key="ribbon.button.data.suppliers.header">Suppliers</system:String>
+    <system:String x:Key="ribbon.button.data.supplierdeals.header">Supplierdeals</system:String>
 
     <system:String x:Key="dgstamps.header.publishingcountry">Pub.Country</system:String>
     <system:String x:Key="dgstamps.header.country">Country</system:String>
@@ -88,6 +90,13 @@
     
     <system:String x:Key="locationdialog.title">Locations</system:String>
 
+    <system:String x:Key="supplierdialog.title">Suppliers</system:String>
+
+    <system:String x:Key="supplierdealdialog.title">Supplierdeals</system:String>
+    <system:String x:Key="supplierdealdialog.header.supplier">SUPPLIER</system:String>
+    <system:String x:Key="supplierdealdialog.header.price">PRICE</system:String>
+
+    
 
     <system:String x:Key="categorydialog.header.value">VALUE</system:String>
     <system:String x:Key="categorydialog.header.ukvalue">VALUE (UK)</system:String>

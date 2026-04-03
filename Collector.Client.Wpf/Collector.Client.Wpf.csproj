@@ -38,6 +38,10 @@
     <None Remove="Images\briefcase2_24.png" />
     <None Remove="Images\briefcase2_32.png" />
     <None Remove="Images\briefcase2_48.png" />
+    <None Remove="Images\briefcase2_document_16.png" />
+    <None Remove="Images\briefcase2_document_24.png" />
+    <None Remove="Images\briefcase2_document_32.png" />
+    <None Remove="Images\briefcase2_document_48.png" />
     <None Remove="Images\cabinet_16.png" />
     <None Remove="Images\cabinet_24.png" />
     <None Remove="Images\cabinet_32.png" />
@@ -159,6 +163,10 @@
     <Resource Include="Images\briefcase2_24.png" />
     <Resource Include="Images\briefcase2_32.png" />
     <Resource Include="Images\briefcase2_48.png" />
+    <Resource Include="Images\briefcase2_document_16.png" />
+    <Resource Include="Images\briefcase2_document_24.png" />
+    <Resource Include="Images\briefcase2_document_32.png" />
+    <Resource Include="Images\briefcase2_document_48.png" />
     <Resource Include="Images\cabinet_16.png" />
     <Resource Include="Images\cabinet_24.png" />
     <Resource Include="Images\cabinet_32.png" />

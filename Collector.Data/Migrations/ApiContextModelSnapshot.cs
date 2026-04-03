@@ -666,6 +666,9 @@ namespace Collector.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
                     b.Property<long>("SupplierId")
                         .HasColumnType("bigint");
 

@@ -8,6 +8,22 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowSupplierdealsDialog(Entity.Supplierdeal? Supplierdeal)
+        {
+            Dialogs.SupplierDealDialog frm = new Dialogs.SupplierDealDialog()
+            {
+                DataContext = Supplierdeal,
+            };
+            frm.Show();
+        }
+        public void ShowSuppliersDialog(Entity.Supplier? Supplier)
+        {
+            Dialogs.SupplierDialog frm = new Dialogs.SupplierDialog()
+            {
+                DataContext = Supplier,
+            };
+            frm.Show();
+        }
         public void ShowLocationsDialog(Entity.Location? Location)
         {
             Dialogs.LocationDialog frm = new Dialogs.LocationDialog()

@@ -26,6 +26,8 @@
     <system:String x:Key="ribbon.button.data.topics.header">Emner</system:String>
     <system:String x:Key="ribbon.button.data.conditions.header">Kvalitet</system:String>
     <system:String x:Key="ribbon.button.data.location.header">Lokationer</system:String>
+    <system:String x:Key="ribbon.button.data.suppliers.header">Leverandører</system:String>
+    <system:String x:Key="ribbon.button.data.supplierdeals.header">Leverandørhandler</system:String>
 
     <system:String x:Key="dgstamps.header.publishingcountry">Udg. land</system:String>
     <system:String x:Key="dgstamps.header.country">Land</system:String>
@@ -85,6 +87,12 @@
     <system:String x:Key="conditiondialog.title">Stand</system:String>
 
     <system:String x:Key="locationdialog.title">Lokationer</system:String>
+
+    <system:String x:Key="supplierdialog.title">Leverandører</system:String>
+    
+    <system:String x:Key="supplierdealdialog.title">Leverandørhandler</system:String>
+    <system:String x:Key="supplierdealdialog.header.supplier">LEVERANDØR</system:String>
+    <system:String x:Key="supplierdealdialog.header.price">PRIS</system:String>
 
     <system:String x:Key="categorydialog.header.value">VÆRDI</system:String>
     <system:String x:Key="categorydialog.header.ukvalue">VÆRDI (UK)</system:String>
