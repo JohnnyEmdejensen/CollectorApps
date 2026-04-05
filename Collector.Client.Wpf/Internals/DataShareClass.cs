@@ -28,6 +28,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Location>? LocationList { get; set; }
         public List<Entity.Supplier>? SupplierList { get; set; }
         public List<Entity.Supplierdeal>? SupplierDealList { get; set; }
+        public List<Entity.Stock>? StockList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();

@@ -101,6 +101,7 @@ namespace Collector.Client.Wpf.Internals
                     DataContext = Stamp,
                 };
                 frm.Show();
+                frm.GetStocks();
             }
         }
         public void ShowPublishedCountryCategories(Entity.PublishedCountryCategoryLink? PublishedCountryCategory)

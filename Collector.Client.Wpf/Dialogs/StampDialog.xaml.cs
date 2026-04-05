@@ -24,6 +24,8 @@ namespace Collector.Client.Wpf.Dialogs
     {
         private Internals.FormSettingsClass _settings;
         private Entity.Stamp? _stamp;
+        private List<Entity.Stock>? _stocks;
+        private List<Components.StockItemComponent>? _StockItemList;
         public StampDialog()
         {
             InitializeComponent();
@@ -37,10 +39,10 @@ namespace Collector.Client.Wpf.Dialogs
             App.EventHelper.CategoryListChanged += EventHelper_CategoryListChanged;
             App.EventHelper.PublishedCountryListChanged += EventHelper_PublishedCountryListChanged;
             App.EventHelper.TopicListChanged += EventHelper_TopicListChanged;
+
             FillControls();
             _settings.Load();
         }
-
 
         private void DoSave(bool CloseAfter)
         {
@@ -63,6 +65,56 @@ namespace Collector.Client.Wpf.Dialogs
                 Close();
             }
         }
+        private void DoSaveStocks()
+        {
+            if (_stocks == null || _stocks.Count == 0) return;
+            using (new WorkerHandler("DoSaveStocks"))
+            {
+                bool hasUpdated = false;
+                bool hasCreated = false;
+                App.AppShare.Repositories.StockRepository.SupressEvents = true;
+                var news = _stocks.Where(x =>x.Id == 0).ToList();
+                if (news.Any())
+                {
+                    hasCreated = true;
+                    foreach (var item in news)
+                    {
+                        App.AppShare.Repositories.StockRepository.Create(item);
+                        item.IsDirty = false;
+                    }
+                }
+                var changed = _stocks.Where(x => x.IsDirty).ToList();
+                if (changed.Any())
+                {
+                    hasUpdated = true;
+                    foreach (var item in changed)
+                    {
+                        App.AppShare.Repositories.StockRepository.Update(item);
+                        item.IsDirty = false;
+                    }                    
+                }
+                App.AppShare.Repositories.StockRepository.SupressEvents = false;
+                if (hasCreated)
+                {
+                    GetStocks();
+                }
+            }
+        }
+        private void DoAddStockItem(Entity.Stock Stock)
+        {
+            if (_StockItemList == null) 
+                _StockItemList = new List<Components.StockItemComponent>();
+            Components.StockItemComponent item = new Components.StockItemComponent(Stock);
+            item.Height = 20;
+            item.SetGui();
+            spContainer.Children.Add(item);
+            Label lbl = new Label();
+            lbl.Height = 4;
+            spContainer.Children.Add(lbl);
+            _StockItemList.Add(item);
+            item.StockItemChanged += Item_StockItemChanged;
+        }
+
         private void FillControls()
         {
             using (Internals.WorkerHandler worker = new Internals.WorkerHandler("FillControls"))
@@ -74,6 +126,22 @@ namespace Collector.Client.Wpf.Dialogs
                 FillColors();
                 FillWatermarks();
                 FillTopicControl();
+                FillStockControl();
+            }
+        }
+
+        private void FillStockControl()
+        {
+            using (new WorkerHandler("FillStockControl"))
+            {
+                if (_stocks != null && _stocks.Count > 0)
+                {
+                    spContainer.Children.Clear();   
+                    foreach (var stock in _stocks)
+                    {
+                        DoAddStockItem(stock);
+                    }
+                }
             }
         }
         private void FillWatermarks()
@@ -150,6 +218,13 @@ namespace Collector.Client.Wpf.Dialogs
                 cboPublishedCountry.EndInit();
             }
         }
+        public void GetStocks()
+        {
+            _stamp = DataContext as Entity.Stamp;
+            if (_stamp == null) return;
+            _stocks = App.AppShare.Repositories.StockRepository.GetByStamp(_stamp.Id);
+            FillStockControl();
+        }
         private void SetGui()
         {
             btnAdd.IsEnabled = false;
@@ -179,6 +254,21 @@ namespace Collector.Client.Wpf.Dialogs
                 btnAdd.IsEnabled = true;
             }
         }
+        private void SetStockGui()
+        {
+            btnSaveStock.IsEnabled = false;
+            btnAddStock.IsEnabled = false;
+            if (_stocks == null) return;
+            var news = _stocks.Where(x => x.Id == 0).ToList();
+            if (news.Any())
+            {
+                btnSaveStock.IsEnabled = true;
+            }
+            else
+            {
+                btnAddStock.IsEnabled= true;
+            }
+        }
         private void StampDialog_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
@@ -195,6 +285,10 @@ namespace Collector.Client.Wpf.Dialogs
         private void StampDialog_ContentRendered(object? sender, EventArgs e)
         {
             _stamp = DataContext as Entity.Stamp;
+            if (_stamp != null)
+            {
+
+            }
             SetGui();
         }
 
@@ -278,12 +372,23 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void btnAddStock_Click(object sender, RoutedEventArgs e)
         {
-
+            if (_stamp == null || _stamp.Id == 0) return;
+            using (new WorkerHandler("btnAddStock_Click"))
+            {
+                Entity.Stock stock = new Entity.Stock() { Quantity = 1, ConditionId = -1, LocationId = -1, SupplierDealId = -1, StampId = _stamp.Id };
+                if (_stocks == null) _stocks = new List<Entity.Stock>();
+                _stocks.Add(stock);
+                DoAddStockItem(stock);
+                SetStockGui();
+            }
         }
 
         private void btnSaveStock_Click(object sender, RoutedEventArgs e)
         {
-
+            using (new WorkerHandler("btnSaveStock_Click"))
+            {
+                DoSaveStocks();
+            }
         }
 
         private void btnAddImage_Click(object sender, RoutedEventArgs e)
@@ -314,6 +419,14 @@ namespace Collector.Client.Wpf.Dialogs
             using (new WorkerHandler("lblTopic_MouseDown"))
             {
                 App.FormHelper.ShowTopicsDialog(new());
+            }
+        }
+        private void Item_StockItemChanged(object sender, Components.StockItemEventArgs e)
+        {
+            btnSaveStock.IsEnabled = false;
+            if (e.Stock.IsDirty)
+            {
+                btnSaveStock.IsEnabled = true;
             }
         }
     }

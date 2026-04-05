@@ -34,6 +34,7 @@ namespace Collector.Client.Wpf.Internals
             Repositories.SupplierDealRepository.SupplierDealChanged += SupplierDealRepository_SupplierDealChanged;
         }
 
+
         private void SupplierDealRepository_SupplierDealChanged(object sender, SupplierDealEventArgs e)
         {
             using (new WorkerHandler("SupplierDealRepository_SupplierDealChanged"))

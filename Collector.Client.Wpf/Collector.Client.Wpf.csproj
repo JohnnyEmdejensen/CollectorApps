@@ -90,6 +90,10 @@
     <None Remove="Images\folder_24.png" />
     <None Remove="Images\folder_32.png" />
     <None Remove="Images\folder_48.png" />
+    <None Remove="Images\forbidden_16.png" />
+    <None Remove="Images\forbidden_24.png" />
+    <None Remove="Images\forbidden_32.png" />
+    <None Remove="Images\forbidden_48.png" />
     <None Remove="Images\index_16.png" />
     <None Remove="Images\index_24.png" />
     <None Remove="Images\index_32.png" />
@@ -215,6 +219,10 @@
     <Resource Include="Images\folder_24.png" />
     <Resource Include="Images\folder_32.png" />
     <Resource Include="Images\folder_48.png" />
+    <Resource Include="Images\forbidden_16.png" />
+    <Resource Include="Images\forbidden_24.png" />
+    <Resource Include="Images\forbidden_32.png" />
+    <Resource Include="Images\forbidden_48.png" />
     <Resource Include="Images\index_16.png" />
     <Resource Include="Images\index_24.png" />
     <Resource Include="Images\index_32.png" />

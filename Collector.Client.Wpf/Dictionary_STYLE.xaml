@@ -49,6 +49,10 @@
     </Style>
     <Style TargetType="{x:Type ComboBox}">
         <Setter Property="IsEditable" Value="True"></Setter>
+        <Setter Property="Padding" Value="4 0 0 0"></Setter>
+    </Style>
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="Padding" Value="4 0 0 0"></Setter>
     </Style>
     <Style x:Key="Body_Content_DataGrid_Centering" TargetType="{x:Type DataGridCell}">
         <Setter Property="Template">

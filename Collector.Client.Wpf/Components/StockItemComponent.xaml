@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Collector.Client.Wpf.Components.StockItemComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Collector.Client.Wpf.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="48"></ColumnDefinition>
+            <ColumnDefinition Width="8"></ColumnDefinition>
+            <ColumnDefinition Width="54"></ColumnDefinition>
+            <ColumnDefinition Width="8"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="8"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="8"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="8"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Grid.Column="0" Width="20" x:Name="btnAddQuantity" Click="btnAddQuantity_Click">
+                <Image Source="/Images/add_16.png" Width="16" Height="16"></Image>
+            </Button>
+            <Label Width="8"></Label>
+            <Button Width="20" x:Name="btnSubQuantity" Click="btnSubQuantity_Click">
+                <Image Source="/Images/forbidden_16.png" Width="16" Height="16"></Image>
+            </Button>
+        </StackPanel>
+        <TextBox Grid.Column="2" x:Name="txtQuantitiy" TextChanged="txtQuantitiy_TextChanged" Text="{Binding Path=Quantity, Mode=TwoWay}" HorizontalContentAlignment="Right"></TextBox>
+        <ComboBox Grid.Column="4" x:Name="cboCondition" SelectionChanged="cboCondition_SelectionChanged" SelectedValue="{Binding Path=ConditionId, Mode=TwoWay}"></ComboBox>
+        <ComboBox Grid.Column="6" x:Name="cboLocation" SelectionChanged="cboLocation_SelectionChanged" SelectedValue="{Binding Path=LocationId, Mode=TwoWay}"></ComboBox>
+        <ComboBox Grid.Column="8" x:Name="cboDeal" SelectionChanged="cboDeal_SelectionChanged" SelectedValue="{Binding Path=SupplierDealId, Mode=TwoWay}"></ComboBox>
+        <Button Grid.Column="10" Width="20" x:Name="btnDelete" Click="btnDelete_Click">
+            <Image Source="/Images/delete2_16.png" Width="16" Height="16"></Image>
+        </Button>
+    </Grid>
+</UserControl>
