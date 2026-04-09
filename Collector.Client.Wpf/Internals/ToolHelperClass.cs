@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace Collector.Client.Wpf.Internals
 {
@@ -139,6 +141,28 @@ namespace Collector.Client.Wpf.Internals
                 }
             }
             return result;
+        }
+
+        public byte[] ConvertImageToByteArray(BitmapImage Image)
+        {
+            using (new WorkerHandler("ConvertImageToByteArray"))
+            {
+                MemoryStream memoryStream = new MemoryStream();
+                PngBitmapEncoder encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(Image));
+                encoder.Save(memoryStream);
+                return memoryStream.ToArray();
+            }
+        }
+        public BitmapImage ConvertByteArrayToBitmapImage(Byte[] bytes)
+        {
+            var stream = new MemoryStream(bytes);
+            stream.Seek(0, SeekOrigin.Begin);
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = stream;
+            image.EndInit();
+            return image;
         }
     }
 }

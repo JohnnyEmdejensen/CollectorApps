@@ -102,6 +102,7 @@ namespace Collector.Client.Wpf.Internals
                 };
                 frm.Show();
                 frm.GetStocks();
+                frm.GetStampImages();
             }
         }
         public void ShowPublishedCountryCategories(Entity.PublishedCountryCategoryLink? PublishedCountryCategory)

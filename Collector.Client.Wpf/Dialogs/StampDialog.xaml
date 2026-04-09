@@ -385,21 +385,8 @@
                             <Grid>
                                 <StackPanel Orientation="Horizontal">
                                     <Label Width="4"></Label>
-                                    <Button x:Name="btnAddImage" IsEnabled="False" Width="25" Click="btnAddImage_Click">
+                                    <Button x:Name="btnAddImage" IsEnabled="False" Width="25" ToolTip="Add picture from clipboard" Click="btnAddImage_Click">
                                         <Image Source="/Images/add_16.png" Width="16" Height="16"></Image>
-                                    </Button>
-                                    <Label Width="4"></Label>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="1"></ColumnDefinition>
-                                            <ColumnDefinition Width="1"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Grid.Column="0" Style="{StaticResource DarkLine}"></Label>
-                                        <Label Grid.Column="1" Style="{StaticResource LightLine}"></Label>
-                                    </Grid>
-                                    <Label Width="4"></Label>
-                                    <Button x:Name="btnDeleteImage" IsEnabled="False" Width="25" Click="btnDeleteImage_Click">
-                                        <Image Source="/Images/delete2_16.png"  Width="16" Height="16"></Image>
                                     </Button>
                                     <Label Width="4"></Label>
                                     <Grid>
@@ -414,12 +401,47 @@
                                     <Button x:Name="btnOpenImage" IsEnabled="False" Width="25" Click="btnOpenImage_Click">
                                         <Image Source="/Images/folder_16.png"  Width="16" Height="16"></Image>
                                     </Button>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1"></ColumnDefinition>
+                                            <ColumnDefinition Width="1"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Style="{StaticResource DarkLine}"></Label>
+                                        <Label Grid.Column="1" Style="{StaticResource LightLine}"></Label>
+                                    </Grid>
+                                    <Label Width="4"></Label>
+                                    <Label Width="4"></Label>
+                                    <Button x:Name="btnDeleteImage" IsEnabled="False" Width="25" Click="btnDeleteImage_Click">
+                                        <Image Source="/Images/delete2_16.png"  Width="16" Height="16"></Image>
+                                    </Button>
                                 </StackPanel>
                             </Grid>
                             <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                             <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
                             <Grid Grid.Row="3">
-                                
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition Height="4"></RowDefinition>
+                                    <RowDefinition Height="120"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Image x:Name="imgBig" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                                    </Grid>
+                                    <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+                                    <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+                                </Grid>
+                                <GridSplitter Grid.Row="1"></GridSplitter>
+                                <Grid Grid.Row="2">
+                                    <StackPanel Orientation="Horizontal" x:Name="spImagePreviewContainer">
+                                        
+                                    </StackPanel>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </TabItem>

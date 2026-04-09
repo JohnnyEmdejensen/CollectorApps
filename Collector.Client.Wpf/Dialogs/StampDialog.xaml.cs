@@ -1,7 +1,9 @@
-﻿using Collector.Client.Wpf.Internals;
+﻿using Azure.Identity;
+using Collector.Client.Wpf.Internals;
 using Collector.Entity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,7 @@ namespace Collector.Client.Wpf.Dialogs
         private Internals.FormSettingsClass _settings;
         private Entity.Stamp? _stamp;
         private List<Entity.Stock>? _stocks;
+        private Entity.Stampimage? _imageRecord;
         private List<Components.StockItemComponent>? _StockItemList;
         public StampDialog()
         {
@@ -39,10 +42,11 @@ namespace Collector.Client.Wpf.Dialogs
             App.EventHelper.CategoryListChanged += EventHelper_CategoryListChanged;
             App.EventHelper.PublishedCountryListChanged += EventHelper_PublishedCountryListChanged;
             App.EventHelper.TopicListChanged += EventHelper_TopicListChanged;
-
+            App.AppShare.Repositories.StampImageRepository.StampImageChanged += StampImageRepository_StampImageChanged;
             FillControls();
             _settings.Load();
         }
+
 
         private void DoSave(bool CloseAfter)
         {
@@ -218,6 +222,54 @@ namespace Collector.Client.Wpf.Dialogs
                 cboPublishedCountry.EndInit();
             }
         }
+        public void GetStampImages()
+        {
+            if (_stamp == null || _stamp.Id == 0) return;
+            using (new WorkerHandler("GetStampImages"))
+            {
+                _imageRecord = App.AppShare.Repositories.StampImageRepository.GetByStampId(_stamp.Id);
+                if (_imageRecord != null)
+                {
+                    spImagePreviewContainer.Children.Clear();
+                    if (_imageRecord.Hunting != null)
+                    {
+                        var huntingSource = App.ToolHelper.ConvertByteArrayToBitmapImage(_imageRecord.Hunting);
+                        if (huntingSource != null)
+                        {
+                            Image imageCtrl = new Image();
+                            imageCtrl.Margin = new Thickness(0, 0, 8, 0);
+                            imageCtrl.Source = huntingSource;
+                            imageCtrl.MouseDown += ImageCtrl_MouseDown;
+                            spImagePreviewContainer.Children.Add(imageCtrl);
+                        }
+                    }
+                    if (_imageRecord.Original != null)
+                    {
+                        var originalSource = App.ToolHelper.ConvertByteArrayToBitmapImage(_imageRecord.Original);
+                        if (originalSource != null)
+                        {
+                            Image imageCtrl = new Image();
+                            imageCtrl.Margin = new Thickness(0, 0, 8, 0);
+                            imageCtrl.Source = originalSource;
+                            imageCtrl.MouseDown += ImageCtrl_MouseDown;
+                            spImagePreviewContainer.Children.Add(imageCtrl);
+                        }
+                    }
+                }
+            }
+            SetStampImageGui();
+        }
+
+        private void ImageCtrl_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+            var image = sender as Image;
+            if (image != null && image.Source != null)
+            {
+                imgBig.Source = image.Source;
+            }
+        }
+
         public void GetStocks()
         {
             _stamp = DataContext as Entity.Stamp;
@@ -267,6 +319,19 @@ namespace Collector.Client.Wpf.Dialogs
             else
             {
                 btnAddStock.IsEnabled= true;
+            }
+        }
+        private void SetStampImageGui()
+        {
+            btnAddImage.IsEnabled= true;
+            btnOpenImage.IsEnabled = true;
+            btnDeleteImage.IsEnabled = false;
+            if (_imageRecord != null)
+            {
+                if (_imageRecord.Id > 0)
+                {
+                    btnDeleteImage.IsEnabled = true;
+                }
             }
         }
         private void StampDialog_KeyDown(object sender, KeyEventArgs e)
@@ -393,7 +458,82 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void btnAddImage_Click(object sender, RoutedEventArgs e)
         {
-
+            using (new WorkerHandler("btnAddImage_Click"))
+            {
+                if (Clipboard.ContainsImage() )
+                {
+                    if (_stamp != null && _stamp.Id > 0)
+                    {
+                        BitmapSource bitmapSource = Clipboard.GetImage();
+                        PngBitmapEncoder encoder = new PngBitmapEncoder();
+                        MemoryStream memoryStream = new MemoryStream();
+                        BitmapImage bitmapImage = new BitmapImage();
+                        encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+                        encoder.Save(memoryStream);
+                        memoryStream.Position = 0;
+                        bitmapImage.BeginInit();
+                        bitmapImage.StreamSource = memoryStream;
+                        bitmapImage.EndInit();
+                        var data = App.ToolHelper.ConvertImageToByteArray(bitmapImage);
+                        if (data != null)
+                        {
+                            if (_imageRecord == null)
+                            {
+                                _imageRecord = new Stampimage
+                                {
+                                    StampId = _stamp.Id,
+                                    Hunting = data,
+                                };
+                            }
+                            else
+                            {
+                                if (_imageRecord.Hunting == null && _imageRecord.Original == null)
+                                {
+                                    _imageRecord = new Stampimage
+                                    {
+                                        StampId = _stamp.Id,
+                                        Hunting = data,
+                                    };
+                                }
+                                else
+                                {
+                                    if (_imageRecord.Original == null && _imageRecord.Hunting != null)
+                                    {
+                                        var title = Application.Current.Resources["messagebox.title.hashuntingimage"];
+                                        var message = Application.Current.Resources["messagebox.message.stampimagehashuntingsetoriginal"];
+                                        if (MessageBox.Show(message.ToString(), title.ToString(), MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                                        {
+                                            _imageRecord.Original = data;
+                                        }
+                                    }
+                                    if (_imageRecord.Hunting == null)
+                                    {
+                                        _imageRecord = new Stampimage
+                                        {
+                                            StampId = _stamp.Id,
+                                            Hunting = data,
+                                        };
+                                    }
+                                }
+                            }
+                            if (_imageRecord.Id == 0)
+                            {
+                                _imageRecord = App.AppShare.Repositories.StampImageRepository.Create(_imageRecord);
+                            }
+                            else
+                            {
+                                _imageRecord = App.AppShare.Repositories.StampImageRepository.Update(_imageRecord);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    var title = Application.Current.Resources["messagebox.title.clipboard"];
+                    var message = Application.Current.Resources["messagebox.message.noimageinclipboard"];
+                    MessageBox.Show(message.ToString(), title.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void btnDeleteImage_Click(object sender, RoutedEventArgs e)
@@ -427,6 +567,13 @@ namespace Collector.Client.Wpf.Dialogs
             if (e.Stock.IsDirty)
             {
                 btnSaveStock.IsEnabled = true;
+            }
+        }
+        private void StampImageRepository_StampImageChanged(object sender, Repository.StampImageEventArgs e)
+        {
+            using (new WorkerHandler("StampImageRepository_StampImageChanged"))
+            {
+                GetStampImages();
             }
         }
     }

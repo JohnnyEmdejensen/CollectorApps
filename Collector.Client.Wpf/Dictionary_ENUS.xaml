@@ -124,5 +124,10 @@
     <system:String x:Key="publishingcountrycoin.columnheader.publishedcountry">Publishing country</system:String>
     <system:String x:Key="publishingcountrycoin.columnheader.coin">Coinunit</system:String>
 
+    <system:String x:Key="messagebox.title.clipboard">Clipboard</system:String>
+    <system:String x:Key="messagebox.message.noimageinclipboard">The clipboard contains no image!</system:String>
+    <system:String x:Key="messagebox.title.hashuntingimage">Stampimage</system:String>
+    <system:String x:Key="messagebox.message.stampimagehashuntingsetoriginal">The stampimage has a huntingimage, set this as original image?</system:String>
+
 
 </ResourceDictionary>

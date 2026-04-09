@@ -119,5 +119,10 @@
     <system:String x:Key="publishingcountrycoin.columnheader.publishedcountry">Udgivne land</system:String>
     <system:String x:Key="publishingcountrycoin.columnheader.coin">Møntenhed</system:String>
 
+    <system:String x:Key="messagebox.title.clipboard">Udklipsmappe</system:String>
+    <system:String x:Key="messagebox.message.noimageinclipboard">Udklipsmappen indeholder intet billede!</system:String>
+    <system:String x:Key="messagebox.title.hashuntingimage">Frimærke billed</system:String>
+    <system:String x:Key="messagebox.message.stampimagehashuntingsetoriginal">Frimærke har allerede et søge billede, sæt dette som original billede?</system:String>
+
 
 </ResourceDictionary>
