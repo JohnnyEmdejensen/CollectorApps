@@ -29,6 +29,7 @@ namespace Collector.Client.Wpf
             dgStamps.SizeChanged += DgStamps_SizeChanged;
             App.EventHelper.TranslationSourceChanged += EventHelper_TranslationSourceChanged;
             App.EventHelper.StampModelListChanged += EventHelper_StampModelListChanged;
+            App.EventHelper.SelectedStampChanged += EventHelper_SelectedStampChanged;
             _settings.Load();
         }
 
@@ -245,22 +246,6 @@ namespace Collector.Client.Wpf
             }
         }
 
-        private void dgStamps_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            using (WorkerHandler worker = new WorkerHandler("dgStamps_MouseDoubleClick"))
-            {
-                var stampModel = dgStamps.SelectedItem as ViewModel.StampModel;
-                if (stampModel != null)
-                {
-                    if (App.DataShare.StampList != null)
-                    {
-                        var stamp = App.DataShare.StampList.FirstOrDefault(x => x.Id == stampModel.Id);
-                        App.FormHelper.ShowStampDialog(stamp);
-                    }
-                }
-            }
-        }
-
         private void btnWatermarks_Click(object sender, RoutedEventArgs e)
         {
             using (WorkerHandler worker = new WorkerHandler("btnWatermarks_Click"))
@@ -306,6 +291,73 @@ namespace Collector.Client.Wpf
             using (new WorkerHandler("btnSupplierDeals_Click"))
             {
                 App.FormHelper.ShowSupplierdealsDialog(null);
+            }
+        }
+
+        private void dgStamps_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            using (new WorkerHandler("dgStamps_SelectionChanged"))
+            {
+                var stampModel = dgStamps.SelectedItem as ViewModel.StampModel;
+                if (stampModel != null && App.DataShare.StampList != null)
+                {
+                    App.AppShare.SelectedStamp = App.DataShare.StampList.FirstOrDefault(x => x.Id == stampModel.Id);
+                    App.EventHelper.RaiseSelectedStampChangedEvent();
+                }
+            }
+        }
+        private void dgStamps_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            using (WorkerHandler worker = new WorkerHandler("dgStamps_MouseDoubleClick"))
+            {
+                var stampModel = dgStamps.SelectedItem as ViewModel.StampModel;
+                if (stampModel != null)
+                {
+                    if (App.DataShare.StampList != null)
+                    {
+                        var stamp = App.DataShare.StampList.FirstOrDefault(x => x.Id == stampModel.Id);
+                        App.FormHelper.ShowStampDialog(stamp);
+                    }
+                }
+            }
+        }
+        private void EventHelper_SelectedStampChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_SelectedStampChanged"))
+            {
+                if (App.AppShare.SelectedStamp != null)
+                {
+                    var image = App.AppShare.Repositories.StampImageRepository.GetByStampId(App.AppShare.SelectedStamp.Id);
+                    if (image != null)
+                    {
+                        if (image.Original != null)
+                        {
+                            selectedStampImage.Source = App.ToolHelper.ConvertByteArrayToBitmapImage(image.Original);
+                        }
+                        else
+                        {
+                            if (image.Hunting != null)
+                            {
+                                selectedStampImage.Source = App.ToolHelper.ConvertByteArrayToBitmapImage(image.Hunting);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void tglStampDetailPanel_Click(object sender, RoutedEventArgs e)
+        {
+            if (tglStampDetailPanel.IsChecked.HasValue)
+            {
+                if (tglStampDetailPanel.IsChecked.Value)
+                {
+                    grdStampDetails.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    grdStampDetails.Visibility = Visibility.Collapsed;
+                }
             }
         }
     }

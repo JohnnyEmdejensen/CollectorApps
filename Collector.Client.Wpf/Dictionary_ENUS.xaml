@@ -5,9 +5,11 @@
     <system:String x:Key="window.main.title">Collector</system:String>
     <system:String x:Key="ribbon.tab.home.header">HOME</system:String>
     <system:String x:Key="ribbon.group.view.header">Views</system:String>
+    <system:String x:Key="ribbon.group.panels.header">Panels</system:String>
     <system:String x:Key="ribbon.group.creation.header">Creations</system:String>
     <system:String x:Key="ribbon.togglebutton.stampview.header">Stamps view</system:String>
     <system:String x:Key="ribbon.togglebutton.stockview.header">Stocks view</system:String>
+    <system:String x:Key="ribbon.togglebutton.panelstampdetail.header">Details view</system:String>
     <system:String x:Key="ribbon.button.creation.stamp.header">New Stamp</system:String>
 
 

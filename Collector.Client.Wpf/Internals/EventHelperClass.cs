@@ -26,7 +26,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? LocationListChanged;
         public event DefaultHandler? SupplierListChanged;
         public event DefaultHandler? SupplierDealListChanged;
+        public event DefaultHandler? SelectedStampChanged;
 
+        public void RaiseSelectedStampChangedEvent()
+        {
+            SelectedStampChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseSupplierDealListChangedEvent()
         {
             SupplierDealListChanged?.Invoke(this, EventArgs.Empty);

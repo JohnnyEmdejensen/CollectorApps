@@ -6,9 +6,11 @@
 
     <system:String x:Key="ribbon.tab.home.header">HJEM</system:String>
     <system:String x:Key="ribbon.group.view.header">Visninger</system:String>
+    <system:String x:Key="ribbon.group.panels.header">Paneler</system:String>
     <system:String x:Key="ribbon.group.creation.header">Oprettelser</system:String>
     <system:String x:Key="ribbon.togglebutton.stampview.header">Frimærker visning</system:String>
     <system:String x:Key="ribbon.togglebutton.stockview.header">Lager visning</system:String>
+    <system:String x:Key="ribbon.togglebutton.panelstampdetail.header">Detalje visning</system:String>
     <system:String x:Key="ribbon.button.creation.stamp.header">Nyt frimærke</system:String>
 
     <system:String x:Key="ribbon.tab.settings.header">Indstillinger</system:String>

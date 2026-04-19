@@ -29,6 +29,9 @@
                     <RibbonToggleButton x:Name="tglStampview" IsChecked="True" Click="tglStampview_Click" Label="{DynamicResource ribbon.togglebutton.stampview.header}" LargeImageSource="Images/index_view_32.png" SmallImageSource="Images/index_view_16.png"></RibbonToggleButton>
                     <RibbonToggleButton x:Name="tglStockview" IsChecked="False" Click="tglStockview_Click" Label="{DynamicResource ribbon.togglebutton.stockview.header}" LargeImageSource="Images/box_view_32.png" SmallImageSource="Images/box_view_16.png"></RibbonToggleButton>
                 </RibbonGroup>
+                <RibbonGroup Header="{DynamicResource ribbon.group.panels.header}">
+                    <RibbonToggleButton x:Name="tglStampDetailPanel" Click="tglStampDetailPanel_Click" Label="{DynamicResource ribbon.togglebutton.panelstampdetail.header}" LargeImageSource="/Images/window_split_hor_32.png" SmallImageSource="/Images/window_split_hor_16.png" IsChecked="False"></RibbonToggleButton>
+                </RibbonGroup>
                 <RibbonGroup Header="{DynamicResource ribbon.group.creation.header}">
                     <RibbonButton x:Name="btnCreateStamp" Click="btnCreateStamp_Click" LargeImageSource="/Images/photo_portrait_32.png" SmallImageSource="/Images/photo_portrait_16.png" Label="{DynamicResource ribbon.button.creation.stamp.header}"></RibbonButton>
                 </RibbonGroup>
@@ -63,8 +66,9 @@
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"></ColumnDefinition>
-                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="4"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <Grid.ColumnDefinitions>
@@ -86,12 +90,12 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
-                                
+
                             </Grid>
                             <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                             <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
                             <TreeView Grid.Row="3">
-                                
+
                             </TreeView>
                         </Grid>
                         <GridSplitter Grid.Row="1"></GridSplitter>
@@ -107,8 +111,7 @@
                             </Grid>
                             <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                             <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
-                            <Grid Grid.Row="3"> 
-                                
+                            <Grid Grid.Row="3">
                             </Grid>
                         </Grid>
                     </Grid>
@@ -132,7 +135,7 @@
                     <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                     <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
                     <Grid Grid.Row="3">
-                        <DataGrid x:Name="dgStamps" MouseDoubleClick="dgStamps_MouseDoubleClick">
+                        <DataGrid x:Name="dgStamps" MouseDoubleClick="dgStamps_MouseDoubleClick" SelectionChanged="dgStamps_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
                                 <DataGridTextColumn  Binding="{Binding PublishingCountry}" Width="80">
@@ -197,6 +200,22 @@
                     <Label Grid.Row="5" Style="{StaticResource LightLine}"></Label>
                     <Grid Grid.Row="6" Background="{DynamicResource SecondaryLight}">
 
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="3" x:Name="grdStampDetails" Visibility="Collapsed" Width="180">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="1"></RowDefinition>
+                        <RowDefinition Height="1"></RowDefinition>
+                        <RowDefinition Height="180"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        
+                    </Grid>
+                    <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+                    <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+                    <Grid Grid.Row="3">
+                        <Image x:Name="selectedStampImage"></Image>
                     </Grid>
                 </Grid>
             </Grid>

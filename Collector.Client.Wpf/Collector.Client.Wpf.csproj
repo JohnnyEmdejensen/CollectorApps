@@ -122,6 +122,10 @@
     <None Remove="Images\step_24.png" />
     <None Remove="Images\step_32.png" />
     <None Remove="Images\step_48.png" />
+    <None Remove="Images\window_split_hor_16.png" />
+    <None Remove="Images\window_split_hor_24.png" />
+    <None Remove="Images\window_split_hor_32.png" />
+    <None Remove="Images\window_split_hor_48.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -251,6 +255,10 @@
     <Resource Include="Images\step_24.png" />
     <Resource Include="Images\step_32.png" />
     <Resource Include="Images\step_48.png" />
+    <Resource Include="Images\window_split_hor_16.png" />
+    <Resource Include="Images\window_split_hor_24.png" />
+    <Resource Include="Images\window_split_hor_32.png" />
+    <Resource Include="Images\window_split_hor_48.png" />
   </ItemGroup>
 
 </Project>
