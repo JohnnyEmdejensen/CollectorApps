@@ -44,6 +44,10 @@
     <system:String x:Key="dgstamps.header.height">Height</system:String>
     <system:String x:Key="dgstamps.header.category">Category</system:String>
 
+    <system:String x:Key="desktop.stamp.filter.continent">Continent</system:String>
+    <system:String x:Key="desktop.stamp.filter.country">Country</system:String>
+    <system:String x:Key="desktop.stamp.filter.publishedcountry">Publ. Country</system:String>
+
     <system:String x:Key="stampdialog.title">Stamp</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Stocks</system:String>
     <system:String x:Key="stampdialog.tab.images.header">Images</system:String>

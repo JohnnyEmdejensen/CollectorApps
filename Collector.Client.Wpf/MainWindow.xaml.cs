@@ -22,9 +22,11 @@ namespace Collector.Client.Wpf
     {
         private Internals.FormSettingsClass _settings;
         private double stampsViewFixedWidth = 688;
+        private Internals.FilterContainer _filterContainer;
         public MainWindow()
         {
             InitializeComponent();
+            _filterContainer = new Internals.FilterContainer();
             _settings = new Internals.FormSettingsClass(this);
             ContentRendered += MainWindow_ContentRendered;
             Closing += MainWindow_Closing;
@@ -35,23 +37,12 @@ namespace Collector.Client.Wpf
             App.EventHelper.TranslationSourceChanged += EventHelper_TranslationSourceChanged;
             App.EventHelper.StampModelListChanged += EventHelper_StampModelListChanged;
             App.EventHelper.SelectedStampChanged += EventHelper_SelectedStampChanged;
+            _filterContainer.SelectedContinentChanged += _filterContainer_SelectedContinentChanged;
+            _filterContainer.SelectedCountryChanged += _filterContainer_SelectedCountryChanged;
+            _filterContainer.SelectedPublishedCountryChanged += _filterContainer_SelectedPublishedCountryChanged;
             _settings.Load();
         }
 
-        private void EventHelper_PublishedCountryListChanged(object sender, EventArgs e)
-        {
-            DisplayCountries();
-        }
-
-        private void EventHelper_ContinentListChanged(object sender, EventArgs e)
-        {
-            DisplayCountries();
-        }
-
-        private void EventHelper_CountryListChanged(object sender, EventArgs e)
-        {
-            DisplayCountries();
-        }
             
         private void DisplayCountries()
         {
@@ -75,7 +66,7 @@ namespace Collector.Client.Wpf
                     item.Tag = continent;
                     item.Header = conSP;
                     tvwContinents.Items.Add(item);
-                    item.MouseDown += Continent_MouseDown;
+                    item.MouseUp += Continent_MouseUp;
 
                     foreach (var country in App.DataShare.CountryList.Where(x => x.ContinentId == continent.Id).OrderBy(x => x.Name))
                     {
@@ -89,8 +80,10 @@ namespace Collector.Client.Wpf
                         ctrySP.Children.Add(ctryImage);
                         ctrySP.Children.Add(ctryLabel);
                         TreeViewItem ctryItem = new TreeViewItem();
+                        ctryItem.Tag = country;
                         ctryItem.Header = ctrySP;
                         item.Items.Add(ctryItem);
+                        ctryItem.MouseUp += Continent_MouseUp;
 
                         foreach (var popCtry in App.DataShare.PublishedCountryList.Where(x => x.ContryId == country.Id).OrderBy(x => x.Name))
                         {
@@ -104,19 +97,45 @@ namespace Collector.Client.Wpf
                             popSP.Children.Add(popImage);
                             popSP.Children.Add(popLabel);
                             TreeViewItem popItem = new TreeViewItem();
+                            popItem.Tag = popCtry;
                             popItem.Header = popSP;
                             ctryItem.Items.Add(popItem);
+                            popItem.MouseUp += Continent_MouseUp;
                         }
                     }
-
                 }
-
             }
         }
 
-        private void Continent_MouseDown(object sender, MouseButtonEventArgs e)
+        public void SetFilterView()
         {
-
+            using (new WorkerHandler("SetFilterView"))
+            {
+                if (_filterContainer.SelectedContinent != null)
+                {
+                    cboFilterContinent.SelectedValue = _filterContainer.SelectedContinent.Id;
+                }
+                else
+                {
+                    cboFilterContinent.SelectedValue = null;
+                }
+                if (_filterContainer.SelectedCountry != null)
+                {
+                    cboFilterCountry.SelectedValue = _filterContainer.SelectedCountry.Id;
+                }
+                else
+                {
+                    cboFilterCountry.SelectedValue = null;
+                }
+                if (_filterContainer.SelectedPublishedCountry != null)
+                {
+                    cboFilterPublishedCountry.SelectedValue = _filterContainer.SelectedPublishedCountry.Id;
+                }
+                else
+                {
+                    cboFilterPublishedCountry.SelectedValue = null;
+                }
+            }
         }
 
         private void MainWindow_ContentRendered(object? sender, EventArgs e)
@@ -443,6 +462,90 @@ namespace Collector.Client.Wpf
                 {
                     grdStampDetails.Visibility = Visibility.Collapsed;
                 }
+            }
+        }
+        private void EventHelper_PublishedCountryListChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_PublishedCountryListChanged"))
+            {
+                cboFilterPublishedCountry.BeginInit();
+                cboFilterPublishedCountry.ItemsSource = App.DataShare.PublishedCountryList;
+                cboFilterPublishedCountry.DisplayMemberPath = "Name";
+                cboFilterPublishedCountry.SelectedValuePath = "Id";
+                cboFilterPublishedCountry.EndInit();
+                DisplayCountries();
+            }
+        }
+
+        private void EventHelper_ContinentListChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_ContinentListChanged"))
+            {
+                cboFilterContinent.BeginInit();
+                cboFilterContinent.ItemsSource = App.DataShare.ContinentList;
+                cboFilterContinent.DisplayMemberPath = "Value";
+                cboFilterContinent.SelectedValuePath = "Id";
+                cboFilterContinent.EndInit();
+                DisplayCountries();
+            }
+        }
+
+        private void EventHelper_CountryListChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_CountryListChanged"))
+            {
+                cboFilterCountry.BeginInit();
+                cboFilterCountry.ItemsSource = App.DataShare.CountryList;
+                cboFilterCountry.DisplayMemberPath = "Name";
+                cboFilterCountry.SelectedValuePath = "Id";
+                cboFilterCountry.EndInit();
+                DisplayCountries();
+            }
+        }
+
+        private void Continent_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as TreeViewItem;
+            if (item != null && item.Tag != null)
+            {
+                var continent = item.Tag as Entity.Continent;
+                var country = item.Tag as Entity.Country;
+                var pubCountry = item.Tag as Entity.PublishedCountry;
+                if (continent != null)
+                {
+                    _filterContainer.SelectedContinent = continent;
+                }
+                if (country != null)
+                {
+                    _filterContainer.SelectedCountry = country;
+                }
+                if (pubCountry != null)
+                {
+                    _filterContainer.SelectedPublishedCountry = pubCountry;
+                }
+            }
+        }
+        private void _filterContainer_SelectedPublishedCountryChanged(object sender, XPublishedCountryEventArgs e)
+        {
+            using (new WorkerHandler("filterContainer_SelectedPublishedCountryChanged"))
+            {
+                SetFilterView();
+            }
+        }
+
+        private void _filterContainer_SelectedCountryChanged(object sender, CountryEventArgs e)
+        {
+            using (new WorkerHandler("filterContainer_SelectedCountryChanged"))
+            {
+                SetFilterView();
+            }
+        }
+
+        private void _filterContainer_SelectedContinentChanged(object sender, ContinentEventArgs e)
+        {
+            using (new WorkerHandler("filterContainer_SelectedContinentChanged"))
+            {
+                SetFilterView();
             }
         }
     }

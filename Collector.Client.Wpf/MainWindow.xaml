@@ -130,7 +130,20 @@
                         <RowDefinition Height="25"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Padding="0,8,8,0" Content="{StaticResource desktop.stamp.filter.continent}"></Label>
+                            <ComboBox x:Name="cboFilterContinent" Height="20" Width="120"></ComboBox>
+                            <Label Width="8"></Label>
 
+                            <Label Padding="0,8,8,0" Content="{StaticResource desktop.stamp.filter.country}"></Label>
+                            <ComboBox x:Name="cboFilterCountry" Height="20" Width="120"></ComboBox>
+                            <Label Width="8"></Label>
+                            
+                            <Label Padding="0,8,8,0" Content="{StaticResource desktop.stamp.filter.publishedcountry}"></Label>
+                            <ComboBox x:Name="cboFilterPublishedCountry" Height="20" Width="120"></ComboBox>
+                            <Label Width="8"></Label>
+
+                        </StackPanel>
                     </Grid>
                     <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                     <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
