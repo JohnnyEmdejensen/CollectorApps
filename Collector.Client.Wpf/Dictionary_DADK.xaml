@@ -78,6 +78,7 @@
     <system:String x:Key="catalogdialog.title">Kataloger</system:String>
     <system:String x:Key="categorydialog.title">Kategorier</system:String>
     <system:String x:Key="catalogdialog.header.value">VÆRDI</system:String>
+    <system:String x:Key="catalogdialog.header.url">URL (Hvis online)</system:String>
     <system:String x:Key="catalogdialog.columnheader.value">Værdi</system:String>
 
     <system:String x:Key="coinunitdialog.title">Mønt enheder</system:String>

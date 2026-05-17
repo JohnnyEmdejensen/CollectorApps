@@ -78,6 +78,7 @@
     <system:String x:Key="colordialog.title">Color</system:String>
     <system:String x:Key="categorydialog.title">Categories</system:String>
     <system:String x:Key="catalogdialog.header.value">VALUE</system:String>
+    <system:String x:Key="catalogdialog.header.url">URL (If online)</system:String>
     <system:String x:Key="catalogdialog.columnheader.value">Value</system:String>
 
     <system:String x:Key="colordialog.columnheader.value">Value</system:String>

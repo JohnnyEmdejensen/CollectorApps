@@ -35,6 +35,7 @@ namespace Collector.Repository
             var record = Get(Source.Id);
             if (record == null) return null;
             record.Value = Source.Value;
+            record.CatalogUrl = Source.CatalogUrl;
             ApiContext.SaveChanges();
             CatalogChanged?.Invoke(this, new CatalogEventArgs(record));
             return record;

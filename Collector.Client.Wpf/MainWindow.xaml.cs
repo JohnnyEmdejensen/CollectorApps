@@ -1,5 +1,7 @@
 ﻿using Collector.Client.Wpf.Internals;
+using System.CodeDom;
 using System.IO;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,12 +29,95 @@ namespace Collector.Client.Wpf
             ContentRendered += MainWindow_ContentRendered;
             Closing += MainWindow_Closing;
             dgStamps.SizeChanged += DgStamps_SizeChanged;
+            App.EventHelper.CountryListChanged += EventHelper_CountryListChanged;
+            App.EventHelper.ContinentListChanged += EventHelper_ContinentListChanged;
+            App.EventHelper.PublishedCountryListChanged += EventHelper_PublishedCountryListChanged;
             App.EventHelper.TranslationSourceChanged += EventHelper_TranslationSourceChanged;
             App.EventHelper.StampModelListChanged += EventHelper_StampModelListChanged;
             App.EventHelper.SelectedStampChanged += EventHelper_SelectedStampChanged;
             _settings.Load();
         }
 
+        private void EventHelper_PublishedCountryListChanged(object sender, EventArgs e)
+        {
+            DisplayCountries();
+        }
+
+        private void EventHelper_ContinentListChanged(object sender, EventArgs e)
+        {
+            DisplayCountries();
+        }
+
+        private void EventHelper_CountryListChanged(object sender, EventArgs e)
+        {
+            DisplayCountries();
+        }
+            
+        private void DisplayCountries()
+        {
+            if (App.DataShare.ContinentList == null || App.DataShare.PublishedCountryList == null || App.DataShare.CountryList == null) return;
+            using (WorkerHandler worker = new WorkerHandler("DisplayCountries"))
+            {
+                tvwContinents.Items.Clear();
+                foreach (var continent in App.DataShare.ContinentList)
+                {
+                    ImageSource imgFolder = new BitmapImage(new Uri("Images/folder_16.png", UriKind.Relative));
+                    StackPanel conSP = new StackPanel();
+                    conSP.Orientation = Orientation.Horizontal;
+                    Image conImage = new Image();
+                    conImage.Source = imgFolder;
+                    Label conLBL = new Label();
+                    conLBL.Padding = new Thickness(4, 0, 0, 0);
+                    conLBL.Content = continent.Value;
+                    conSP.Children.Add(conImage);
+                    conSP.Children.Add(conLBL);
+                    TreeViewItem item = new TreeViewItem();
+                    item.Tag = continent;
+                    item.Header = conSP;
+                    tvwContinents.Items.Add(item);
+                    item.MouseDown += Continent_MouseDown;
+
+                    foreach (var country in App.DataShare.CountryList.Where(x => x.ContinentId == continent.Id).OrderBy(x => x.Name))
+                    {
+                        StackPanel ctrySP = new StackPanel();
+                        ctrySP.Orientation = Orientation.Horizontal;
+                        Image ctryImage = new Image();
+                        ctryImage.Source = imgFolder;
+                        Label ctryLabel = new Label();
+                        ctryLabel.Padding = new Thickness(4, 0, 0, 0);
+                        ctryLabel.Content = country.Name;
+                        ctrySP.Children.Add(ctryImage);
+                        ctrySP.Children.Add(ctryLabel);
+                        TreeViewItem ctryItem = new TreeViewItem();
+                        ctryItem.Header = ctrySP;
+                        item.Items.Add(ctryItem);
+
+                        foreach (var popCtry in App.DataShare.PublishedCountryList.Where(x => x.ContryId == country.Id).OrderBy(x => x.Name))
+                        {
+                            StackPanel popSP = new StackPanel();
+                            popSP.Orientation = Orientation.Horizontal;
+                            Image popImage = new Image();
+                            popImage.Source = imgFolder;                            
+                            Label popLabel = new Label();
+                            popLabel.Padding = new Thickness(4, 0, 0, 0);
+                            popLabel.Content = popCtry.Name;
+                            popSP.Children.Add(popImage);
+                            popSP.Children.Add(popLabel);
+                            TreeViewItem popItem = new TreeViewItem();
+                            popItem.Header = popSP;
+                            ctryItem.Items.Add(popItem);
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        private void Continent_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
 
         private void MainWindow_ContentRendered(object? sender, EventArgs e)
         {

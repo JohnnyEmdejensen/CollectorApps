@@ -100,6 +100,7 @@ namespace Collector.Client.Wpf.Dialogs
             {
                 btnAdd.IsEnabled = true;
             }
+            txtFilter.Focus();
         }
 
         private void CatalogDialog_KeyDown(object sender, KeyEventArgs e)
