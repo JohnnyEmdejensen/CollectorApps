@@ -13,6 +13,31 @@ namespace Collector.Client.Wpf.Internals
     {
         private List<string> Months = new List<string>() { "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
+        public string GetCatalogNumbers(Entity.Stamp Stamp)
+        {
+            string result = "";
+            if (App.DataShare.CatalogList != null)
+            {
+                var catalog = App.DataShare.CatalogList.FirstOrDefault(x => x.Id == Stamp.CatalogId);
+                if (catalog != null)
+                {
+                    result += catalog.Shortname+":" + Stamp.Number;
+                }
+                if (App.DataShare.StampNumberList != null)
+                {
+                    var numbers = App.DataShare.StampNumberList.Where(x => x.StampId == Stamp.Id).ToList();
+                    foreach (var number in numbers)
+                    {
+                        var cat = App.DataShare.CatalogList.FirstOrDefault(x => x.Id == number.CatalogId);
+                        if (cat != null)
+                        {
+                            result += " " + cat.Shortname + ":" + number.Number;
+                        }
+                    }
+                }
+            }
+            return result;
+        }
         public long GetContinentIdFromCountry(long CountryId)
         {
             long result = 0;

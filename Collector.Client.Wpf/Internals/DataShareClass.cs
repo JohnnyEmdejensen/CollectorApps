@@ -29,6 +29,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Supplier>? SupplierList { get; set; }
         public List<Entity.Supplierdeal>? SupplierDealList { get; set; }
         public List<Entity.Stock>? StockList { get; set; }
+        public List<Entity.StampNumber>? StampNumberList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -54,6 +55,7 @@ namespace Collector.Client.Wpf.Internals
                 GetSuppliers();
                 GetSupplierDeals();
                 GetStamps();
+                GetStampNumbers();
             }
         }
 
@@ -94,6 +96,14 @@ namespace Collector.Client.Wpf.Internals
             if (ConditionList != null)
                 ConditionList = ConditionList.OrderBy(x => x.Value).ToList();
             App.EventHelper.RaiseConditionListChangedEvent();
+        }
+
+        public void GetStampNumbers()
+        {
+            using (new WorkerHandler("GetStampNumbers"))
+            {
+                StampNumberList = App.AppShare.Repositories.StampNumberRepository.GetAll();                
+            }
         }
         public void GetStamps()
         {

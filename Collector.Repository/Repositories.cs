@@ -29,8 +29,10 @@ namespace Collector.Repository
             SupplierDealRepository = new SupplierDealRepository();
             StockRepository = new StockRepository();
             StampImageRepository = new StampImageRepository();
+            StampNumberRepository = new StampNumberRepository();
         }
 
+        public StampNumberRepository StampNumberRepository { get; set; }
         public StampImageRepository StampImageRepository { get; set; }
         public StockRepository StockRepository { get; set; }
         public SupplierDealRepository SupplierDealRepository { get; set; }

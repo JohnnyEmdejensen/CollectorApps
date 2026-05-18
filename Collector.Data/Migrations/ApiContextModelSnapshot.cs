@@ -40,6 +40,10 @@ namespace Collector.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Shortname")
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
+
                     b.Property<DateTime?>("Updated")
                         .HasColumnType("datetime2");
 

@@ -103,7 +103,7 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Label Content="{DynamicResource catalogdialog.header.value}" Style="{StaticResource LabelHeader}"></Label>
-                            <TextBox x:Name="txtName" Grid.Row="1" Text="{Binding Path=Value, Mode=TwoWay}"></TextBox>
+                            <TextBox x:Name="txtName" MaxLength="128" Grid.Row="1" Text="{Binding Path=Value, Mode=TwoWay}"></TextBox>
                         </Grid>
                         <Grid Grid.Row="2">
                             <Grid.RowDefinitions>
@@ -111,7 +111,15 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Label Content="{DynamicResource catalogdialog.header.url}" Style="{StaticResource LabelHeader}"></Label>
-                            <TextBox Grid.Row="1" Text="{Binding Path=CatalogUrl, Mode=TwoWay}"></TextBox>
+                            <TextBox MaxLength="1024" Grid.Row="1" Text="{Binding Path=CatalogUrl, Mode=TwoWay}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Row="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Content="{DynamicResource catalogdialog.header.shortname}" Style="{StaticResource LabelHeader}"></Label>
+                            <TextBox MaxLength="4" Grid.Row="1" Text="{Binding Path=Shortname, Mode=TwoWay}" Width="60" HorizontalAlignment="Left"></TextBox>
                         </Grid>
                     </Grid>
                 </Grid>

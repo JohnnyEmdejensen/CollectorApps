@@ -474,6 +474,7 @@ namespace Collector.Client.Wpf
                             }
                         }
                     }
+                    lblDetailCatalogNumber.Content = App.ToolHelper.GetCatalogNumbers(App.AppShare.SelectedStamp);
                 }
             }
         }

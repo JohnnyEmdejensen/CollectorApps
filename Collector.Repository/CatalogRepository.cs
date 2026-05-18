@@ -36,6 +36,7 @@ namespace Collector.Repository
             if (record == null) return null;
             record.Value = Source.Value;
             record.CatalogUrl = Source.CatalogUrl;
+            record.Shortname = Source.Shortname;
             ApiContext.SaveChanges();
             CatalogChanged?.Invoke(this, new CatalogEventArgs(record));
             return record;

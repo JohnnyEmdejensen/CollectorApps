@@ -11,5 +11,7 @@ namespace Collector.Entity
     {
         [MaxLength(1024)]
         public string? CatalogUrl { get; set; }
+        [MaxLength(4)]
+        public string? Shortname { get; set; }
     }
 }
