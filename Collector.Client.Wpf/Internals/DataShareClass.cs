@@ -126,6 +126,12 @@ namespace Collector.Client.Wpf.Internals
                         sm.PublishingCountry = App.ToolHelper.GetPublishedCountryName(stamp.PublishedCountryId);
                         sm.SortField = stamp.SortField;
                         sm.Width = stamp.Width;
+
+                        sm.PublishedCountryId = stamp.PublishedCountryId;
+                        if (stamp.PublishedCountryId.HasValue)
+                            sm.CountryId = App.ToolHelper.GetCountryByPublishedId(stamp.PublishedCountryId.Value);
+                        if (sm.CountryId.HasValue)
+                            sm.ContinentId = App.ToolHelper.GetContinentIdFromCountry(sm.CountryId.Value);
                         StampModelList.Add(sm);
                     }
                     StampList = StampList.OrderBy(x => x.SortField).ToList();

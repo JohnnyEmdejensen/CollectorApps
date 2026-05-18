@@ -22,5 +22,9 @@ namespace Collector.Client.Wpf.ViewModel
         public int? Width { get; set; }
         public int? Height { get; set; }
 
+        public long? ContinentId { get; set; }
+        public long? CountryId { get; set; }
+        public long? PublishedCountryId { get; set; }
+
     }
 }

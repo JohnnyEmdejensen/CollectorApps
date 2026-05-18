@@ -106,7 +106,6 @@ namespace Collector.Client.Wpf
                 }
             }
         }
-
         public void SetFilterView()
         {
             using (new WorkerHandler("SetFilterView"))
@@ -135,7 +134,38 @@ namespace Collector.Client.Wpf
                 {
                     cboFilterPublishedCountry.SelectedValue = null;
                 }
+                SetStampView();
             }
+        }
+
+        private void SetStampView()
+        {
+            using (new WorkerHandler("SetStampView"))
+            {
+                var allStamps = App.DataShare.StampModelList;
+                if (allStamps == null) return;
+                if (cboFilterContinent.SelectedItem == null && cboFilterCountry.SelectedItem == null && cboFilterPublishedCountry.SelectedItem == null)
+                {
+                    dgStamps.BeginInit();
+                    dgStamps.ItemsSource = allStamps;
+                    dgStamps.EndInit();
+                    return;
+                }
+                var selContinent = cboFilterContinent.SelectedItem as Entity.Continent;
+                if (selContinent != null)
+                    allStamps = allStamps.Where(x => x.ContinentId == selContinent.Id).ToList();
+                var selCountry = cboFilterCountry.SelectedItem as Entity.Country;
+                if (selCountry != null)
+                    allStamps = allStamps.Where(x => x.CountryId == selCountry.Id).ToList();
+                var selPublished = cboFilterPublishedCountry.SelectedItem as Entity.PublishedCountry;
+                if (selPublished != null)
+                    allStamps = allStamps.Where(x => x.PublishedCountryId == selPublished.Id).ToList();
+                dgStamps.BeginInit();
+                dgStamps.ItemsSource = allStamps;
+                dgStamps.EndInit();
+
+            }
+
         }
 
         private void MainWindow_ContentRendered(object? sender, EventArgs e)
@@ -344,9 +374,7 @@ namespace Collector.Client.Wpf
         {
             using (WorkerHandler worker = new WorkerHandler("EventHelper_StampModelListChanged"))
             {
-                dgStamps.BeginInit();
-                dgStamps.ItemsSource = App.DataShare.StampModelList;
-                dgStamps.EndInit();
+                SetStampView();
             }
         }
 

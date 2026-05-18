@@ -13,6 +13,32 @@ namespace Collector.Client.Wpf.Internals
     {
         private List<string> Months = new List<string>() { "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
+        public long GetContinentIdFromCountry(long CountryId)
+        {
+            long result = 0;
+            if (App.DataShare.CountryList != null)
+            {
+                var country = App.DataShare.CountryList.FirstOrDefault(x => x.Id == CountryId);
+                if (country != null && country.ContinentId.HasValue)
+                {
+                    result = country.ContinentId.Value;
+                }
+            }
+            return result;
+        }
+        public long GetCountryByPublishedId(long PublishedCountryId)
+        {
+            long result = 0;
+            if (App.DataShare.PublishedCountryList != null)
+            {
+                var published = App.DataShare.PublishedCountryList.FirstOrDefault(x => x.ContryId == PublishedCountryId);
+                if (published != null)
+                {
+                    result = published.ContryId;   
+                }
+            }
+            return result;
+        }
         public string GetPublishedCountryName(long? PublishedCountryId)
         {
             if (!PublishedCountryId.HasValue) return string.Empty;
