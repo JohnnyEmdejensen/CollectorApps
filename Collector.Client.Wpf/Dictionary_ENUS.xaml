@@ -54,6 +54,10 @@
     <system:String x:Key="desktop.stampdetail.header.topic">TOPIC</system:String>
     <system:String x:Key="desktop.stampdetail.header.perforationh">PERFORATION H</system:String>
     <system:String x:Key="desktop.stampdetail.header.perforationv">PERFORATION V</system:String>
+    <system:String x:Key="desktop.stampdetail.header.description">DESCRIPTION</system:String>
+    <system:String x:Key="desktop.stampdetail.header.motive">MOTIVE</system:String>
+    <system:String x:Key="desktop.stampdetail.header.class">CLASS</system:String>
+    <system:String x:Key="desktop.stampdetail.header.type">TYPE</system:String>
 
     <system:String x:Key="stampdialog.title">Stamp</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Stocks</system:String>
@@ -87,6 +91,7 @@
     <system:String x:Key="countrydialog.title">Countries</system:String>
     <system:String x:Key="catalogdialog.title">Catalogs</system:String>
     <system:String x:Key="colordialog.title">Color</system:String>
+    <system:String x:Key="perforationdialog.title">Perforation</system:String>
     <system:String x:Key="categorydialog.title">Categories</system:String>
     <system:String x:Key="catalogdialog.header.value">VALUE</system:String>
     <system:String x:Key="catalogdialog.header.url">URL (If online)</system:String>

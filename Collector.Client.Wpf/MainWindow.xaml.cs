@@ -480,6 +480,9 @@ namespace Collector.Client.Wpf
                     lblDetailTopic.Content = App.ToolHelper.GetTopicName(App.AppShare.SelectedStamp.TopicId);
                     lblDetailPerforationH.Content = App.ToolHelper.GetPerforationName(App.AppShare.SelectedStamp.PerforationHorId);
                     lblDetailPerforationV.Content = App.ToolHelper.GetPerforationName(App.AppShare.SelectedStamp.PerforationVerId);
+                    lblDetailDescription.Content = App.AppShare.SelectedStamp.Description;
+                    lblDetailMotive.Content = App.AppShare.SelectedStamp.Motive;
+                    
                 }
             }
         }

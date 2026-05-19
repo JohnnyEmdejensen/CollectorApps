@@ -40,6 +40,15 @@ namespace Collector.Client.Wpf.Internals
             };
             frm.Show();
         }
+
+        public void ShowPerforationDialog(Entity.Perforation? Perforation)
+        {
+            Dialogs.PerforationDialog frm = new Dialogs.PerforationDialog()
+            {
+                DataContext = Perforation,
+            };
+            frm.Show();
+        }
         public void ShowTopicsDialog(Entity.Topic? Topic)
         {
             Dialogs.TopicDialog frm = new Dialogs.TopicDialog()

@@ -1022,6 +1022,10 @@
     <None Remove="Images\photo_portrait_24.png" />
     <None Remove="Images\photo_portrait_32.png" />
     <None Remove="Images\photo_portrait_48.png" />
+    <None Remove="Images\playingcard_16.png" />
+    <None Remove="Images\playingcard_24.png" />
+    <None Remove="Images\playingcard_32.png" />
+    <None Remove="Images\playingcard_48.png" />
     <None Remove="Images\scroll_16.png" />
     <None Remove="Images\scroll_24.png" />
     <None Remove="Images\scroll_32.png" />
@@ -2067,6 +2071,10 @@
     <Resource Include="Images\photo_portrait_24.png" />
     <Resource Include="Images\photo_portrait_32.png" />
     <Resource Include="Images\photo_portrait_48.png" />
+    <Resource Include="Images\playingcard_16.png" />
+    <Resource Include="Images\playingcard_24.png" />
+    <Resource Include="Images\playingcard_32.png" />
+    <Resource Include="Images\playingcard_48.png" />
     <Resource Include="Images\scroll_16.png" />
     <Resource Include="Images\scroll_24.png" />
     <Resource Include="Images\scroll_32.png" />

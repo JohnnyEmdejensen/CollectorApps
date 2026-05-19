@@ -54,6 +54,10 @@
     <system:String x:Key="desktop.stampdetail.header.topic">EMNE</system:String>
     <system:String x:Key="desktop.stampdetail.header.perforationh">TAKNING H</system:String>
     <system:String x:Key="desktop.stampdetail.header.perforationv">TAKNING V</system:String>
+    <system:String x:Key="desktop.stampdetail.header.description">BESKRIVELSE</system:String>
+    <system:String x:Key="desktop.stampdetail.header.motive">MOTIV</system:String>
+    <system:String x:Key="desktop.stampdetail.header.class">KLASSE</system:String>
+    <system:String x:Key="desktop.stampdetail.header.type">TYPE</system:String>
 
     <system:String x:Key="stampdialog.title">Frimærke</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Beholdning</system:String>
@@ -86,6 +90,8 @@
     <system:String x:Key="countrydialog.columnheader.number">Nummer</system:String>
     <system:String x:Key="countrydialog.columnheader.continent">Kontinent</system:String>
     <system:String x:Key="countrydialog.title">Lande</system:String>
+    <system:String x:Key="perforationdialog.title">Perforation</system:String>
+    <system:String x:Key="colordialog.title">Farve</system:String>
     <system:String x:Key="catalogdialog.title">Kataloger</system:String>
     <system:String x:Key="categorydialog.title">Kategorier</system:String>
     <system:String x:Key="catalogdialog.header.value">VÆRDI</system:String>

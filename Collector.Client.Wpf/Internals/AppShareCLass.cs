@@ -33,8 +33,16 @@ namespace Collector.Client.Wpf.Internals
             Repositories.LocationRepository.LocationChanged += LocationRepository_LocationChanged;
             Repositories.SupplierRepository.SupplierChanged += SupplierRepository_SupplierChanged;
             Repositories.SupplierDealRepository.SupplierDealChanged += SupplierDealRepository_SupplierDealChanged;
+            Repositories.PerforationRepository.PerforationChanged += PerforationRepository_PerforationChanged;
         }
 
+        private void PerforationRepository_PerforationChanged(object sender, PerforationEventArgs e)
+        {
+            using (new WorkerHandler("PerforationRepository_PerforationChanged"))
+            {
+                App.DataShare.GetPerforations();
+            }
+        }
 
         private void SupplierDealRepository_SupplierDealChanged(object sender, SupplierDealEventArgs e)
         {

@@ -42,6 +42,7 @@ namespace Collector.Client.Wpf.Dialogs
             App.EventHelper.CategoryListChanged += EventHelper_CategoryListChanged;
             App.EventHelper.PublishedCountryListChanged += EventHelper_PublishedCountryListChanged;
             App.EventHelper.TopicListChanged += EventHelper_TopicListChanged;
+            App.EventHelper.PerforationListChanged += EventHelper_PerforationListChanged;
             App.AppShare.Repositories.StampImageRepository.StampImageChanged += StampImageRepository_StampImageChanged;
             FillControls();
             _settings.Load();
@@ -131,9 +132,26 @@ namespace Collector.Client.Wpf.Dialogs
                 FillWatermarks();
                 FillTopicControl();
                 FillStockControl();
+                FillPerforationControls();
             }
         }
 
+        private void FillPerforationControls()
+        {
+            using (new WorkerHandler("FillPerforationControls"))
+            {
+                cboPerforationH.BeginInit();
+                cboPerforationH.ItemsSource = App.DataShare.PerforationList;
+                cboPerforationH.DisplayMemberPath = "Value";
+                cboPerforationH.SelectedValuePath = "Id";
+                cboPerforationH.EndInit();
+                cboPerforationV.BeginInit();
+                cboPerforationV.ItemsSource = App.DataShare.PerforationList;
+                cboPerforationV.DisplayMemberPath = "Value";
+                cboPerforationV.SelectedValuePath = "Id";
+                cboPerforationV.EndInit();
+            }
+        }
         private void FillStockControl()
         {
             using (new WorkerHandler("FillStockControl"))
@@ -428,6 +446,13 @@ namespace Collector.Client.Wpf.Dialogs
                 FillTopicControl();
             }
         }
+        private void EventHelper_PerforationListChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_PerforationListChanged"))
+            {
+                FillPerforationControls();
+            }
+        }
 
         private void lblColor_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -561,6 +586,13 @@ namespace Collector.Client.Wpf.Dialogs
                 App.FormHelper.ShowTopicsDialog(new());
             }
         }
+        private void lblPerforations_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            using (new WorkerHandler("lblPerforations_MouseDown"))
+            {
+                App.FormHelper.ShowPerforationDialog(new());
+            }
+        }
         private void Item_StockItemChanged(object sender, Components.StockItemEventArgs e)
         {
             btnSaveStock.IsEnabled = false;
@@ -576,5 +608,6 @@ namespace Collector.Client.Wpf.Dialogs
                 GetStampImages();
             }
         }
+
     }
 }

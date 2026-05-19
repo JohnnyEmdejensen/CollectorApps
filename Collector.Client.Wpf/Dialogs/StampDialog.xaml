@@ -251,7 +251,7 @@
                                 <RowDefinition Height="12"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Content="{DynamicResource stampdialog.header.perforations}" Style="{StaticResource LabelHeader}"></Label>
+                            <Label x:Name="lblPerforations" MouseDown="lblPerforations_MouseDown" Content="{DynamicResource stampdialog.header.perforations}" Style="{StaticResource LabelHeaderClickAble}"></Label>
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition></ColumnDefinition>

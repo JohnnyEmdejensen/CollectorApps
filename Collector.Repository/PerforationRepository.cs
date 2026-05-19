@@ -8,6 +8,8 @@ namespace Collector.Repository
 {
     public class PerforationRepository : BaseRepository
     {
+        public delegate void PerforationHandler (object sender, PerforationEventArgs e);
+        public event PerforationHandler? PerforationChanged;
         public Entity.Perforation? Get(long Id)
         {
             if (ApiContext == null) return null;
@@ -23,6 +25,7 @@ namespace Collector.Repository
             if (ApiContext == null || Source == null) return null;
             ApiContext.Perforations.Add(Source);
             ApiContext.SaveChanges();
+            PerforationChanged?.Invoke(this, new PerforationEventArgs(Source));
             return Source;
         }
         public Entity.Perforation? Update(Entity.Perforation? Source)
@@ -32,6 +35,7 @@ namespace Collector.Repository
             if (record == null) return null;
             record.Value = Source.Value;
             ApiContext.SaveChanges();
+            PerforationChanged?.Invoke(this, new PerforationEventArgs(record));
             return record;
         }
         public Entity.Perforation? Delete(long Id)
@@ -40,7 +44,16 @@ namespace Collector.Repository
             if (ApiContext == null || record == null) return null;
             record.IsDeleted = true;
             ApiContext.SaveChanges();
+            PerforationChanged?.Invoke(this, new PerforationEventArgs(record));
             return record;
+        }
+    }
+    public class PerforationEventArgs: EventArgs
+    {
+        public Entity.Perforation Perforation { get; private set; }
+        public PerforationEventArgs(Entity.Perforation perforation)
+        {
+            Perforation = perforation;
         }
     }
 }
