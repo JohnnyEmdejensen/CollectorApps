@@ -43,11 +43,12 @@ namespace Collector.Client.Wpf.Dialogs
             App.EventHelper.PublishedCountryListChanged += EventHelper_PublishedCountryListChanged;
             App.EventHelper.TopicListChanged += EventHelper_TopicListChanged;
             App.EventHelper.PerforationListChanged += EventHelper_PerforationListChanged;
+            App.EventHelper.ClasssListChanged += EventHelper_ClasssListChanged;
+            App.EventHelper.TypeeListChanged += EventHelper_TypeeListChanged;
             App.AppShare.Repositories.StampImageRepository.StampImageChanged += StampImageRepository_StampImageChanged;
             FillControls();
             _settings.Load();
         }
-
 
         private void DoSave(bool CloseAfter)
         {
@@ -133,6 +134,8 @@ namespace Collector.Client.Wpf.Dialogs
                 FillTopicControl();
                 FillStockControl();
                 FillPerforationControls();
+                FillClasses();
+                FillTypees();
             }
         }
 
@@ -152,6 +155,29 @@ namespace Collector.Client.Wpf.Dialogs
                 cboPerforationV.EndInit();
             }
         }
+        private void FillClasses()
+        {
+            using (new WorkerHandler("FillClasses"))
+            {
+                cboClasses.BeginInit();
+                cboClasses.ItemsSource = App.DataShare.ClasssList;
+                cboClasses.DisplayMemberPath = "Value";
+                cboClasses.SelectedValuePath = "Id";
+                cboClasses.EndInit();
+            }
+        }
+        private void FillTypees()
+        {
+            using (new WorkerHandler("FillTypees"))
+            {
+                cboTypes.BeginInit();
+                cboTypes.ItemsSource = App.DataShare.TypeeList;
+                cboTypes.DisplayMemberPath = "Value";
+                cboTypes.SelectedValuePath = "Id";
+                cboTypes.EndInit();
+            }
+        }
+
         private void FillStockControl()
         {
             using (new WorkerHandler("FillStockControl"))
@@ -439,6 +465,22 @@ namespace Collector.Client.Wpf.Dialogs
         {
             FillPublishedCountryControl();
         }
+        private void EventHelper_TypeeListChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_TypeeListChanged"))
+            {
+                FillTypees();
+            }
+        }
+
+        private void EventHelper_ClasssListChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_ClasssListChanged"))
+            {
+                FillClasses();
+            }
+        }
+
         private void EventHelper_TopicListChanged(object sender, EventArgs e)
         {
             using (new WorkerHandler("EventHelper_TopicListChanged"))

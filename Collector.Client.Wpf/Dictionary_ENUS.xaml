@@ -79,6 +79,8 @@
     <system:String x:Key="stampdialog.header.designer">DESIGNER</system:String>
     <system:String x:Key="stampdialog.header.ingraver">INGRAVER</system:String>
     <system:String x:Key="stampdialog.header.description">DESCRIPTION</system:String>
+    <system:String x:Key="stampdialog.header.class">CLASS</system:String>
+    <system:String x:Key="stampdialog.header.type">TYPE</system:String>
     
     <system:String x:Key="countrydialog.header.name">NAME</system:String>
     <system:String x:Key="countrydialog.header.iso">ISO</system:String>

@@ -61,6 +61,8 @@ namespace Collector.Repository
             record.TopicId = Source.TopicId;
             record.WatermarkId = Source.WatermarkId;
             record.Width = Source.Width;
+            record.TypeId = Source.TypeId;
+            record.ClassId = Source.ClassId;
             ApiContext.SaveChanges();
             StampChanged?.Invoke(this, new StampEventArgs(record));
             return record;

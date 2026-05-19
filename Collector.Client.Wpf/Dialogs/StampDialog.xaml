@@ -100,6 +100,8 @@
                             <RowDefinition Height="4"></RowDefinition>
                             <RowDefinition Height="32"></RowDefinition>
                             <RowDefinition Height="4"></RowDefinition>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
@@ -329,6 +331,32 @@
                             <Label Content="{DynamicResource stampdialog.header.description}" Style="{StaticResource LabelHeader}"></Label>
                             <TextBox Grid.Row="1" VerticalContentAlignment="Top" Text="{Binding Path=Description, Mode=TwoWay}"></TextBox>
                         </Grid>
+
+                        <Grid Grid.Row="22">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="8"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblClass" MouseDown="lblCategory_MouseDown" Cursor="Hand" Content="{DynamicResource stampdialog.header.class}" Style="{StaticResource LabelHeaderClickAble}"></Label>
+                                <Label x:Name="lblType" MouseDown="lblWatermark_MouseDown" Cursor="Hand" Grid.Column="2" Content="{DynamicResource stampdialog.header.type}" Style="{StaticResource LabelHeaderClickAble}"></Label>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="8"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <ComboBox x:Name="cboClasses" Grid.Row="1" SelectedValue="{Binding Path=CategoryId, Mode=TwoWay}"></ComboBox>
+                                <ComboBox Grid.Column="2" x:Name="cboTypes" Grid.Row="1" SelectedValue="{Binding Path=WatermarkId, Mode=TwoWay}"></ComboBox>
+                            </Grid>
+                        </Grid>
+
                     </Grid>
                 </Grid>
             </Grid>

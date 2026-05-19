@@ -1,4 +1,5 @@
-﻿using Collector.Entity;
+﻿using Azure.Identity;
+using Collector.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Stock>? StockList { get; set; }
         public List<Entity.StampNumber>? StampNumberList { get; set; }
         public List<Entity.Perforation>? PerforationList { get; set; }
+        public List<Entity.Classs>? ClasssList { get; set; }
+        public List<Entity.Typee>? TypeeList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -52,12 +55,36 @@ namespace Collector.Client.Wpf.Internals
                 GetWatermarks();
                 GetTopics();
                 GetConditions();
+                GetClasses();
+                GetTypees();
                 GetPerforations();
                 GetLocations();
                 GetSuppliers();
                 GetSupplierDeals();
                 GetStamps();
                 GetStampNumbers();
+            }
+        }
+
+        public void GetClasses()
+        {
+            using (new WorkerHandler("GetClasses"))
+            {
+                ClasssList = App.AppShare.Repositories.ClasssRepository.GetAll();
+                if (ClasssList != null)
+                    ClasssList = ClasssList.OrderBy(x => x.Value).ToList();
+                App.EventHelper.RaiseClasssListChangedEvent();
+            }
+        }
+
+        public void GetTypees()
+        {
+            using (new WorkerHandler("GetTypees"))
+            {
+                TypeeList = App.AppShare.Repositories.TypeeRepository.GetAll();
+                if (TypeeList != null)
+                    TypeeList = TypeeList.OrderBy(x => x.Value).ToList();
+                App.EventHelper.RaiseTypeeListChangedEvent();
             }
         }
 

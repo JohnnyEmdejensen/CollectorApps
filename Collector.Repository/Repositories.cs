@@ -31,8 +31,12 @@ namespace Collector.Repository
             StampImageRepository = new StampImageRepository();
             StampNumberRepository = new StampNumberRepository();
             PerforationRepository = new PerforationRepository();
+            ClasssRepository = new ClasssRepository();
+            TypeeRepository = new TypeeRepository();
         }
 
+        public ClasssRepository ClasssRepository { get; set; }
+        public TypeeRepository TypeeRepository { get; set; }
         public PerforationRepository PerforationRepository { get; set; }
         public StampNumberRepository StampNumberRepository { get; set; }
         public StampImageRepository StampImageRepository { get; set; }

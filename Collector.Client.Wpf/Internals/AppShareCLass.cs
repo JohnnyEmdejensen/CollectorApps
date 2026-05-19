@@ -34,6 +34,24 @@ namespace Collector.Client.Wpf.Internals
             Repositories.SupplierRepository.SupplierChanged += SupplierRepository_SupplierChanged;
             Repositories.SupplierDealRepository.SupplierDealChanged += SupplierDealRepository_SupplierDealChanged;
             Repositories.PerforationRepository.PerforationChanged += PerforationRepository_PerforationChanged;
+            Repositories.ClasssRepository.ClasssChanged += ClasssRepository_ClasssChanged;
+            Repositories.TypeeRepository.TypeeChanged += TypeeRepository_TypeeChanged;
+        }
+
+        private void TypeeRepository_TypeeChanged(object sender, TypeeEventArgs e)
+        {
+            using (new WorkerHandler("TypeeRepository_TypeeChanged"))
+            {
+                App.DataShare.GetTypees();
+            }
+        }
+
+        private void ClasssRepository_ClasssChanged(object sender, ClasssEventArgs e)
+        {
+            using (new WorkerHandler("ClasssRepository_ClasssChanged"))
+            {
+                App.DataShare.GetClasses();
+            }
         }
 
         private void PerforationRepository_PerforationChanged(object sender, PerforationEventArgs e)
