@@ -475,6 +475,9 @@ namespace Collector.Client.Wpf
                         }
                     }
                     lblDetailCatalogNumber.Content = App.ToolHelper.GetCatalogNumbers(App.AppShare.SelectedStamp);
+                    lblDetailIssued.Content = App.ToolHelper.FormatIssued(App.AppShare.SelectedStamp.Issued);
+                    lblDetailCategory.Content = App.ToolHelper.GetCategoryName(App.AppShare.SelectedStamp.CategoryId);
+                    lblDetailTopic.Content = App.ToolHelper.GetTopicName(App.AppShare.SelectedStamp.TopicId);
                 }
             }
         }

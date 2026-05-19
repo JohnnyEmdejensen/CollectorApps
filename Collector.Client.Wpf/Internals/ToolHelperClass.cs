@@ -115,6 +115,23 @@ namespace Collector.Client.Wpf.Internals
             }
             return result;
         }
+
+        public string GetTopicName(long? TopicId)
+        {
+            string result = "";
+            using (new WorkerHandler("GetTopicName"))
+            {
+                if (App.DataShare.TopicList != null && TopicId.HasValue)
+                {
+                    var topic = App.DataShare.TopicList.FirstOrDefault(y => y.Id == TopicId);
+                    if(topic != null)
+                    {
+                        result = topic.Value;
+                    }
+                }
+            }
+            return result;
+        }
         public string GetCategoryName(long CategoryId)
         {
             string result = "";

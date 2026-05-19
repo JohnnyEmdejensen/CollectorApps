@@ -49,6 +49,9 @@
     <system:String x:Key="desktop.stamp.filter.publishedcountry">Udg. land</system:String>
 
     <system:String x:Key="desktop.stampdetail.header.catalognumber">KATALOG NUMMER</system:String>
+    <system:String x:Key="desktop.stampdetail.header.issued">UDGIVET</system:String>
+    <system:String x:Key="desktop.stampdetail.header.category">KATEGORI</system:String>
+    <system:String x:Key="desktop.stampdetail.header.topic">EMNE</system:String>
 
     <system:String x:Key="stampdialog.title">Frimærke</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Beholdning</system:String>
