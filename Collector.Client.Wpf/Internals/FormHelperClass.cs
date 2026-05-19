@@ -8,6 +8,22 @@ namespace Collector.Client.Wpf.Internals
 {
     public class FormHelperClass
     {
+        public void ShowTypeeDialog(Entity.Typee? Typee)
+        {
+            Dialogs.TypeeDialog frm = new Dialogs.TypeeDialog()
+            {
+                DataContext = Typee,
+            };
+            frm.Show();
+        }
+        public void ShowClasssDialog(Entity.Classs? Classs)
+        {
+            Dialogs.ClasssDialog frm = new Dialogs.ClasssDialog()
+            {
+                DataContext = Classs,
+            };
+            frm.Show();
+        }
         public void ShowSupplierdealsDialog(Entity.Supplierdeal? Supplierdeal)
         {
             Dialogs.SupplierDealDialog frm = new Dialogs.SupplierDealDialog()

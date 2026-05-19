@@ -14,6 +14,10 @@
     <None Remove="Images\add_24.png" />
     <None Remove="Images\add_32.png" />
     <None Remove="Images\add_48.png" />
+    <None Remove="Images\bell_16.png" />
+    <None Remove="Images\bell_24.png" />
+    <None Remove="Images\bell_32.png" />
+    <None Remove="Images\bell_48.png" />
     <None Remove="Images\books_16.png" />
     <None Remove="Images\books_24.png" />
     <None Remove="Images\books_32.png" />
@@ -1026,6 +1030,10 @@
     <None Remove="Images\playingcard_24.png" />
     <None Remove="Images\playingcard_32.png" />
     <None Remove="Images\playingcard_48.png" />
+    <None Remove="Images\rubberstamp_16.png" />
+    <None Remove="Images\rubberstamp_24.png" />
+    <None Remove="Images\rubberstamp_32.png" />
+    <None Remove="Images\rubberstamp_48.png" />
     <None Remove="Images\scroll_16.png" />
     <None Remove="Images\scroll_24.png" />
     <None Remove="Images\scroll_32.png" />
@@ -1063,6 +1071,10 @@
     <Resource Include="Images\add_24.png" />
     <Resource Include="Images\add_32.png" />
     <Resource Include="Images\add_48.png" />
+    <Resource Include="Images\bell_16.png" />
+    <Resource Include="Images\bell_24.png" />
+    <Resource Include="Images\bell_32.png" />
+    <Resource Include="Images\bell_48.png" />
     <Resource Include="Images\books_16.png" />
     <Resource Include="Images\books_24.png" />
     <Resource Include="Images\books_32.png" />
@@ -2075,6 +2087,10 @@
     <Resource Include="Images\playingcard_24.png" />
     <Resource Include="Images\playingcard_32.png" />
     <Resource Include="Images\playingcard_48.png" />
+    <Resource Include="Images\rubberstamp_16.png" />
+    <Resource Include="Images\rubberstamp_24.png" />
+    <Resource Include="Images\rubberstamp_32.png" />
+    <Resource Include="Images\rubberstamp_48.png" />
     <Resource Include="Images\scroll_16.png" />
     <Resource Include="Images\scroll_24.png" />
     <Resource Include="Images\scroll_32.png" />

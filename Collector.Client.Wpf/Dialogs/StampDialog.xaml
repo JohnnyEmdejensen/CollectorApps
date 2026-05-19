@@ -343,8 +343,8 @@
                                     <ColumnDefinition Width="8"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label x:Name="lblClass" MouseDown="lblCategory_MouseDown" Cursor="Hand" Content="{DynamicResource stampdialog.header.class}" Style="{StaticResource LabelHeaderClickAble}"></Label>
-                                <Label x:Name="lblType" MouseDown="lblWatermark_MouseDown" Cursor="Hand" Grid.Column="2" Content="{DynamicResource stampdialog.header.type}" Style="{StaticResource LabelHeaderClickAble}"></Label>
+                                <Label x:Name="lblClass" MouseDown="lblClass_MouseDown" Cursor="Hand" Content="{DynamicResource stampdialog.header.class}" Style="{StaticResource LabelHeaderClickAble}"></Label>
+                                <Label x:Name="lblType" MouseDown="lblType_MouseDown" Cursor="Hand" Grid.Column="2" Content="{DynamicResource stampdialog.header.type}" Style="{StaticResource LabelHeaderClickAble}"></Label>
                             </Grid>
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>

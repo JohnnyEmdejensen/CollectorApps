@@ -42,6 +42,7 @@ namespace Collector.Client.Wpf.Dialogs
         {
             _perforation = new Entity.Perforation();
             DataContext = _perforation;
+            SetGui();
             txtName.Focus();
         }
 
@@ -99,6 +100,7 @@ namespace Collector.Client.Wpf.Dialogs
         {
             if (e.Key == Key.Escape)
             {
+                e.Handled = true;
                 Close();
             }
         }

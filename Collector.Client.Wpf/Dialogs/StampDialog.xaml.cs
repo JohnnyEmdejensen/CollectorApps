@@ -651,5 +651,21 @@ namespace Collector.Client.Wpf.Dialogs
             }
         }
 
+        private void lblClass_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            using (new WorkerHandler("lblClass_MouseDown"))
+            {
+                App.FormHelper.ShowClasssDialog(new());
+            }
+        }
+
+        private void lblType_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            using (new WorkerHandler("lblType_MouseDown"))
+            {
+                App.FormHelper.ShowTypeeDialog(new());
+            }
+
+        }
     }
 }
