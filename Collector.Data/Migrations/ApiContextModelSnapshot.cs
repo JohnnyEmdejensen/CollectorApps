@@ -92,6 +92,33 @@ namespace Collector.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Collector.Entity.Classs", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Classes");
+                });
+
             modelBuilder.Entity("Collector.Entity.Coin", b =>
                 {
                     b.Property<long>("Id")
@@ -391,6 +418,9 @@ namespace Collector.Data.Migrations
                     b.Property<long>("CategoryId")
                         .HasColumnType("bigint");
 
+                    b.Property<long?>("ClassId")
+                        .HasColumnType("bigint");
+
                     b.Property<long?>("CoinId")
                         .HasColumnType("bigint");
 
@@ -459,6 +489,9 @@ namespace Collector.Data.Migrations
                         .HasColumnType("nvarchar(8)");
 
                     b.Property<long?>("TopicId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("TypeId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("Updated")
@@ -718,6 +751,33 @@ namespace Collector.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Topics");
+                });
+
+            modelBuilder.Entity("Collector.Entity.Typee", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Typees");
                 });
 
             modelBuilder.Entity("Collector.Entity.Watermark", b =>

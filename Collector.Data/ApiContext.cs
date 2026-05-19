@@ -30,6 +30,8 @@ namespace Collector.Data
             base.OnModelCreating(modelBuilder);
         }
 
+        public DbSet<Entity.Typee> Typees { get; set; }
+        public DbSet<Entity.Classs> Classes { get; set; }
         public DbSet<Entity.Catalog> Catalogs { get; set; }
         public DbSet<Entity.Category> Categories { get; set; }
         public DbSet<Entity.Coin> Coins { get; set; }

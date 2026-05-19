@@ -40,7 +40,8 @@ namespace Collector.Entity
         public string? Designer { get; set; }
         [MaxLength(128)]
         public string? Ingraver { get; set; }
-
+        public long? TypeId { get; set; }
+        public long? ClassId { get; set; }
 
         [NotMapped]
         public string FormattetIssued { get; set; } = "";
