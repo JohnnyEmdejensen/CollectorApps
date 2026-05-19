@@ -27,7 +27,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? SupplierListChanged;
         public event DefaultHandler? SupplierDealListChanged;
         public event DefaultHandler? SelectedStampChanged;
+        public event DefaultHandler? PerforationListChanged;
 
+        public void RaisePerforationListChanged()
+        {
+            PerforationListChanged?.Invoke(this, new EventArgs());
+        }
         public void RaiseSelectedStampChangedEvent()
         {
             SelectedStampChanged?.Invoke(this, EventArgs.Empty);

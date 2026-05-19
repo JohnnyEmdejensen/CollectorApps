@@ -52,6 +52,8 @@
     <system:String x:Key="desktop.stampdetail.header.issued">UDGIVET</system:String>
     <system:String x:Key="desktop.stampdetail.header.category">KATEGORI</system:String>
     <system:String x:Key="desktop.stampdetail.header.topic">EMNE</system:String>
+    <system:String x:Key="desktop.stampdetail.header.perforationh">TAKNING H</system:String>
+    <system:String x:Key="desktop.stampdetail.header.perforationv">TAKNING V</system:String>
 
     <system:String x:Key="stampdialog.title">Frimærke</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Beholdning</system:String>

@@ -116,6 +116,22 @@ namespace Collector.Client.Wpf.Internals
             return result;
         }
 
+        public string GetPerforationName(long? PerforationId)
+        {
+            string result = "";
+            using (new WorkerHandler("GetPerforationName"))
+            {
+                if (App.DataShare.PerforationList != null && PerforationId.HasValue)
+                {
+                    var per = App.DataShare.PerforationList.FirstOrDefault(x => x.Id == PerforationId);
+                    if (per != null)
+                    {
+                        result = per.Value;
+                    }
+                }
+            }
+            return result;
+        }
         public string GetTopicName(long? TopicId)
         {
             string result = "";

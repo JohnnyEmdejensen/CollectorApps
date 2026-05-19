@@ -478,6 +478,8 @@ namespace Collector.Client.Wpf
                     lblDetailIssued.Content = App.ToolHelper.FormatIssued(App.AppShare.SelectedStamp.Issued);
                     lblDetailCategory.Content = App.ToolHelper.GetCategoryName(App.AppShare.SelectedStamp.CategoryId);
                     lblDetailTopic.Content = App.ToolHelper.GetTopicName(App.AppShare.SelectedStamp.TopicId);
+                    lblDetailPerforationH.Content = App.ToolHelper.GetPerforationName(App.AppShare.SelectedStamp.PerforationHorId);
+                    lblDetailPerforationV.Content = App.ToolHelper.GetPerforationName(App.AppShare.SelectedStamp.PerforationVerId);
                 }
             }
         }

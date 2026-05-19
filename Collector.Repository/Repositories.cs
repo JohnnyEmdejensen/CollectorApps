@@ -30,8 +30,10 @@ namespace Collector.Repository
             StockRepository = new StockRepository();
             StampImageRepository = new StampImageRepository();
             StampNumberRepository = new StampNumberRepository();
+            PerforationRepository = new PerforationRepository();
         }
 
+        public PerforationRepository PerforationRepository { get; set; }
         public StampNumberRepository StampNumberRepository { get; set; }
         public StampImageRepository StampImageRepository { get; set; }
         public StockRepository StockRepository { get; set; }

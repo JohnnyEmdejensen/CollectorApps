@@ -30,6 +30,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Supplierdeal>? SupplierDealList { get; set; }
         public List<Entity.Stock>? StockList { get; set; }
         public List<Entity.StampNumber>? StampNumberList { get; set; }
+        public List<Entity.Perforation>? PerforationList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -51,6 +52,7 @@ namespace Collector.Client.Wpf.Internals
                 GetWatermarks();
                 GetTopics();
                 GetConditions();
+                GetPerforations();
                 GetLocations();
                 GetSuppliers();
                 GetSupplierDeals();
@@ -90,6 +92,16 @@ namespace Collector.Client.Wpf.Internals
             }
         }
 
+        public void GetPerforations()
+        {
+            using (new WorkerHandler("GetPerforations"))
+            {
+                PerforationList = App.AppShare.Repositories.PerforationRepository.GetAll();
+                if (PerforationList != null)
+                    PerforationList = PerforationList.OrderBy(x => x.Value).ToList();
+                App.EventHelper.RaisePerforationListChanged();
+            }
+        }
         public void GetConditions()
         {
             ConditionList = App.AppShare.Repositories.ConditionRepository.GetAll();

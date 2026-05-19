@@ -52,6 +52,8 @@
     <system:String x:Key="desktop.stampdetail.header.issued">ISSUED</system:String>
     <system:String x:Key="desktop.stampdetail.header.category">CATEGORY</system:String>
     <system:String x:Key="desktop.stampdetail.header.topic">TOPIC</system:String>
+    <system:String x:Key="desktop.stampdetail.header.perforationh">PERFORATION H</system:String>
+    <system:String x:Key="desktop.stampdetail.header.perforationv">PERFORATION V</system:String>
 
     <system:String x:Key="stampdialog.title">Stamp</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Stocks</system:String>
