@@ -482,7 +482,10 @@ namespace Collector.Client.Wpf
                     lblDetailPerforationV.Content = App.ToolHelper.GetPerforationName(App.AppShare.SelectedStamp.PerforationVerId);
                     lblDetailDescription.Content = App.AppShare.SelectedStamp.Description;
                     lblDetailMotive.Content = App.AppShare.SelectedStamp.Motive;
-                    
+                    lblDetailClass.Content = App.ToolHelper.GetClassName(App.AppShare.SelectedStamp.ClassId);
+                    lblDetailType.Content = App.ToolHelper.GetTypeName(App.AppShare.SelectedStamp.TypeId);
+                    lblDetailDesigner.Content = App.AppShare.SelectedStamp.Designer;
+                    lblDetailIngraver.Content = App.AppShare.SelectedStamp.Ingraver;
                 }
             }
         }

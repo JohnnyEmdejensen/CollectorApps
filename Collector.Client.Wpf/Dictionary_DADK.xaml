@@ -58,6 +58,8 @@
     <system:String x:Key="desktop.stampdetail.header.motive">MOTIV</system:String>
     <system:String x:Key="desktop.stampdetail.header.class">KLASSE</system:String>
     <system:String x:Key="desktop.stampdetail.header.type">TYPE</system:String>
+    <system:String x:Key="desktop.stampdetail.header.designer">DESIGNER</system:String>
+    <system:String x:Key="desktop.stampdetail.header.ingraver">GRAVØR</system:String>
 
     <system:String x:Key="stampdialog.title">Frimærke</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Beholdning</system:String>

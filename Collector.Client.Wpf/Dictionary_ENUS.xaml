@@ -56,6 +56,8 @@
     <system:String x:Key="desktop.stampdetail.header.perforationv">PERFORATION V</system:String>
     <system:String x:Key="desktop.stampdetail.header.description">DESCRIPTION</system:String>
     <system:String x:Key="desktop.stampdetail.header.motive">MOTIVE</system:String>
+    <system:String x:Key="desktop.stampdetail.header.designer">DESIGNER</system:String>
+    <system:String x:Key="desktop.stampdetail.header.ingraver">INGRAVER</system:String>
     <system:String x:Key="desktop.stampdetail.header.class">CLASS</system:String>
     <system:String x:Key="desktop.stampdetail.header.type">TYPE</system:String>
 

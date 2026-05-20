@@ -116,6 +116,38 @@ namespace Collector.Client.Wpf.Internals
             return result;
         }
 
+        public string GetTypeName(long? TypeId)
+        {
+            string result = "";
+            using (new WorkerHandler("GetTypeName"))
+            {
+                if (App.DataShare.TypeeList != null && TypeId.HasValue)
+                {
+                    var type = App.DataShare.TypeeList.FirstOrDefault(x => x.Id == TypeId);
+                    if (type != null)
+                    {
+                        result = type.Value;
+                    }
+                }
+            }
+            return result;
+        }
+        public string GetClassName(long? ClassId)
+        {
+            string result = "";
+            using (new WorkerHandler("GetClassName"))
+            {
+                if (App.DataShare.ClasssList != null && ClassId.HasValue)
+                {
+                    var cls = App.DataShare.ClasssList.FirstOrDefault(x => x.Id == ClassId);
+                    if (cls != null)
+                    {
+                        result = cls.Value;
+                    }
+                }
+            }
+            return result;
+        }
         public string GetPerforationName(long? PerforationId)
         {
             string result = "";

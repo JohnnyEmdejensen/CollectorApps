@@ -249,6 +249,10 @@
                             <RowDefinition Height="4"></RowDefinition>
                             <RowDefinition Height="32"></RowDefinition>
                             <RowDefinition Height="4"></RowDefinition>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <Border Grid.Row="0" Margin="4,0,4,0" BorderThickness="1" BorderBrush="{StaticResource PrimaryLineDark}" CornerRadius="4">
@@ -365,6 +369,26 @@
                                 </Grid>
                             </Border>
                         </Grid>
+                        <Border Grid.Row="18" Margin="4,0,4,0" BorderThickness="1" BorderBrush="{StaticResource PrimaryLineDark}" CornerRadius="4">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="12"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Content="{StaticResource desktop.stampdetail.header.designer}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailDesigner"></Label>
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="20" Margin="4,0,4,0" BorderThickness="1" BorderBrush="{StaticResource PrimaryLineDark}" CornerRadius="4">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="12"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Content="{StaticResource desktop.stampdetail.header.ingraver}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailIngraver"></Label>
+                            </Grid>
+                        </Border>
                     </Grid>
                     <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource DarkLine}"></Label>
                     <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource LightLine}"></Label>
