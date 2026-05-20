@@ -100,6 +100,8 @@
     <system:String x:Key="catalogdialog.header.url">URL (Hvis online)</system:String>
     <system:String x:Key="catalogdialog.header.shortname">Kort navn</system:String>
     <system:String x:Key="catalogdialog.columnheader.value">Værdi</system:String>
+    <system:String x:Key="classsdialog.title">Klasser</system:String>
+    <system:String x:Key="typedialog.title">Typer</system:String>
 
     <system:String x:Key="coinunitdialog.title">Mønt enheder</system:String>
 

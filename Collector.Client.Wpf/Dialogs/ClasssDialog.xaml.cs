@@ -1,4 +1,5 @@
-﻿using Collector.Entity;
+﻿using Collector.Client.Wpf.Internals;
+using Collector.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,9 +31,28 @@ namespace Collector.Client.Wpf.Dialogs
             ContentRendered += ClasssDialog_ContentRendered;
             Closing += ClasssDialog_Closing;
             KeyDown += ClasssDialog_KeyDown;
+            App.EventHelper.ClasssListChanged += EventHelper_ClasssListChanged;
+            FillControls();
             _settings.Load();
         }
 
+
+        private void FillControls()
+        {
+            using (new WorkerHandler("FillControls"))
+            {
+                FillClasses();
+            }
+        }
+        private void FillClasses()
+        {
+            using (new WorkerHandler("FillClasses"))
+            {
+                dgClasses.BeginInit();
+                dgClasses.ItemsSource = App.DataShare.ClasssList;
+                dgClasses.EndInit();
+            }
+        }
         private void DoAdd()
         {
             _classs = new Classs();
@@ -96,6 +116,21 @@ namespace Collector.Client.Wpf.Dialogs
                 e.Handled = true;
                 Close();
             }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && e.Key == Key.S)
+            {
+                e.Handled = true;
+                DoSave(false);
+            }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && e.Key == Key.N)
+            {
+                e.Handled = true;
+                DoAdd();
+            }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift) && e.Key == Key.S)
+            {
+                e.Handled = true;
+                DoSave(true);
+            }
         }
 
         private void ClasssDialog_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
@@ -136,6 +171,13 @@ namespace Collector.Client.Wpf.Dialogs
             SetGui();
             txtName.Focus();
             txtName.SelectAll();
+        }
+        private void EventHelper_ClasssListChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_ClasssListChanged"))
+            {
+                FillClasses();
+            }
         }
     }
 }

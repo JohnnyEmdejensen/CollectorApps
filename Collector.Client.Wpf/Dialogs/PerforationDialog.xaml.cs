@@ -103,6 +103,21 @@ namespace Collector.Client.Wpf.Dialogs
                 e.Handled = true;
                 Close();
             }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && e.Key == Key.S)
+            {
+                e.Handled = true;
+                DoSave(false);
+            }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && e.Key == Key.N)
+            {
+                e.Handled = true;
+                DoAdd();
+            }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift) && e.Key == Key.S)
+            {
+                e.Handled = true;
+                DoSave(true);
+            }
         }
 
         private void PerforationDialog_Closing(object? sender, System.ComponentModel.CancelEventArgs e)

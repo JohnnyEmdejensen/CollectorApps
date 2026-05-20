@@ -93,6 +93,8 @@
     <system:String x:Key="countrydialog.title">Countries</system:String>
     <system:String x:Key="catalogdialog.title">Catalogs</system:String>
     <system:String x:Key="colordialog.title">Color</system:String>
+    <system:String x:Key="typedialog.title">Types</system:String>
+    <system:String x:Key="classsdialog.title">Classes</system:String>
     <system:String x:Key="perforationdialog.title">Perforation</system:String>
     <system:String x:Key="categorydialog.title">Categories</system:String>
     <system:String x:Key="catalogdialog.header.value">VALUE</system:String>

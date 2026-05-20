@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Collector.Client.Wpf.Dialogs"
         mc:Ignorable="d"
-        Title="{DynamicResource colordialog.title}" ResizeMode="NoResize" Tag="Classses" Height="400" Width="600" Background="{DynamicResource PrimaryBackground}" Icon="/Images/rubberstamp_48.png">
+        Title="{DynamicResource classsdialog.title}" ResizeMode="NoResize" Tag="Classses" Height="400" Width="600" Background="{DynamicResource PrimaryBackground}" Icon="/Images/rubberstamp_48.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="62"></RowDefinition>
