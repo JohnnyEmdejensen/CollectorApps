@@ -63,6 +63,8 @@
     <system:String x:Key="desktop.stampdetail.header.type">TYPE</system:String>
     <system:String x:Key="desktop.stampdetail.header.designer">DESIGNER</system:String>
     <system:String x:Key="desktop.stampdetail.header.ingraver">GRAVØR</system:String>
+    <system:String x:Key="desktop.stampdetail.header.quantity">MÆNGDE</system:String>
+    <system:String x:Key="desktop.stampdetail.header.value">VÆRDI</system:String>
 
     <system:String x:Key="desktop.continent.explorer.catalogurl.tooltip">Vis online frimærkekatalog</system:String>
 

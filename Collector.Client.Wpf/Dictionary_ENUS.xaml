@@ -62,7 +62,9 @@
     <system:String x:Key="desktop.stampdetail.header.designer">DESIGNER</system:String>
     <system:String x:Key="desktop.stampdetail.header.ingraver">INGRAVER</system:String>
     <system:String x:Key="desktop.stampdetail.header.class">CLASS</system:String>
+    <system:String x:Key="desktop.stampdetail.header.quantity">QUANTITY</system:String>
     <system:String x:Key="desktop.stampdetail.header.type">TYPE</system:String>
+    <system:String x:Key="desktop.stampdetail.header.value">VALUE</system:String>
 
     <system:String x:Key="desktop.continent.explorer.catalogurl.tooltip">Show online stamp catalog</system:String>
 

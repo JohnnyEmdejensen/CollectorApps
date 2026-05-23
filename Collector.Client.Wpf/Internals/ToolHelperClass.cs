@@ -116,6 +116,28 @@ namespace Collector.Client.Wpf.Internals
             return result;
         }
 
+        public string GetStockQuantities(Entity.Stamp? Stamp)
+        {
+            string result = "0";
+            if (Stamp == null) return result;
+            var stocks = App.AppShare.Repositories.StockRepository.GetByStamp(Stamp.Id);
+            if (stocks != null)
+            {
+                var value = stocks.Sum(x => x.Quantity);
+                result = string.Format("{0:N0}", value);
+            }
+            return result;
+        }
+        public string GetStockValues(Entity.Stamp? Stamp)
+        {
+            string result = "0";
+            if (Stamp == null) return result;
+            var stocks = App.AppShare.Repositories.StockRepository.GetByStamp(Stamp.Id);
+            if (stocks != null && App.DataShare.ConditionList != null)
+            {
+            }
+            return result;
+        }
         public string GetTypeName(long? TypeId)
         {
             string result = "";

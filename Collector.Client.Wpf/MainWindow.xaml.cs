@@ -487,6 +487,8 @@ namespace Collector.Client.Wpf
                     lblDetailType.Content = App.ToolHelper.GetTypeName(App.AppShare.SelectedStamp.TypeId);
                     lblDetailDesigner.Content = App.AppShare.SelectedStamp.Designer;
                     lblDetailIngraver.Content = App.AppShare.SelectedStamp.Ingraver;
+                    lblDetailQuantity.Content = App.ToolHelper.GetStockQuantities(App.AppShare.SelectedStamp);
+                    lblDetailValue.Content = App.ToolHelper.GetStockValues(App.AppShare.SelectedStamp);
                 }
             }
         }
