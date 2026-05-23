@@ -52,6 +52,9 @@
                     <RibbonButton x:Name="btnLocations" Click="btnLocations_Click" Label="{DynamicResource ribbon.button.data.location.header}" LargeImageSource="/Images/cabinet_32.png" SmallImageSource="/Images/cabinet_16.png"></RibbonButton>
                     <RibbonButton x:Name="btnSuppliers" Click="btnSuppliers_Click" Label="{DynamicResource ribbon.button.data.suppliers.header}" LargeImageSource="/Images/briefcase2_32.png" SmallImageSource="/Images/briefcase2_16.png"></RibbonButton>
                     <RibbonButton x:Name="btnSupplierDeals" Click="btnSupplierDeals_Click" Label="{DynamicResource ribbon.button.data.supplierdeals.header}" LargeImageSource="/Images/briefcase2_document_32.png" SmallImageSource="/Images/briefcase2_document_16.png"></RibbonButton>
+                    <RibbonButton x:Name="btnPerforations" Click="btnPerforations_Click" Label="{DynamicResource ribbon.button.data.perforations.header}" LargeImageSource="/Images/playingcard_32.png" SmallImageSource="/Images/playingcard_16.png"></RibbonButton>
+                    <RibbonButton x:Name="btnClasses" Click="btnClasses_Click" Label="{DynamicResource ribbon.button.data.classes.header}" LargeImageSource="/Images/rubberstamp_32.png" SmallImageSource="/Images/rubberstamp_16.png"></RibbonButton>
+                    <RibbonButton x:Name="btnTypes" Click="btnTypes_Click" Label="{DynamicResource ribbon.button.data.types.header}" LargeImageSource="/Images/rubberstamp_32.png" SmallImageSource="/Images/rubberstamp_16.png"></RibbonButton>
                 </RibbonGroup>
                 <RibbonGroup Header="{DynamicResource ribbon.group.languages.header}">
                     <RibbonToggleButton Label="English" IsChecked="True" x:Name="btnLanUK" Click="btnLanUK_Click" LargeImageSource="Images/Flags/flag_great_britain_32.png" SmallImageSource="Images/Flags/flag_great_britain_16.png"></RibbonToggleButton>
@@ -65,7 +68,7 @@
         <Grid x:Name="grdStampView" Grid.Row="1" Visibility="Visible">
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="240"></ColumnDefinition>
                     <ColumnDefinition Width="4"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -90,7 +93,19 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
-
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="cmdShowAll" Click="cmdShowAll_Click">
+                                        <Image Source="/Images/arrow_down_green_24.png"></Image>
+                                    </Button>
+                                    <Label Width="2"></Label>
+                                    <Button x:Name="cmdCloseAll" Click="cmdCloseAll_Click">
+                                        <Image Source="/Images/arrow_up_green_24.png"></Image>
+                                    </Button>
+                                    <Label Width="4"></Label>
+                                    <Button x:Name="cmdShowMap" Click="cmdShowMap_Click" ToolTip="{DynamicResource desktop.continent.explorer.catalogurl.tooltip}" >
+                                        <Image Source="/Images/earth_network_24.png"></Image>
+                                    </Button>
+                                </StackPanel>
                             </Grid>
                             <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                             <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
@@ -131,15 +146,15 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <StackPanel Orientation="Horizontal">
-                            <Label Padding="0,8,8,0" Content="{StaticResource desktop.stamp.filter.continent}"></Label>
+                            <Label Padding="0,8,8,0" Content="{DynamicResource desktop.stamp.filter.continent}"></Label>
                             <ComboBox x:Name="cboFilterContinent" Height="20" Width="120"></ComboBox>
                             <Label Width="8"></Label>
 
-                            <Label Padding="0,8,8,0" Content="{StaticResource desktop.stamp.filter.country}"></Label>
+                            <Label Padding="0,8,8,0" Content="{DynamicResource desktop.stamp.filter.country}"></Label>
                             <ComboBox x:Name="cboFilterCountry" Height="20" Width="120"></ComboBox>
                             <Label Width="8"></Label>
                             
-                            <Label Padding="0,8,8,0" Content="{StaticResource desktop.stamp.filter.publishedcountry}"></Label>
+                            <Label Padding="0,8,8,0" Content="{DynamicResource desktop.stamp.filter.publishedcountry}"></Label>
                             <ComboBox x:Name="cboFilterPublishedCountry" Height="20" Width="120"></ComboBox>
                             <Label Width="8"></Label>
 
@@ -261,7 +276,7 @@
                                     <RowDefinition Height="12"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Content="{StaticResource desktop.stampdetail.header.catalognumber}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Content="{DynamicResource desktop.stampdetail.header.catalognumber}" Style="{StaticResource LabelHeader}"></Label>
                                 <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailCatalogNumber"></Label>
                             </Grid>
                         </Border>
@@ -271,7 +286,7 @@
                                     <RowDefinition Height="12"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Content="{StaticResource desktop.stampdetail.header.issued}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Content="{DynamicResource desktop.stampdetail.header.issued}" Style="{StaticResource LabelHeader}"></Label>
                                 <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailIssued"></Label>
                             </Grid>
                         </Border>
@@ -281,7 +296,7 @@
                                     <RowDefinition Height="12"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Content="{StaticResource desktop.stampdetail.header.category}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Content="{DynamicResource desktop.stampdetail.header.category}" Style="{StaticResource LabelHeader}"></Label>
                                 <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailCategory"></Label>
                             </Grid>
                         </Border>
@@ -291,7 +306,7 @@
                                     <RowDefinition Height="12"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Content="{StaticResource desktop.stampdetail.header.topic}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Content="{DynamicResource desktop.stampdetail.header.topic}" Style="{StaticResource LabelHeader}"></Label>
                                 <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailTopic"></Label>
                             </Grid>
                         </Border>
@@ -307,7 +322,7 @@
                                         <RowDefinition Height="12"></RowDefinition>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <Label Content="{StaticResource desktop.stampdetail.header.perforationh}" Style="{StaticResource LabelHeader}"></Label>
+                                    <Label Content="{DynamicResource desktop.stampdetail.header.perforationh}" Style="{StaticResource LabelHeader}"></Label>
                                     <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailPerforationH"></Label>
                                 </Grid>
                             </Border>
@@ -317,7 +332,7 @@
                                         <RowDefinition Height="12"></RowDefinition>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <Label Content="{StaticResource desktop.stampdetail.header.perforationv}" Style="{StaticResource LabelHeader}"></Label>
+                                    <Label Content="{DynamicResource desktop.stampdetail.header.perforationv}" Style="{StaticResource LabelHeader}"></Label>
                                     <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailPerforationV"></Label>
                                 </Grid>
                             </Border>
@@ -328,7 +343,7 @@
                                     <RowDefinition Height="12"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Content="{StaticResource desktop.stampdetail.header.description}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Content="{DynamicResource desktop.stampdetail.header.description}" Style="{StaticResource LabelHeader}"></Label>
                                 <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailDescription"></Label>
                             </Grid>
                         </Border>
@@ -338,7 +353,7 @@
                                     <RowDefinition Height="12"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Content="{StaticResource desktop.stampdetail.header.motive}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Content="{DynamicResource desktop.stampdetail.header.motive}" Style="{StaticResource LabelHeader}"></Label>
                                 <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailMotive"></Label>
                             </Grid>
                         </Border>
@@ -354,7 +369,7 @@
                                         <RowDefinition Height="12"></RowDefinition>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <Label Content="{StaticResource desktop.stampdetail.header.class}" Style="{StaticResource LabelHeader}"></Label>
+                                    <Label Content="{DynamicResource desktop.stampdetail.header.class}" Style="{StaticResource LabelHeader}"></Label>
                                     <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailClass"></Label>
                                 </Grid>
                             </Border>
@@ -364,7 +379,7 @@
                                         <RowDefinition Height="12"></RowDefinition>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <Label Content="{StaticResource desktop.stampdetail.header.type}" Style="{StaticResource LabelHeader}"></Label>
+                                    <Label Content="{DynamicResource desktop.stampdetail.header.type}" Style="{StaticResource LabelHeader}"></Label>
                                     <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailType"></Label>
                                 </Grid>
                             </Border>
@@ -375,7 +390,7 @@
                                     <RowDefinition Height="12"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Content="{StaticResource desktop.stampdetail.header.designer}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Content="{DynamicResource desktop.stampdetail.header.designer}" Style="{StaticResource LabelHeader}"></Label>
                                 <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailDesigner"></Label>
                             </Grid>
                         </Border>
@@ -385,7 +400,7 @@
                                     <RowDefinition Height="12"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Content="{StaticResource desktop.stampdetail.header.ingraver}" Style="{StaticResource LabelHeader}"></Label>
+                                <Label Content="{DynamicResource desktop.stampdetail.header.ingraver}" Style="{StaticResource LabelHeader}"></Label>
                                 <Label Grid.Row="1" Padding="8,0" x:Name="lblDetailIngraver"></Label>
                             </Grid>
                         </Border>

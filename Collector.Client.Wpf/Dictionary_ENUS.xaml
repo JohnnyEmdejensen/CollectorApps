@@ -30,6 +30,9 @@
     <system:String x:Key="ribbon.button.data.location.header">Locations</system:String>
     <system:String x:Key="ribbon.button.data.suppliers.header">Suppliers</system:String>
     <system:String x:Key="ribbon.button.data.supplierdeals.header">Supplierdeals</system:String>
+    <system:String x:Key="ribbon.button.data.perforations.header">Perforations</system:String>
+    <system:String x:Key="ribbon.button.data.classes.header">Classes</system:String>
+    <system:String x:Key="ribbon.button.data.types.header">Types</system:String>
 
     <system:String x:Key="dgstamps.header.publishingcountry">Pub.Country</system:String>
     <system:String x:Key="dgstamps.header.country">Country</system:String>
@@ -60,6 +63,8 @@
     <system:String x:Key="desktop.stampdetail.header.ingraver">INGRAVER</system:String>
     <system:String x:Key="desktop.stampdetail.header.class">CLASS</system:String>
     <system:String x:Key="desktop.stampdetail.header.type">TYPE</system:String>
+
+    <system:String x:Key="desktop.continent.explorer.catalogurl.tooltip">Show online stamp catalog</system:String>
 
     <system:String x:Key="stampdialog.title">Stamp</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Stocks</system:String>

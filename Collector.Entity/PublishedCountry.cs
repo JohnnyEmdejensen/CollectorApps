@@ -12,5 +12,7 @@ namespace Collector.Entity
         [MaxLength(128)]
         public string Name { get; set; } = "";
         public long ContryId { get; set; }
+        [MaxLength(128)]
+        public string? CatalogCountryName { get; set; }
     }
 }

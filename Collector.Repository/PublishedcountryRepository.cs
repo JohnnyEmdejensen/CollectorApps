@@ -37,6 +37,7 @@ namespace Collector.Repository
             if (record == null) return null;
             record.Name = Source.Name;
             record.ContryId = Source.ContryId;
+            record.CatalogCountryName = Source.CatalogCountryName;
             ApiContext.SaveChanges();
             PublishedCountryChanged?.Invoke(this, new PublishedCountryEventArgs(record));
             return record;

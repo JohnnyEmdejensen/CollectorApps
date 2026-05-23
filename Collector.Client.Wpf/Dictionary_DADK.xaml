@@ -30,6 +30,9 @@
     <system:String x:Key="ribbon.button.data.location.header">Lokationer</system:String>
     <system:String x:Key="ribbon.button.data.suppliers.header">Leverandører</system:String>
     <system:String x:Key="ribbon.button.data.supplierdeals.header">Leverandørhandler</system:String>
+    <system:String x:Key="ribbon.button.data.perforations.header">Takninger</system:String>
+    <system:String x:Key="ribbon.button.data.classes.header">Klasser</system:String>
+    <system:String x:Key="ribbon.button.data.types.header">Typer</system:String>
 
     <system:String x:Key="dgstamps.header.publishingcountry">Udg. land</system:String>
     <system:String x:Key="dgstamps.header.country">Land</system:String>
@@ -60,6 +63,8 @@
     <system:String x:Key="desktop.stampdetail.header.type">TYPE</system:String>
     <system:String x:Key="desktop.stampdetail.header.designer">DESIGNER</system:String>
     <system:String x:Key="desktop.stampdetail.header.ingraver">GRAVØR</system:String>
+
+    <system:String x:Key="desktop.continent.explorer.catalogurl.tooltip">Vis online frimærkekatalog</system:String>
 
     <system:String x:Key="stampdialog.title">Frimærke</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Beholdning</system:String>

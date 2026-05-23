@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Collector.Client.Wpf.Internals;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,15 +29,20 @@ namespace Collector.Client.Wpf.Dialogs
             ContentRendered += PerforationDialog_ContentRendered;
             Closing += PerforationDialog_Closing;
             KeyDown += PerforationDialog_KeyDown;
+            App.EventHelper.PerforationListChanged += EventHelper_PerforationListChanged;
             FillControls();
             _settings.Load();
         }
 
         private void FillControls()
         {
-            dgPerforations.BeginInit();
-            dgPerforations.ItemsSource = App.DataShare.PerforationList;
-            dgPerforations.EndInit();
+            using (new WorkerHandler("FillControls"))
+            {
+
+                dgPerforations.BeginInit();
+                dgPerforations.ItemsSource = App.DataShare.PerforationList;
+                dgPerforations.EndInit();
+            }
         }
         private void DoAdd()
         {
@@ -49,16 +55,19 @@ namespace Collector.Client.Wpf.Dialogs
         private void DoSave(bool CloseAfter)
         {
             if (_perforation == null) return;
-            if (_perforation.Id == 0)
+            using (new WorkerHandler("DoSave"))
             {
-                _perforation = App.AppShare.Repositories.PerforationRepository.Create(_perforation);
+                if (_perforation.Id == 0)
+                {
+                    _perforation = App.AppShare.Repositories.PerforationRepository.Create(_perforation);
+                }
+                else
+                {
+                    _perforation = App.AppShare.Repositories.PerforationRepository.Update(_perforation);
+                }
+                DataContext = _perforation;
+                SetGui();
             }
-            else
-            {
-                _perforation = App.AppShare.Repositories.PerforationRepository.Update(_perforation);
-            }
-            DataContext = _perforation;
-            SetGui();
             if (CloseAfter)
             {
                 Close();
@@ -158,6 +167,13 @@ namespace Collector.Client.Wpf.Dialogs
             SetGui();
             txtName.Focus();
             txtName.SelectAll();
+        }
+        private void EventHelper_PerforationListChanged(object sender, EventArgs e)
+        {
+            using (new WorkerHandler("EventHelper_PerforationListChanged"))
+            {
+                FillControls();
+            }
         }
     }
 }

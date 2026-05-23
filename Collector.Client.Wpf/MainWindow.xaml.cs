@@ -1,5 +1,6 @@
 ﻿using Collector.Client.Wpf.Internals;
 using System.CodeDom;
+using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -562,6 +563,7 @@ namespace Collector.Client.Wpf
                 if (pubCountry != null)
                 {
                     _filterContainer.SelectedPublishedCountry = pubCountry;
+                    cmdShowMap.Tag = pubCountry;
                 }
             }
         }
@@ -586,6 +588,89 @@ namespace Collector.Client.Wpf
             using (new WorkerHandler("filterContainer_SelectedContinentChanged"))
             {
                 SetFilterView();
+            }
+        }
+
+        private void btnPerforations_Click(object sender, RoutedEventArgs e)
+        {
+            using (new WorkerHandler("btnPerforations_Click"))
+            {
+                App.FormHelper.ShowPerforationDialog(null);
+            }
+        }
+
+        private void btnClasses_Click(object sender, RoutedEventArgs e)
+        {
+            using (new WorkerHandler("btnClasses_Click"))
+            {
+                App.FormHelper.ShowClasssDialog(null);
+            }        
+        }
+
+        private void btnTypes_Click(object sender, RoutedEventArgs e)
+        {
+            using (new WorkerHandler("btnTypes_Click"))
+            {
+                App.FormHelper.ShowTypeeDialog(null);
+            }
+        }
+
+        private void cmdShowAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in tvwContinents.Items)
+            {
+                var treeItem = item as TreeViewItem;
+                if (treeItem != null)
+                {
+                    treeItem.IsExpanded = true;
+                    foreach (var subItem in treeItem.Items)
+                    {
+                        var subTreeItem = subItem as TreeViewItem;
+                        if (subTreeItem != null)
+                        {
+                            subTreeItem.IsExpanded = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void cmdCloseAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in tvwContinents.Items)
+            {
+                var treeItem = item as TreeViewItem;
+                if (treeItem != null)
+                {
+                    treeItem.IsExpanded = false;
+                    foreach (var subItem in treeItem.Items)
+                    {
+                        var subTreeItem = subItem as TreeViewItem;
+                        if (subTreeItem != null)
+                        {
+                            subTreeItem.IsExpanded = false;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void cmdShowMap_Click(object sender, RoutedEventArgs e)
+        {
+            var popCountry = cmdShowMap.Tag as Entity.PublishedCountry;
+            if (popCountry != null && App.DataShare.CatalogList != null)
+            {
+                foreach (var item in App.DataShare.CatalogList.Where(x => x.CatalogUrl != null && x.CatalogUrl != ""))
+                {
+                    string url = item.CatalogUrl.Replace("{0}", popCountry.CatalogCountryName ?? "");
+                    System.Diagnostics.Process.Start(new ProcessStartInfo
+                    {
+                        FileName = url,
+                        UseShellExecute = true
+                    });
+
+                }
             }
         }
     }

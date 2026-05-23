@@ -326,6 +326,10 @@ namespace Collector.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+                    b.Property<string>("CatalogCountryName")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
                     b.Property<long>("ContryId")
                         .HasColumnType("bigint");
 
