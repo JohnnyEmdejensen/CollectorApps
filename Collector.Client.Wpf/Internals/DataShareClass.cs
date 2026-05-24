@@ -34,6 +34,7 @@ namespace Collector.Client.Wpf.Internals
         public List<Entity.Perforation>? PerforationList { get; set; }
         public List<Entity.Classs>? ClasssList { get; set; }
         public List<Entity.Typee>? TypeeList { get; set; }
+        public List<Entity.StampPrice>? StampPriceList { get; set; }
         public DataShareClass() 
         { 
             WorkerItems = new List<Internals.WorkerItem>();
@@ -61,11 +62,20 @@ namespace Collector.Client.Wpf.Internals
                 GetLocations();
                 GetSuppliers();
                 GetSupplierDeals();
+                GetStampPrices();
                 GetStamps();
                 GetStampNumbers();
             }
         }
 
+        public void GetStampPrices()
+        {
+            using (new WorkerHandler("GetStampPrices"))
+            {
+                StampPriceList = App.AppShare.Repositories.StampPriceRepository.GetAll();
+                App.EventHelper.RaiseStampPriceListChangedEvent();
+            }
+        }
         public void GetClasses()
         {
             using (new WorkerHandler("GetClasses"))

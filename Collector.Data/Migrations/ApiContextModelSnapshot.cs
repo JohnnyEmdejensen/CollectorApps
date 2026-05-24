@@ -553,6 +553,37 @@ namespace Collector.Data.Migrations
                     b.ToTable("Stampnumbers");
                 });
 
+            modelBuilder.Entity("Collector.Entity.StampPrice", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("ConditionId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<long>("StampId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StampPrices");
+                });
+
             modelBuilder.Entity("Collector.Entity.StampValue", b =>
                 {
                     b.Property<long>("Id")

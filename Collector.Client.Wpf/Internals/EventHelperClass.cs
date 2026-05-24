@@ -30,7 +30,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? PerforationListChanged;
         public event DefaultHandler? ClasssListChanged;
         public event DefaultHandler? TypeeListChanged;
+        public event DefaultHandler? PriceListChanged;
 
+        public void RaiseStampPriceListChangedEvent()
+        {
+            PriceListChanged?.Invoke(this, EventArgs.Empty);
+        }   
         public void RaiseClasssListChangedEvent()
         {
             ClasssListChanged?.Invoke(this, EventArgs.Empty);

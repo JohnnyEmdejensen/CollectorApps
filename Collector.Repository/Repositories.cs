@@ -33,8 +33,10 @@ namespace Collector.Repository
             PerforationRepository = new PerforationRepository();
             ClasssRepository = new ClasssRepository();
             TypeeRepository = new TypeeRepository();
+            StampPriceRepository = new StampPriceRepository();
         }
 
+        public StampPriceRepository StampPriceRepository { get; set; }
         public ClasssRepository ClasssRepository { get; set; }
         public TypeeRepository TypeeRepository { get; set; }
         public PerforationRepository PerforationRepository { get; set; }
