@@ -105,6 +105,14 @@
                             <Label Content="{DynamicResource catalogdialog.header.value}" Style="{StaticResource LabelHeader}"></Label>
                             <TextBox x:Name="txtName" Grid.Row="1" Text="{Binding Path=Value, Mode=TwoWay}"></TextBox>
                         </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Content="{DynamicResource catalogdialog.header.sort}" Style="{StaticResource LabelHeader}"></Label>
+                            <TextBox x:Name="txtSort" Width="72" HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Path=Sort, Mode=TwoWay}"></TextBox>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
@@ -134,6 +142,11 @@
                                         <DataGridTextColumn Binding="{Binding Value}">
                                             <DataGridTextColumn.Header>
                                                 <TextBlock Text="{DynamicResource catalogdialog.columnheader.value}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Width="64" Binding="{Binding Sort}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource catalogdialog.columnheader.sort}"></TextBlock>
                                             </DataGridTextColumn.Header>
                                         </DataGridTextColumn>
                                     </DataGrid.Columns>

@@ -34,6 +34,7 @@ namespace Collector.Repository
             var record = Get(Source.Id);
             if (record == null) return null;
             record.Value = Source.Value;
+            record.Sort = Source.Sort;
             ApiContext.SaveChanges();
             ConditionChanged?.Invoke(this, new ConditionEventArgs(record));
             return record;

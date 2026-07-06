@@ -108,9 +108,11 @@
     <system:String x:Key="perforationdialog.title">Perforation</system:String>
     <system:String x:Key="categorydialog.title">Categories</system:String>
     <system:String x:Key="catalogdialog.header.value">VALUE</system:String>
+    <system:String x:Key="catalogdialog.header.sort">SORT</system:String>
     <system:String x:Key="catalogdialog.header.url">URL (If online)</system:String>
     <system:String x:Key="catalogdialog.header.shortname">Short name</system:String>
     <system:String x:Key="catalogdialog.columnheader.value">Value</system:String>
+    <system:String x:Key="catalogdialog.columnheader.sort">Sort</system:String>
 
     <system:String x:Key="colordialog.columnheader.value">Value</system:String>
 

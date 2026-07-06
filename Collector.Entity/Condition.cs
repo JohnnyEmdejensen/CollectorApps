@@ -8,5 +8,6 @@ namespace Collector.Entity
 {
     public class Condition : BaseIdValue
     {
+        public int Sort { get; set;}
     }
 }

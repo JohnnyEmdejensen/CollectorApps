@@ -32,6 +32,7 @@ namespace Collector.Client.Wpf.Dialogs
             Closing += ConditionDialog_Closing;
             KeyDown += ConditionDialog_KeyDown;
             App.EventHelper.ConditionListChanged += EventHelper_ConditionListChanged;
+            dgConditions.SizeChanged += DgConditions_SizeChanged;
             FillControls();
             _settings.Load();
         }
@@ -169,7 +170,11 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void dgConditions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            _condition = dgConditions.SelectedItem as Entity.Condition;
+            DataContext = _condition;
+            SetGui();
+            txtName.Focus();
+            txtName.SelectAll();
         }
 
         private void EventHelper_ConditionListChanged(object sender, EventArgs e)
@@ -178,6 +183,11 @@ namespace Collector.Client.Wpf.Dialogs
             {
                 FillConditionControl();
             }
+        }
+        private void DgConditions_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var width = dgConditions.ActualWidth;
+            dgConditions.Columns[1].Width = width - 64 - 2;
         }
     }
 }
