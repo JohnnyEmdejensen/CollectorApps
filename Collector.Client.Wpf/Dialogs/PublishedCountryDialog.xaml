@@ -106,6 +106,14 @@
                             <Label Content="{DynamicResource publishedcountrydialog.header.country}" Style="{StaticResource LabelHeader}"></Label>
                             <ComboBox x:Name="cboCountry" Grid.Row="1" SelectedValue="{Binding Path=ContryId, Mode=TwoWay}"></ComboBox>
                         </Grid>
+                        <Grid Grid.Row="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Content="{DynamicResource publishedcountrydialog.header.countryurlname}" Style="{StaticResource LabelHeader}"></Label>
+                            <TextBox Grid.Row="1" Text="{Binding Path=CatalogCountryName, Mode=TwoWay}"></TextBox>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

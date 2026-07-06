@@ -71,6 +71,7 @@
     <system:String x:Key="stampdialog.title">Stamp</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Stocks</system:String>
     <system:String x:Key="stampdialog.tab.images.header">Images</system:String>
+    <system:String x:Key="stampdialog.tab.prices.header">Prices</system:String>
     <system:String x:Key="stampdialog.header.publishedcountry">PUBLICHED COUNTRY</system:String>
     <system:String x:Key="stampdialog.header.catalog">CATALOG</system:String>
     <system:String x:Key="stampdialog.header.formattetissued">ISSUED</system:String>
@@ -143,6 +144,7 @@
     <system:String x:Key="publishedcountrydialog.header.country">COUNTRY</system:String>
     <system:String x:Key="publishedcountrydialog.columnheader.name">Name</system:String>
     <system:String x:Key="publishedcountrydialog.columnheader.country">Country</system:String>
+    <system:String x:Key="publishedcountrydialog.header.countryurlname">URL COUNTRYNAME</system:String>
 
     <system:String x:Key="publishedcountrycategory.title">Publishedcountry category</system:String>
     <system:String x:Key="publishedcountrycategory.header.publishedcountry">PUBLISHING COUNTRY</system:String>

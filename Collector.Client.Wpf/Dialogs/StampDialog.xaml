@@ -473,6 +473,22 @@
                             </Grid>
                         </Grid>
                     </TabItem>
+                    <TabItem Header="{DynamicResource stampdialog.tab.prices.header}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal"></StackPanel>
+                            <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
+                            <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
+                            <Grid x:Name="grdPricesContainer">
+                                
+                            </Grid>
+                        </Grid>
+                    </TabItem>
                 </TabControl>
             </Grid>
         </Grid>

@@ -71,6 +71,7 @@
     <system:String x:Key="stampdialog.title">Frimærke</system:String>
     <system:String x:Key="stampdialog.tab.stock.header">Beholdning</system:String>
     <system:String x:Key="stampdialog.tab.images.header">Billeder</system:String>
+    <system:String x:Key="stampdialog.tab.prices.header">Priser</system:String>
     <system:String x:Key="stampdialog.header.publishedcountry">UDVIVNE LAND</system:String>
     <system:String x:Key="stampdialog.header.catalog">KATALOG</system:String>
     <system:String x:Key="stampdialog.header.formattetissued">UDGIVET</system:String>

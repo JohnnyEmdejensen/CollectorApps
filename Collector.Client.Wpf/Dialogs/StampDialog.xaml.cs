@@ -396,9 +396,21 @@ namespace Collector.Client.Wpf.Dialogs
             _stamp = DataContext as Entity.Stamp;
             if (_stamp != null)
             {
-
+                SetupPrices();
             }
             SetGui();
+        }
+
+        private void SetupPrices()
+        {
+            if (_stamp != null && App.DataShare.ConditionList != null)
+            {
+                grdPricesContainer.Children.Clear();
+                foreach (var condition in App.DataShare.ConditionList)
+                {
+
+                }
+            }
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
