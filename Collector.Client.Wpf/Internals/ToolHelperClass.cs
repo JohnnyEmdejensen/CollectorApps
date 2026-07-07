@@ -131,11 +131,21 @@ namespace Collector.Client.Wpf.Internals
         public string GetStockValues(Entity.Stamp? Stamp)
         {
             string result = "0";
+            double value = 0;
             if (Stamp == null) return result;
             var stocks = App.AppShare.Repositories.StockRepository.GetByStamp(Stamp.Id);
-            if (stocks != null && App.DataShare.ConditionList != null)
+            if (stocks != null && App.DataShare.ConditionList != null && App.DataShare.StampPriceList != null)
             {
+                foreach (var stock in stocks)
+                {
+                    var priceItem = App.DataShare.StampPriceList.FirstOrDefault(x => x.ConditionId == stock.ConditionId && x.StampId == stock.StampId);
+                    if (priceItem != null)
+                    {
+                        value += (stock.Quantity * priceItem.Price);
+                    }
+                }
             }
+            result = string.Format("{0:N2}", value);
             return result;
         }
         public string GetTypeName(long? TypeId)
