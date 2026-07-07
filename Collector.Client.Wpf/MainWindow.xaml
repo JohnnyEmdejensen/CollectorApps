@@ -34,6 +34,7 @@
                 </RibbonGroup>
                 <RibbonGroup Header="{DynamicResource ribbon.group.creation.header}">
                     <RibbonButton x:Name="btnCreateStamp" Click="btnCreateStamp_Click" LargeImageSource="/Images/photo_portrait_32.png" SmallImageSource="/Images/photo_portrait_16.png" Label="{DynamicResource ribbon.button.creation.stamp.header}"></RibbonButton>
+                    <RibbonButton x:Name="btnCreateStampClone" Click="btnCreateStampClone_Click" LargeImageSource="/Images/photo_portrait_clone_32.png" SmallImageSource="/Images/photo_portrait_clone_16.png" Label="{DynamicResource ribbon.button.creation.stampclone.header}"></RibbonButton>
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="{DynamicResource ribbon.tab.settings.header}">

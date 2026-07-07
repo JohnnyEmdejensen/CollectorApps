@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Collector.Client.Wpf.Components.PriceItemComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Collector.Client.Wpf.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="8"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ComboBox IsReadOnly="True" x:Name="cboCondition" Grid.Column="0" SelectedValue="{Binding Path=ConditionId, Mode=TwoWay}"></ComboBox>
+        <TextBox Grid.Column="2" HorizontalContentAlignment="Right" Text="{Binding Path=Price, Mode=TwoWay, StringFormat={}{0:N2}}"></TextBox>
+    </Grid>
+</UserControl>

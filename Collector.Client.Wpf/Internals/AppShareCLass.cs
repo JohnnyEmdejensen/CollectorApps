@@ -37,6 +37,15 @@ namespace Collector.Client.Wpf.Internals
             Repositories.ClasssRepository.ClasssChanged += ClasssRepository_ClasssChanged;
             Repositories.TypeeRepository.TypeeChanged += TypeeRepository_TypeeChanged;
             Repositories.StampPriceRepository.OnStampPriceChanged += StampPriceRepository_OnStampPriceChanged;
+            Repositories.StampRepository.StampChanged += StampRepository_StampChanged;
+        }
+
+        private void StampRepository_StampChanged(object sender, StampEventArgs e)
+        {
+            using (WorkerHandler worker = new WorkerHandler("StampRepository_StampChanged"))
+            {
+                App.DataShare.GetStamps();
+            }
         }
 
         private void StampPriceRepository_OnStampPriceChanged(object sender, StampPriceEventArgs e)

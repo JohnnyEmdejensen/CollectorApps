@@ -165,11 +165,11 @@ namespace Collector.Client.Wpf.Internals
                     StampList = App.AppShare.Repositories.StampRepository.GetByPublishedCountry(App.AppShare.SelectedPublishedCountry.Id);
                 if (StampList != null)
                 {
-                    StampModelList = new List<ViewModel.StampModel>();
+                    StampModelList = new List<ViewModel.StampModel>();                    
                     foreach (var stamp in StampList)
                     {
                         var suffixValue = stamp.Suffix ?? "";
-                        stamp.SortField = string.Format("{0:00000}", Convert.ToInt32( stamp.Number)) + spacer3.Substring(0, 3 - suffixValue.Length-1);
+                        stamp.SortField = string.Format("{0:00000000}", stamp.Issued);// string.Format("{0:00000}", Convert.ToInt32( stamp.Number)) + spacer3.Substring(0, 3 - suffixValue.Length-1);
                         stamp.FormattetIssued = App.ToolHelper.FormatIssued(stamp.Issued);
                         ViewModel.StampModel sm = new ViewModel.StampModel();
                         sm.Id = stamp.Id;
@@ -182,6 +182,10 @@ namespace Collector.Client.Wpf.Internals
                         sm.FormattedIssued = stamp.FormattetIssued;
                         sm.Height = stamp.Height;
                         sm.Number = stamp.Number;
+                        if (stamp.Suffix != null)
+                            sm.Number += stamp.Suffix;
+                        if (stamp.Prefix != null)
+                            sm.Number = stamp.Prefix + sm.Number;
                         sm.PublishingCountry = App.ToolHelper.GetPublishedCountryName(stamp.PublishedCountryId);
                         sm.SortField = stamp.SortField;
                         sm.Width = stamp.Width;

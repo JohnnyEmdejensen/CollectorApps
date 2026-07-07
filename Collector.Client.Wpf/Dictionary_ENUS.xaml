@@ -11,6 +11,7 @@
     <system:String x:Key="ribbon.togglebutton.stockview.header">Stocks view</system:String>
     <system:String x:Key="ribbon.togglebutton.panelstampdetail.header">Details view</system:String>
     <system:String x:Key="ribbon.button.creation.stamp.header">New Stamp</system:String>
+    <system:String x:Key="ribbon.button.creation.stampclone.header">Clone Stamp</system:String>
 
 
     <system:String x:Key="ribbon.tab.settings.header">Settings</system:String>

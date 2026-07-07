@@ -160,7 +160,7 @@
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <TextBox Text="{Binding Prefix}" Grid.Column="0"></TextBox>
-                                    <TextBox Text="{Binding Number}" Grid.Column="2"></TextBox>
+                                    <TextBox x:Name="txtNumber" Text="{Binding Number}" Grid.Column="2"></TextBox>
                                     <TextBox Text="{Binding Suffix}" Grid.Column="4"></TextBox>
                                 </Grid>
                             </Grid>
@@ -481,12 +481,17 @@
                                 <RowDefinition Height="1"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <StackPanel Grid.Row="0" Orientation="Horizontal"></StackPanel>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Label Width="4"></Label>
+                                <Button x:Name="btnSavePrices" Width="25" Click="btnSavePrices_Click">
+                                    <Image Source="/Images/disk_blue_16.png" Width="16" Height="16"></Image>
+                                </Button>
+                            </StackPanel>
                             <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
                             <Label Grid.Row="2" Style="{StaticResource LightLine}"></Label>
-                            <Grid x:Name="grdPricesContainer">
+                            <StackPanel Grid.Row="3" x:Name="grdPricesContainer" Orientation="Vertical">
                                 
-                            </Grid>
+                            </StackPanel>
                         </Grid>
                     </TabItem>
                 </TabControl>

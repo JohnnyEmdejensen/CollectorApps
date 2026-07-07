@@ -317,6 +317,47 @@ namespace Collector.Client.Wpf
                 App.FormHelper.ShowStampDialog(new());
             }
         }
+        private void btnCreateStampClone_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgStamps.SelectedItem != null)
+            {
+                var stampSelected = dgStamps.SelectedItem as ViewModel.StampModel;
+                if (stampSelected != null && App.DataShare.StampList != null)
+                {
+                    var stamp = App.DataShare.StampList.FirstOrDefault(x => x.Id == stampSelected.Id);
+                    if (stamp != null)
+                    {
+                        Entity.Stamp newStamp = new Entity.Stamp();
+                        newStamp.CatalogId = stamp.CatalogId;
+                        newStamp.CategoryId = stamp.CategoryId;
+                        newStamp.ClassId = stamp.ClassId;
+                        newStamp.CoinId = stamp.CoinId;
+                        newStamp.ColorId = stamp.ColorId;
+                        newStamp.Description = stamp.Description;
+                        newStamp.Design = stamp.Design;
+                        newStamp.Designer = stamp.Designer;
+                        newStamp.Facevalue = stamp.Facevalue;
+                        newStamp.Facevalue = stamp.Facevalue;
+                        newStamp.Height = stamp.Height;
+                        newStamp.Ingraver = stamp.Ingraver;
+                        newStamp.Issued = stamp.Issued;
+                        newStamp.IssuedAmount = stamp.IssuedAmount;
+                        newStamp.Motive = stamp.Motive;
+                        newStamp.PerforationHorId = stamp.PerforationHorId;
+                        newStamp.PerforationVerId = stamp.PerforationVerId;
+                        newStamp.Prefix = stamp.Prefix;
+                        newStamp.PublishedCountryId = stamp.PublishedCountryId;
+                        newStamp.Suffix = stamp.Suffix;
+                        newStamp.TopicId = stamp.TopicId;
+                        newStamp.TypeId = stamp.TypeId;
+                        newStamp.WatermarkId = stamp.WatermarkId;
+                        newStamp.Width = stamp.Width;
+                        newStamp.IsCloned = true;
+                        App.FormHelper.ShowStampDialog(newStamp);
+                    }
+                }
+            }
+        }
 
         private void btnCoins_Click(object sender, RoutedEventArgs e)
         {
@@ -675,5 +716,6 @@ namespace Collector.Client.Wpf
                 }
             }
         }
+
     }
 }

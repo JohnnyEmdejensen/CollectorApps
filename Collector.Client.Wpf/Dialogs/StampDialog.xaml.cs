@@ -46,10 +46,37 @@ namespace Collector.Client.Wpf.Dialogs
             App.EventHelper.ClasssListChanged += EventHelper_ClasssListChanged;
             App.EventHelper.TypeeListChanged += EventHelper_TypeeListChanged;
             App.AppShare.Repositories.StampImageRepository.StampImageChanged += StampImageRepository_StampImageChanged;
+           
             FillControls();
             _settings.Load();
         }
 
+        private void DoSavePrices()
+        {
+            using (new WorkerHandler("DoSavePrices"))
+            {
+                foreach (var item in grdPricesContainer.Children)
+                {
+                    if (item is Components.PriceItemComponent priceComponent)
+                    {
+                        var priceItem = priceComponent as Components.PriceItemComponent;
+                        var priceData = priceItem.DataContext as Entity.StampPrice;
+                        if (priceData != null)
+                        {
+                            if (priceData.Id == 0)
+                            {
+                                priceData = App.AppShare.Repositories.StampPriceRepository.Create(priceData);
+                            }
+                            else
+                            {
+                                priceData = App.AppShare.Repositories.StampPriceRepository.Update(priceData);
+                            }
+                            priceItem.DataContext = priceData;
+                        }
+                    }
+                }
+            }
+        }
         private void DoSave(bool CloseAfter)
         {
             _stamp = DataContext as Entity.Stamp;
@@ -399,16 +426,26 @@ namespace Collector.Client.Wpf.Dialogs
                 SetupPrices();
             }
             SetGui();
+            if (_stamp != null && _stamp.IsCloned)
+            {
+                txtNumber.Focus();
+                txtNumber.SelectAll();
+            }
         }
 
         private void SetupPrices()
         {
-            if (_stamp != null && App.DataShare.ConditionList != null)
+            if (_stamp != null && App.DataShare.ConditionList != null && App.DataShare.StampPriceList != null)
             {
                 grdPricesContainer.Children.Clear();
                 foreach (var condition in App.DataShare.ConditionList)
                 {
-
+                    var priceItem = App.DataShare.StampPriceList.FirstOrDefault(x => x.StampId == _stamp.Id && x.ConditionId == condition.Id);
+                    Components.PriceItemComponent priceComponent = new Components.PriceItemComponent(_stamp.Id, condition.Id, priceItem?.Price ?? 0);
+                    grdPricesContainer.Children.Add(priceComponent);
+                    Label lbl = new Label();
+                    lbl.Height = 4;
+                    grdPricesContainer.Children.Add(lbl);
                 }
             }
         }
@@ -678,6 +715,11 @@ namespace Collector.Client.Wpf.Dialogs
                 App.FormHelper.ShowTypeeDialog(new());
             }
 
+        }
+
+        private void btnSavePrices_Click(object sender, RoutedEventArgs e)
+        {
+            DoSavePrices();
         }
     }
 }

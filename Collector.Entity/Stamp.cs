@@ -47,5 +47,7 @@ namespace Collector.Entity
         public string FormattetIssued { get; set; } = "";
         [NotMapped]
         public string SortField { get; set; } = "";
+        [NotMapped]
+        public bool IsCloned { get; set; }
     }
 }
