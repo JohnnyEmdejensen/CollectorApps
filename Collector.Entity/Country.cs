@@ -15,5 +15,6 @@ namespace Collector.Entity
         public string? Iso { get; set; }
         public int? Number { get; set; }
         public long? ContinentId { get; set; }
+        public byte[]? FlagImage { get; set; }
     }
 }

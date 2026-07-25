@@ -244,6 +244,9 @@ namespace Collector.Data.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
+                    b.Property<byte[]>("FlagImage")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 

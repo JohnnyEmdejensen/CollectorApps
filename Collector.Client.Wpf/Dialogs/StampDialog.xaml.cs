@@ -409,7 +409,31 @@ namespace Collector.Client.Wpf.Dialogs
         {
             if (e.Key == Key.Escape)
             {
+                e.Handled = true;
                 Close();
+            }
+            if (e.Key == Key.F12)
+            {
+                e.Handled = true;
+                tabItemPrices.IsSelected = true;
+                if (grdPricesContainer.Children.Count > 0)
+                {
+                    var firstItem = grdPricesContainer.Children[0] as Components.PriceItemComponent;
+                    if (firstItem != null)
+                    {
+                        firstItem.SetFocus();
+                    }
+                } 
+            }
+            if (e.Key == Key.F11)
+            {
+                e.Handled = true;
+                tabItemImages.IsSelected = true;
+            }
+            if (e.Key == Key.F9)
+            {
+                e.Handled = true;
+                tabItemStock.IsSelected = true;
             }
         }
 

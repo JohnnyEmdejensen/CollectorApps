@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Collector.Client.Wpf.Dialogs
         private Internals.FormSettingsClass _settings;
         private Entity.Country? _country;
         private List<ViewModel.CountryModel>? _list;
+        private System.Timers.Timer _timer;
         public CountryDialog()
         {
             InitializeComponent();
@@ -35,8 +37,11 @@ namespace Collector.Client.Wpf.Dialogs
             FillContinentControl();
             FillCountryControl();
             _settings.Load();
+            _timer = new();
+            _timer.Interval = 1000;
+            _timer.Elapsed += _timer_Elapsed;
+            _timer.Enabled = true;
         }
-
 
         private void FillContinentControl()
         {
@@ -113,6 +118,8 @@ namespace Collector.Client.Wpf.Dialogs
             btnAdd.IsEnabled = false;
             btnSave.IsEnabled = false;
             btnDelete.IsEnabled = false;
+            btnLoadImage.IsEnabled = false;
+            btnPasteImage.IsEnabled = false;
             if (_country != null)
             {
                 if (_country.Id == 0)
@@ -124,6 +131,11 @@ namespace Collector.Client.Wpf.Dialogs
                     btnAdd.IsEnabled = true;
                     btnSave.IsEnabled = true;
                     btnDelete.IsEnabled = true;
+                    btnLoadImage.IsEnabled = true;
+                    if (Clipboard.ContainsImage())
+                    {
+                        btnPasteImage.IsEnabled = true;
+                    }
                 }
             }
             else
@@ -139,6 +151,10 @@ namespace Collector.Client.Wpf.Dialogs
         private void CountryDialog_ContentRendered(object? sender, EventArgs e)
         {
             _country = DataContext as Entity.Country;
+            if (_country != null && _country.FlagImage != null)
+            {
+                
+            }
             SetGui();
         }
 
@@ -184,6 +200,10 @@ namespace Collector.Client.Wpf.Dialogs
             if (item != null && App.DataShare.CountryList != null)
             {
                 _country = App.DataShare.CountryList.FirstOrDefault(x => x.Id == item.Id);
+                if (_country != null && _country.FlagImage != null)
+                {
+                    imgFlag.Source = App.ToolHelper.ConvertByteArrayToBitmapImage(_country.FlagImage);
+                }
                 DataContext = _country;
                 SetGui();
             }
@@ -212,6 +232,54 @@ namespace Collector.Client.Wpf.Dialogs
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
             SetFilterView();
+        }
+
+        private void btnLoadImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnPasteImage_Click(object sender, RoutedEventArgs e)
+        {
+            _country = DataContext as Entity.Country;
+            if (_country == null) return;
+
+            BitmapSource imgSrc = Clipboard.GetImage();
+            imgFlag.Source = imgSrc;
+
+            PngBitmapEncoder encoder = new PngBitmapEncoder();
+            MemoryStream memoryStream = new MemoryStream();
+            BitmapImage bImg = new BitmapImage();
+
+            encoder.Frames.Add(BitmapFrame.Create(imgSrc));
+            encoder.Save(memoryStream);
+            memoryStream.Position = 0;
+            bImg.BeginInit();
+            bImg.StreamSource = memoryStream;
+            bImg.EndInit();
+            var data = App.ToolHelper.ConvertImageToByteArray(bImg);
+            _country.FlagImage = data;
+            _country =  App.AppShare.Repositories.CountryRepository.Update(_country);
+            DataContext = _country;
+        }
+        private void _timer_Elapsed(object? sender, System.Timers.ElapsedEventArgs e)
+        {
+            _timer.Enabled = false;
+            if (Clipboard.ContainsImage())
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    btnPasteImage.IsEnabled = true;
+                }));
+            }
+            else
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    btnPasteImage.IsEnabled = false;
+                }));
+            }
+            _timer.Enabled = true;
         }
     }
 }

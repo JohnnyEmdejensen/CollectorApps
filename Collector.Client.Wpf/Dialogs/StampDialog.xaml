@@ -363,7 +363,7 @@
             <GridSplitter Grid.Column="1"></GridSplitter>
             <Grid Grid.Column="2">
                 <TabControl>
-                    <TabItem Header="{DynamicResource stampdialog.tab.stock.header}">
+                    <TabItem x:Name="tabItemStock" Header="{DynamicResource stampdialog.tab.stock.header}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25"></RowDefinition>
@@ -402,7 +402,7 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="{DynamicResource stampdialog.tab.images.header}">
+                    <TabItem x:Name="tabItemImages" Header="{DynamicResource stampdialog.tab.images.header}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25"></RowDefinition>
@@ -473,7 +473,7 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="{DynamicResource stampdialog.tab.prices.header}">
+                    <TabItem x:Name="tabItemPrices" Header="{DynamicResource stampdialog.tab.prices.header}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25"></RowDefinition>

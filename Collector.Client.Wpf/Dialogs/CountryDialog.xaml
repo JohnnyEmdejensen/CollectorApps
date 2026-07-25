@@ -61,6 +61,23 @@
                         <Button x:Name="btnDelete" IsEnabled="False" Width="25" Click="btnDelete_Click">
                             <Image Source="/Images/delete2_16.png"  Width="16" Height="16"></Image>
                         </Button>
+                        <Label Width="4"></Label>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1"></ColumnDefinition>
+                                <ColumnDefinition Width="1"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Style="{StaticResource DarkLine}"></Label>
+                            <Label Grid.Column="1" Style="{StaticResource LightLine}"></Label>
+                        </Grid>
+                        <Label Width="4"></Label>
+                        <Button x:Name="btnLoadImage" IsEnabled="False" Width="25" Click="btnLoadImage_Click">
+                            <Image Source="/Images/folder_16.png"  Width="16" Height="16"></Image>
+                        </Button>
+                        <Button x:Name="btnPasteImage" IsEnabled="False" Width="25" Click="btnPasteImage_Click">
+                            <Image Source="/Images/paste_16.png"  Width="16" Height="16"></Image>
+                        </Button>
+
                     </StackPanel>
                 </Grid>
                 <Label Grid.Row="1" Style="{StaticResource DarkLine}"></Label>
@@ -78,6 +95,8 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Column="1" Grid.Row="1">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="4"></RowDefinition>
                             <RowDefinition Height="32"></RowDefinition>
                             <RowDefinition Height="4"></RowDefinition>
                             <RowDefinition Height="32"></RowDefinition>
@@ -121,6 +140,16 @@
                             </Grid.RowDefinitions>
                             <Label Content="CONTINENT" Style="{StaticResource LabelHeader}"></Label>
                             <ComboBox Grid.Row="1" x:Name="cboContinent" SelectedValue="{Binding Path=ContinentId, Mode=TwoWay}"></ComboBox>
+                        </Grid>
+                        <Grid Grid.Row="8" Grid.RowSpan="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Content="IMAGE" Style="{StaticResource LabelHeader}"></Label>
+                            <Image Grid.Row="1" x:Name="imgFlag">
+                                
+                            </Image>
                         </Grid>
                     </Grid>
                 </Grid>

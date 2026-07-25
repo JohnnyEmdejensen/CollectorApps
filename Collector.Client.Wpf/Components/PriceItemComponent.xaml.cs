@@ -34,6 +34,11 @@ namespace Collector.Client.Wpf.Components
             DataContext = _stamprice;
         }
 
+        public void SetFocus()
+        {
+            txtPrice.Focus();
+            txtPrice.SelectAll();
+        }
         private void FillConditionControl()
         {
             using (new WorkerHandler("FillConditionControl"))
@@ -48,6 +53,15 @@ namespace Collector.Client.Wpf.Components
                 cboCondition.DisplayMemberPath = "Value";
                 cboCondition.SelectedValuePath = "Id";
                 cboCondition.EndInit();
+            }
+        }
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var txt = sender as TextBox;
+            if (txt != null)
+            {
+                txt.SelectAll();
             }
         }
     }
