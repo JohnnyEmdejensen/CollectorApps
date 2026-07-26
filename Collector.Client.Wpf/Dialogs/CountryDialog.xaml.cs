@@ -204,6 +204,10 @@ namespace Collector.Client.Wpf.Dialogs
                 {
                     imgFlag.Source = App.ToolHelper.ConvertByteArrayToBitmapImage(_country.FlagImage);
                 }
+                else
+                {
+                    imgFlag.Source = null;
+                }
                 DataContext = _country;
                 SetGui();
             }

@@ -75,6 +75,13 @@ namespace Collector.Client.Wpf
                         ctrySP.Orientation = Orientation.Horizontal;
                         Image ctryImage = new Image();
                         ctryImage.Source = imgFolder;
+
+                        if (country.FlagImage != null)
+                        {
+                            ctryImage.Source = App.ToolHelper.ConvertByteArrayToBitmapImage(country.FlagImage);
+                            ctryImage.Width = 16; ctryImage.Height = 16;
+                        }
+
                         Label ctryLabel = new Label();
                         ctryLabel.Padding = new Thickness(4, 0, 0, 0);
                         ctryLabel.Content = country.Name;
