@@ -31,7 +31,12 @@ namespace Collector.Client.Wpf.Internals
         public event DefaultHandler? ClasssListChanged;
         public event DefaultHandler? TypeeListChanged;
         public event DefaultHandler? PriceListChanged;
+        public event DefaultHandler? StampDialogClosed;
 
+        public void RaiseStampDialogClosedEvent()
+        {
+            StampDialogClosed?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseStampPriceListChangedEvent()
         {
             PriceListChanged?.Invoke(this, EventArgs.Empty);

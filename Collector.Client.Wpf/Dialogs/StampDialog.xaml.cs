@@ -29,6 +29,8 @@ namespace Collector.Client.Wpf.Dialogs
         private List<Entity.Stock>? _stocks;
         private Entity.Stampimage? _imageRecord;
         private List<Components.StockItemComponent>? _StockItemList;
+        private IEnumerable<TextBox>? textBoxes;
+
         public StampDialog()
         {
             InitializeComponent();
@@ -51,6 +53,13 @@ namespace Collector.Client.Wpf.Dialogs
             _settings.Load();
         }
 
+        private void DoAdd()
+        {
+            _stamp = new Stamp();
+            DataContext = _stamp;
+            SetGui();
+            txtNumber.Focus();
+        }
         private void DoSavePrices()
         {
             using (new WorkerHandler("DoSavePrices"))
@@ -312,6 +321,9 @@ namespace Collector.Client.Wpf.Dialogs
                             imageCtrl.Source = huntingSource;
                             imageCtrl.MouseDown += ImageCtrl_MouseDown;
                             spImagePreviewContainer.Children.Add(imageCtrl);
+                            imgDialog.BeginInit();
+                            imgDialog.Source = huntingSource;
+                            imgDialog.EndInit();
                         }
                     }
                     if (_imageRecord.Original != null)
@@ -435,15 +447,45 @@ namespace Collector.Client.Wpf.Dialogs
                 e.Handled = true;
                 tabItemStock.IsSelected = true;
             }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
+            {
+                if (e.Key == Key.S)
+                {
+                    e.Handled = true;
+                    btnSave.Focus();
+                    DoSave(false);
+                }
+                if (e.Key == Key.N)
+                {
+                    e.Handled = true;
+                    btnAdd.Focus();
+                    
+                }
+                if (Keyboard.Modifiers.HasFlag(ModifierKeys.Shift))
+                {
+                    if (e.Key == Key.S)
+                    {
+                        e.Handled = true;
+                        btnSave.Focus();
+                        DoSave(true);
+                    }
+                }
+            }
         }
 
         private void StampDialog_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
+            App.EventHelper.RaiseStampDialogClosedEvent();
             _settings.Save();
         }
 
         private void StampDialog_ContentRendered(object? sender, EventArgs e)
         {
+            textBoxes = App.ToolHelper.FindVisualChildren<TextBox>(this);
+            foreach (var TextBoxControl in textBoxes)
+            {
+                TextBoxControl.GotFocus += TextBoxControl_GotFocus;
+            }
             _stamp = DataContext as Entity.Stamp;
             if (_stamp != null)
             {
@@ -453,7 +495,6 @@ namespace Collector.Client.Wpf.Dialogs
             if (_stamp != null && _stamp.IsCloned)
             {
                 txtNumber.Focus();
-                txtNumber.SelectAll();
             }
         }
 
@@ -476,10 +517,7 @@ namespace Collector.Client.Wpf.Dialogs
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            _stamp = new Stamp();
-            DataContext = _stamp;
-            SetGui();
-
+            DoAdd();
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -744,6 +782,14 @@ namespace Collector.Client.Wpf.Dialogs
         private void btnSavePrices_Click(object sender, RoutedEventArgs e)
         {
             DoSavePrices();
+        }
+        private void TextBoxControl_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var txt = sender as TextBox;
+            if (txt != null)
+            {
+                txt.SelectAll();
+            }
         }
     }
 }

@@ -38,13 +38,15 @@ namespace Collector.Client.Wpf
             App.EventHelper.TranslationSourceChanged += EventHelper_TranslationSourceChanged;
             App.EventHelper.StampModelListChanged += EventHelper_StampModelListChanged;
             App.EventHelper.SelectedStampChanged += EventHelper_SelectedStampChanged;
+            App.EventHelper.StampDialogClosed += EventHelper_StampDialogClosed;
             _filterContainer.SelectedContinentChanged += _filterContainer_SelectedContinentChanged;
             _filterContainer.SelectedCountryChanged += _filterContainer_SelectedCountryChanged;
             _filterContainer.SelectedPublishedCountryChanged += _filterContainer_SelectedPublishedCountryChanged;
+
             _settings.Load();
         }
 
-            
+
         private void DisplayCountries()
         {
             if (App.DataShare.ContinentList == null || App.DataShare.PublishedCountryList == null || App.DataShare.CountryList == null) return;
@@ -501,6 +503,12 @@ namespace Collector.Client.Wpf
                     }
                 }
             }
+        }
+        private void EventHelper_StampDialogClosed(object sender, EventArgs e)
+        {
+            this.WindowState = WindowState.Normal;
+            this.BringIntoView();
+            this.Focus();
         }
         private void EventHelper_SelectedStampChanged(object sender, EventArgs e)
         {
